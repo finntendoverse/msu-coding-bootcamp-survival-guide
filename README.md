@@ -6,9 +6,9 @@ This is my MSU Coding Bootcamp Survival Guide. This webpage contains important l
 N/A
 
 ## Usage
-The <b>Important Links section at the top contains all of the websites I will be using daily. Each section below that contains notes about a specific program or language. It is organized this way for clarity
+To use this Prework Study Guide, you can review the notes in each section. The **Important Links** section at the top contains all of the websites I will be using daily. Each section below that contains notes about a specific program (like **Terminal**), software (like **GitHub**), or language (like **JavaScript**).
 
-For example, the Terminal section contains many important commands, including Git commands
+For suggestions on what to study first, open the Chrome DevTools by pressing Command+Option+I (macOS) or Control+Shift+I (Windows). A console panel should open either below or to the side of the webpage in the browser. There you will see a list of topics we learned from the prework along with a suggestion on which topic to study first.
 
 ## License
-MIT License
+Please refer to the LICENSE in the repo.
