@@ -4,15 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prework Study Guide</title>
+    <link rel="Stylesheet" href="assets/style.css">
+    <title>MSU Coding Bootcamp Survival Guide</title>
   </head>
   <body>
     <header id="top">
-      <h1>Prework Study Guide</h1>
-      <img src="./assets/bowtie-cat.png" alt="Profile image of cat wearing a bow tie." />
+      <h1>MSU Coding Bootcamp Survival Guide</h1>
+      <img src="./assets/bowtie-cat.png" alt="Profile image of cat wearing a bow tie." class="cat"/>
     </header>
     <main>
-      <section class="card" id="git-section">
+      <section class="card" id="terminal-section"></sectionclass>
+        <h2>Important Links</h2>
+        <ul>
+          <li><a href="https://bootcampspot.instructure.com/courses/5048" target="blank">MSU Coding Bootcamp</a></li>
+          <li><a href="https://git.bootcampcontent.com/Michigan-State-University" target="blank">MSU GitLab</a></li>
+          <li><a href="https://github.com/" target="blank">GitHub</a></li>
+        </ul>
+      </section>
+      <section class="card" id="terminal-section">
         <h2>Terminal</h2>
           <h3>Terminal commands</h3>
           <ul>
@@ -25,14 +34,15 @@
             <li>open - open file or folder // this opens the file or folder in the apporpriate application</li>
             <li>rm - remove // rm [filename] deletes a file</li>
           </ul>
+          <br>
           <h3>Git Commands:</h3>
             <h4>SETUP & INIT - Configuring user information, initializing and cloning repositories</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git init - initialize an existing directory as a Git repository</li>
               <li>git clone [url] - retrieve an entire repository from a hosted location via URL</li>
             </ul>
             <h4>STAGE & SNAPSHOT - Working with snapshots and the Git staging area</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git status - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
               <li>git add [file] - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
               <li>git reset [file] - unstage a file while retaining the changes in working directory</li>
@@ -41,15 +51,19 @@
               <li>git commit -m “[descriptive message]” - commit your staged content as a new commit snapshot</li>
             </ul>
             <h4>BRANCH & MERGE - Isolating work in branches, changing context, and integrating changes</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git branch - list your branches. a * will appear next to the currently active branch</li>
               <li>git branch [branch-name] - create a new branch at the current commit</li>
-              <li>git checkout - switch to another branch and check it out into your working directory // git checkout -b [insert new branch name] creates a branch</li>
+              <li>git checkout - switch to another branch and check it out into your working directory
+              <li>git checkout -b [insert new branch name] creates a branch</li>
+              <li>git branch -d [insert branch name] - deletes git branch</li>
+              <ki>git branch -a - shows all branches<br>
+                *note: remote branches (on server) will appear as red, while local branches (on computer) will appear as green</ki>
               <li>git merge [branch] - merge the specified branch's history into the current one</li>
               <li>git log - show all commits in the current branch's history</li>
             </ul>
             <h4>INSPECT & COMPARE - Examining logs, diffs and object information</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git log - show the commit history for the currently active branch</li>
               <li>git log branchB..branchA - show the commits on branchA that are not on branchB</li>
               <li>git log --follow [file] - show the commits that changed file, even across renames</li>
@@ -57,20 +71,20 @@
               <li>git show [SHA]- show any object in Git in human-readable format</li>
             </ul>
             <h4>TRACKING PATH CHANGES - Versioning file removes and path changes</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git rm [file] - delete the file from project and stage the removal for commit</li>
               <li>git mv [existing-path] [new-path] - change an existing file path and stage the move</li>
               <li>git log --stat -M - show all commit logs with indication of any paths that moved</li>
             </ul>
             <h4>IGNORING PATTERNS - Preventing unintentional staging or committing of files</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>logs/<br>
                 *.notes<br>
                 pattern*/ - Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.</li>
               <li>git config --global core.excludesfile [file] - system wide ignore pattern for all local repositories</li>
             </ul>
             <h4>SHARE & UPDATE - Retrieving updates from another repository and updating local repos</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git remote add [alias] [url] - add a git URL as an alias</li>
               <li>git fetch [alias] - fetch down all the branches from that Git remote</li>
               <li>git merge [alias]/[branch] - merge a remote branch into your current branch to bring it up to date</li>
@@ -78,12 +92,12 @@
               <li>git pull - fetch and merge any commits from the tracking remote branch</li>
             </ul>
             <h4>REWRITE HISTORY - Rewriting branches, updating commits and clearing history</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git rebase [branch] - apply any commits of current branch ahead of specified one</li>
               <li>git reset --hard [commit] - clear staging area, rewrite working tree from specified commit</li>
             </ul>
             <h4>TEMPORARY COMMITS - Temporarily store modified, tracked files in order to change branches</h4>
-            <ul>
+            <ul class="git-bullets">
               <li>git stash - Save modified and staged changes</li>
               <li>git stash list - list stack-order of stashed file changes</li>
               <li>git stash pop - write working from top of stash stack</li>
@@ -91,40 +105,68 @@
             </ul>
       </section>
 
-      <section>
+      <section class="card" id="github-section">
         <h2>GitHub</h2>
           <h3>Pulling from and pushing to GitHub</h3>
             <ol>
               <li>Make sure you're in the correct folder</li>
               <li>To check what branch we are currently on, enter: git status</li>
-              <li>To make a new branch, we'll enter: git checkout -b feature/[enter name]<br>
-                *note: the checkout command is to move the working branch to a new branch, and the -b flag creates a new branch.<br>
-                *note: it's good to do "feature/" to indicate that it is a feature. It is good practice to name the branches for the feature that will be developed by them to help indicate the purpose of each branch.</li>
-              <li>To add/update code to the current working branch, enter: git add -A<br>
-                *note: The -A flag indicates that we want to add all changes.</li>
-              <li>To commit these files to the repo, enter: git commit -m [enter message]<br>
-                *note: if you forget to add the -m message, it will open up a new window where you must type the message. In this window, press I to enter insert mode and then type your message. When you're done, press esc to exit insert mode, and then press :wq to write and quit.</li>
-              <li>Always double check to make sure your local branch is in sync with the base branch in GitHub. To do this, enter: git pull origin main<br>
-                *note: Use the pull command to receive a branch's modifications into the local environment. "origin" indicates the source of the pull will be in the GitHub repo. "main" indicates the branch.<br>
-                *note: if all is well, you should receive the message "Already up to date."</li>
+              <li>To make a new branch, we'll enter: git checkout -b feature/[enter name]
+                <ul class="note">
+                  <li>The checkout command is to move the working branch to a new branch, and the -b flag creates a new branch.</li>
+                  <li>It's good to do "feature/" to indicate that it is a feature. It is good practice to name the branches for the feature that will be developed by them to help indicate the purpose of each branch.</li>
+                </ul>
+              <li>To add/update code to the current working branch, enter: git add -A
+                <ul class="note">
+                  <li>The -A flag indicates that we want to add all changes.</li>
+                </ul>
+              <li>To commit these files to the repo, enter: git commit -m [enter message]
+                <ul class="note">
+                  <li>If you forget to add the -m message, it will open up a new window where you must type the message. In this window, press I to enter insert mode and then type your message. When you're done, press esc to exit insert mode, and then press :wq to write and quit.</li></li>
+                </ul>
+              <li>Always double check to make sure your local branch is in sync with the base branch in GitHub. To do this, enter: git pull origin main</li>
+                <ul class="note">
+                  <li>Use the pull command to receive a branch's modifications into the local environment. "origin" indicates the source of the pull will be in the GitHub repo. "main" indicates the branch.</li>
+                  <li>If all is well, you should receive the message "Already up to date."</li>
+                </ul>
               <li>Finally, to push changes, enter: git push origin feature/[enter name]</li>
               <li>After this, when you open GitHub you'll see that there is a pull request. Great job!</li>
             </ol>
+          <h3>Helpful Links</h3>
+            <ul>
+              <li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="blank">Markup Writing and Formatting Syntax</a></li>
+            </ul>
       </section>
 
       <section class="card" id="html-section">
         <h2>HTML</h2>
-        <ul>
-          <li>The head element contains information about the webpage.</li>
-          <li>The body element represents the visible content shown to the user.</li>
-        </ul>
+          <ul>
+            <li>The head element contains information about the webpage.</li>
+            <li>The body element represents the visible content shown to the user.</li>
+            <li>&LT;a href="[url]"&GT;[link text]&LT;/a&GT; - adding a link</li>
+            <li>&LT;img src="[url or path]" alt="[image description]"&GT</li>
+            <li>&LT;&excl;-- insert comment --&GT; - add comments in html file without them showing up on the actual webpage</li>
+          </ul>
+        <h3>Helpful Links</h3>
+          <ul>
+            <li><a href="https://validator.w3.org/" target="blank">HTML Validator</a></li>
+            <li><a href="https://tools.w3cub.com/html-entities" target="blank">Character Entity Reference Chart</a></li>
+          </ul>
       </section>
    
       <section class="card" id="css-section">
         <h2>CSS</h2>
-        <ul>
-          <li>Enter your CSS notes here</li>
-        </ul>
+          <ul>
+            <li><img src="assets/CSS.png" alt="CSS Rule" class="should-be-id"></li>
+            <!-- Will probably learn about IDs later -->
+            <li>* - selects all elements visible on the page</li>
+            <li>to link an external stylesheet to your HTML file, you must type &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;</li>
+          </ul>
+        <h3>Helpful Links</h3>
+          <ul>
+            <li><a hreh="https://jigsaw.w3.org/css-validator/" target="blank">CSS Validator</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="blank">CSS Reference</a></li>
+          </ul>
       </section>
    
       <section class="card" id="javascript-section">
@@ -135,7 +177,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="footer">
       <p>I can code!</p>
     </footer>
   </body>
