@@ -6,7 +6,7 @@
 header,
 footer {
     width: 100%;
-    height: 120px;
+    height: auto;
     background-color: rgb(23, 23, 130);
     color: white;
 }
