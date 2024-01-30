@@ -14,7 +14,7 @@
       <h2>✨ Open the Console in Chrome DevTools to See What's Happening ✨</h2>
     </header>
     <main>
-      <section class="card" id="terminal-section"></sectionclass>
+      <section class="card" id="important-links"></sectionclass>
         <h2>Important Links</h2>
         <ul>
           <li><a href="https://bootcampspot.instructure.com/courses/5048" target="blank">MSU Coding Bootcamp</a></li>
@@ -22,6 +22,16 @@
           <li><a href="https://github.com/" target="blank">GitHub</a></li>
         </ul>
       </section>
+
+      <section class="card" id="vs-code"></sectionclass>
+        <h2>VS Code</h2>
+        <ul>
+          <li>Right click folder -> open in Integrated Terminal - opens Terminal in VS Code</li>
+          <li>Get in the habit of always killing terminal when done by clicking the trash can icon</li>
+          <li>Right click -> preview lets you see your markdown preview</li>
+        </ul>
+      </section>
+
       <section class="card" id="terminal-section">
         <h2>Terminal</h2>
           <h3>Terminal commands</h3>
@@ -32,18 +42,22 @@
             <li>cd .. - navigate backwards // move up a folder</li>
             <li>mkdir - make directory // creates folder (example mkdir coding-bootcamp)</li>
             <li>touch - create file // create a file with any file extension (like this .txt file)</li>
+              <ul>
+                <li>touch [folder/folder/file] - creates file within folder without having to cd there</li>
+              </ul>
             <li>open - open file or folder // this opens the file or folder in the apporpriate application</li>
             <li>rm - remove // rm [filename] deletes a file</li>
+            <li>-h or --help // will give you more information about a specific command</li>
           </ul>
           <br>
           <h3>Git Commands:</h3>
             <h4>SETUP & INIT - Configuring user information, initializing and cloning repositories</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git init - initialize an existing directory as a Git repository</li>
               <li>git clone [url] - retrieve an entire repository from a hosted location via URL</li>
             </ul>
             <h4>STAGE & SNAPSHOT - Working with snapshots and the Git staging area</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git status - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
               <li>git add [file] - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
               <li>git reset [file] - unstage a file while retaining the changes in working directory</li>
@@ -52,19 +66,23 @@
               <li>git commit -m “[descriptive message]” - commit your staged content as a new commit snapshot</li>
             </ul>
             <h4>BRANCH & MERGE - Isolating work in branches, changing context, and integrating changes</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git branch - list your branches. a * will appear next to the currently active branch</li>
               <li>git branch [branch-name] - create a new branch at the current commit</li>
               <li>git checkout - switch to another branch and check it out into your working directory
               <li>git checkout -b [insert new branch name] creates a branch</li>
               <li>git branch -d [insert branch name] - deletes git branch</li>
-              <ki>git branch -a - shows all branches<br>
-                *note: remote branches (on server) will appear as red, while local branches (on computer) will appear as green</ki>
+              <ki>git branch -a - shows all branches
+                <ul>
+                  <li>
+                    remote branches (on server) will appear as red, while local branches (on computer) will appear as green
+                  </li>
+                </ul>
               <li>git merge [branch] - merge the specified branch's history into the current one</li>
               <li>git log - show all commits in the current branch's history</li>
             </ul>
             <h4>INSPECT & COMPARE - Examining logs, diffs and object information</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git log - show the commit history for the currently active branch</li>
               <li>git log branchB..branchA - show the commits on branchA that are not on branchB</li>
               <li>git log --follow [file] - show the commits that changed file, even across renames</li>
@@ -72,20 +90,20 @@
               <li>git show [SHA]- show any object in Git in human-readable format</li>
             </ul>
             <h4>TRACKING PATH CHANGES - Versioning file removes and path changes</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git rm [file] - delete the file from project and stage the removal for commit</li>
               <li>git mv [existing-path] [new-path] - change an existing file path and stage the move</li>
               <li>git log --stat -M - show all commit logs with indication of any paths that moved</li>
             </ul>
             <h4>IGNORING PATTERNS - Preventing unintentional staging or committing of files</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>logs/<br>
                 *.notes<br>
                 pattern*/ - Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.</li>
               <li>git config --global core.excludesfile [file] - system wide ignore pattern for all local repositories</li>
             </ul>
             <h4>SHARE & UPDATE - Retrieving updates from another repository and updating local repos</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git remote add [alias] [url] - add a git URL as an alias</li>
               <li>git fetch [alias] - fetch down all the branches from that Git remote</li>
               <li>git merge [alias]/[branch] - merge a remote branch into your current branch to bring it up to date</li>
@@ -93,12 +111,12 @@
               <li>git pull - fetch and merge any commits from the tracking remote branch</li>
             </ul>
             <h4>REWRITE HISTORY - Rewriting branches, updating commits and clearing history</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git rebase [branch] - apply any commits of current branch ahead of specified one</li>
               <li>git reset --hard [commit] - clear staging area, rewrite working tree from specified commit</li>
             </ul>
             <h4>TEMPORARY COMMITS - Temporarily store modified, tracked files in order to change branches</h4>
-            <ul class="git-bullets">
+            <ul class="indented-bullets">
               <li>git stash - Save modified and staged changes</li>
               <li>git stash list - list stack-order of stashed file changes</li>
               <li>git stash pop - write working from top of stash stack</li>
@@ -110,6 +128,7 @@
         <h2>GitHub</h2>
           <h3>Pulling from and pushing to GitHub</h3>
             <ol>
+              <li>Never edit files directly in GitHub!</li>
               <li>Make sure you're in the correct folder</li>
               <li>To check what branch we are currently on, enter: git status</li>
               <li>To make a new branch, we'll enter: git checkout -b feature/[enter name]
