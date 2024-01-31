@@ -41,14 +41,18 @@
             <li>cd - change directory // navigate to a different folder using slashes (example: cd users/finnlambouris)</li>
             <li>cd .. - navigate backwards // move up a folder</li>
             <li>mkdir - make directory // creates folder (example mkdir coding-bootcamp)</li>
+            <li>rmdir — remove directory // removes the named directory, but only if it's empty</li>
+            <ul>
+              <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the -r option (recursive), <b>but this is dangerous.</b> Make sure there is nothing you might need inside the directory later on, as it will be gone forever.</li>
+            </ul>
             <li>touch - create file // create a file with any file extension (like this .txt file)</li>
               <ul>
                 <li>touch [folder/folder/file] - creates file within folder without having to cd there</li>
               </ul>
             <li>open - open file or folder // this opens the file or folder in the apporpriate application</li>
-            <li>cp - copy files or directories</li>
-            <li>mv - move files or directories</li>
-            <li>rm - remove // rm [filename] deletes a file</li>
+            <li>cp - copy files or directories // creates a copy of the file in the first location specified, in the second location specified. This is basically just creating a new copy and you're specifying the name. It isn't copying into a new folder.</li>
+            <li>mv - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file. Example: mv mdn-example.md mdn-example.txt will rename the .md file to a .txt file.</li>
+            <li>rm - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
             <li>-h or --help // will give you more information about a specific command</li>
             <li>curl - download files found at specific URLs</li>
             <li>grep - search for fragments of text inside larger bodies of text</li>
@@ -56,6 +60,9 @@
             <li>awk, tr, sed - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
             <li>press tab to autocomplete names that you know are present</li>
             <li>When navigating in Terminal, a leading slash on your path makes the path absolute, whereas omitting it makes the path relative to your present working directory. A leading slash means "at the root of the website", whereas omitting the slash means "the URL is relative to my current page".</li>
+            <li>Most terminal commands have options — these are modifiers that you add onto the end of a command, which make it behave in a slightly different way.</li>
+            <li>To find out exactly what options each command has available, you can look at its man page. This is done by typing the man command, followed by the name of the command you want to look up, for example man ls. Press q to quit when you're done.</li>
+            <li>To run a command with multiple options at the same time, you can usually put them all in a single string after the dash character, for example ls -lah, or ls -ltrh.</li>
           </ul>
           <br>
           <h3>Git Commands:</h3>
