@@ -7,12 +7,14 @@
     <link rel="Stylesheet" href="assets/style.css">
     <title>MSU Coding Bootcamp Survival Guide</title>
   </head>
+
   <body>
-    <header id="top">
+    <header id="header">
       <h1>MSU Coding Bootcamp Survival Guide</h1>
-      <img src="./assets/bowtie-cat.png" alt="Profile image of cat wearing a bow tie." class="cat"/>
-      <h2>✨ Open the Console in Chrome DevTools to See What's Happening ✨</h2>
+      <img src="./assets/Bootcamp.png" alt="MSU and edX logos" id="header-image"/>
+      <h2 id="header-h2">✨ Open the Console in Chrome DevTools to See What's Happening ✨</h2>
     </header>
+
     <main>
       <section class="card" id="important-links"></sectionclass>
         <h2>Important Links</h2>
@@ -20,6 +22,7 @@
           <li><a href="https://bootcampspot.instructure.com/courses/5048" target="blank">MSU Coding Bootcamp</a></li>
           <li><a href="https://git.bootcampcontent.com/Michigan-State-University" target="blank">MSU GitLab</a></li>
           <li><a href="https://github.com/" target="blank">GitHub</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/" target="blank">MDN Web Docs</a></li>
         </ul>
       </section>
 
@@ -29,122 +32,138 @@
           <li>Right click folder -> open in Integrated Terminal - opens Terminal in VS Code</li>
           <li>Get in the habit of always killing terminal when done by clicking the trash can icon</li>
           <li>Right click -> preview lets you see your markdown preview</li>
+          <li>Double click a tab on the top to make it stay. You can tell it worked when the text goes from italic to normal.</li>
         </ul>
       </section>
 
-      <section class="card" id="terminal-section">
+      <section class="card" id="terminal">
         <h2>Terminal</h2>
-          <h3>Terminal commands</h3>
-          <ul>
-            <li>pwd - print working directory // this shows what folder you're in</li>
-            <li>ls - list // this lists the files in the folder you're in</li>
-            <li>cd - change directory // navigate to a different folder using slashes (example: cd users/finnlambouris)</li>
-            <li>cd .. - navigate backwards // move up a folder</li>
-            <li>mkdir - make directory // creates folder (example mkdir coding-bootcamp)</li>
-            <li>rmdir — remove directory // removes the named directory, but only if it's empty</li>
-            <li>rm - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
+          <h3>Terminal Notes</h2>
             <ul>
-              <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the -r option (recursive), <b>but this is dangerous.</b> Make sure there is nothing you might need inside the directory later on, as it will be gone forever.</li>
-            </ul>
-            <li>touch - create file // create a file with any file extension (like this .txt file)</li>
+              <li>press tab to autocomplete names that you know are present</li>
+              <li>When navigating in Terminal, a leading slash on your path makes the path absolute, whereas omitting it makes the path relative to your present working directory. A leading slash means "at the root of the website", whereas omitting the slash means "the URL is relative to my current page".</li>
+              <li>Most terminal commands have options — these are modifiers that you add onto the end of a command, which make it behave in a slightly different way.</li>
+              <li>To find out exactly what options each command has available, you can look at its man page. This is done by typing the man command, followed by the name of the command you want to look up, for example man ls. Press q to quit when you're done.</li>
+              <li>To run a command with multiple options at the same time, you can usually put them all in a single string after the dash character, for example ls -lah, or ls -ltrh.</li>
+            </ul><br>
+
+          <h3>Terminal commands</h3>
+            <ul>
+              <li>pwd - print working directory // this shows what folder you're in</li>
+              <li>ls - list // this lists the files in the folder you're in</li>
+              <li>cd - change directory // navigate to a different folder using slashes</li>
               <ul>
-                <li>touch [folder/folder/file] - creates file within folder without having to cd there</li>
+                <li>Example: cd users/finnlambouris</li>
               </ul>
-            <li>open - open file or folder // this opens the file or folder in the apporpriate application</li>
-            <li>cp - copy files or directories // creates a copy of the file in the first location specified, in the second location specified. This is basically just creating a new copy and you're specifying the name. It isn't copying into a new folder.</li>
-            <li>mv - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file. Example: mv mdn-example.md mdn-example.txt will rename the .md file to a .txt file.</li>
-            <li>-h or --help // will give you more information about a specific command</li>
-            <li>curl - download files found at specific URLs</li>
-            <li>grep - search for fragments of text inside larger bodies of text</li>
-            <li>less, cat - view a file's contents page by page</li>
-            <li>awk, tr, sed - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
-            <li>press tab to autocomplete names that you know are present</li>
-            <li>When navigating in Terminal, a leading slash on your path makes the path absolute, whereas omitting it makes the path relative to your present working directory. A leading slash means "at the root of the website", whereas omitting the slash means "the URL is relative to my current page".</li>
-            <li>Most terminal commands have options — these are modifiers that you add onto the end of a command, which make it behave in a slightly different way.</li>
-            <li>To find out exactly what options each command has available, you can look at its man page. This is done by typing the man command, followed by the name of the command you want to look up, for example man ls. Press q to quit when you're done.</li>
-            <li>To run a command with multiple options at the same time, you can usually put them all in a single string after the dash character, for example ls -lah, or ls -ltrh.</li>
-          </ul>
-          <br>
-          <h3>Git Commands:</h3>
-            <h4>SETUP & INIT - Configuring user information, initializing and cloning repositories</h4>
-            <ul class="indented-bullets">
-              <li>git init - initialize an existing directory as a Git repository</li>
-              <li>git clone [url] - retrieve an entire repository from a hosted location via URL</li>
-            </ul>
-            <h4>STAGE & SNAPSHOT - Working with snapshots and the Git staging area</h4>
-            <ul class="indented-bullets">
-              <li>git status - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
-              <li>git add [file] - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
-              <li>git reset [file] - unstage a file while retaining the changes in working directory</li>
-              <li>git diff - diff of what is changed but not staged</li>
-              <li>git diff --staged - diff of what is staged but not yet committed</li>
-              <li>git commit -m “[descriptive message]” - commit your staged content as a new commit snapshot</li>
-            </ul>
-            <h4>BRANCH & MERGE - Isolating work in branches, changing context, and integrating changes</h4>
-            <ul class="indented-bullets">
-              <li>git branch - list your branches. a * will appear next to the currently active branch</li>
-              <li>git branch [branch-name] - create a new branch at the current commit</li>
-              <li>git checkout - switch to another branch and check it out into your working directory
-              <li>git checkout -b [insert new branch name] creates a branch</li>
-              <li>git branch -d [insert branch name] - deletes git branch</li>
-              <ki>git branch -a - shows all branches
+              <li>cd .. - navigate backwards // move up a folder</li>
+              <li>mkdir - make directory // creates folder</li>
+              <ul>
+                <li>Example: mkdir coding-bootcamp</li>
+              </ul>
+              <li>rmdir — remove directory // removes the named directory, but only if it's empty</li>
+              <ul>
+                <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the rm -r command. <strong>BUT this is dangerous.</strong> -r (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
+              </ul>
+              <li>rm - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
+              <li>touch - create file // create a file with any file extension</li>
                 <ul>
-                  <li>
-                    remote branches (on server) will appear as red, while local branches (on computer) will appear as green
-                  </li>
+                  <li>touch [folder/folder/file] - creates a file within a folder without having to cd there</li>
                 </ul>
-              <li>git merge [branch] - merge the specified branch's history into the current one</li>
-              <li>git log - show all commits in the current branch's history</li>
-            </ul>
-            <h4>INSPECT & COMPARE - Examining logs, diffs and object information</h4>
-            <ul class="indented-bullets">
-              <li>git log - show the commit history for the currently active branch</li>
-              <li>git log branchB..branchA - show the commits on branchA that are not on branchB</li>
-              <li>git log --follow [file] - show the commits that changed file, even across renames</li>
-              <li>git diff branchB...branchA - show the diff of what is in branchA that is not in branchB</li>
-              <li>git show [SHA]- show any object in Git in human-readable format</li>
-            </ul>
-            <h4>TRACKING PATH CHANGES - Versioning file removes and path changes</h4>
-            <ul class="indented-bullets">
-              <li>git rm [file] - delete the file from project and stage the removal for commit</li>
-              <li>git mv [existing-path] [new-path] - change an existing file path and stage the move</li>
-              <li>git log --stat -M - show all commit logs with indication of any paths that moved</li>
-            </ul>
-            <h4>IGNORING PATTERNS - Preventing unintentional staging or committing of files</h4>
-            <ul class="indented-bullets">
-              <li>logs/<br>
-                *.notes<br>
-                pattern*/ - Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.</li>
-              <li>git config --global core.excludesfile [file] - system wide ignore pattern for all local repositories</li>
-            </ul>
-            <h4>SHARE & UPDATE - Retrieving updates from another repository and updating local repos</h4>
-            <ul class="indented-bullets">
-              <li>git remote add [alias] [url] - add a git URL as an alias</li>
-              <li>git fetch [alias] - fetch down all the branches from that Git remote</li>
-              <li>git merge [alias]/[branch] - merge a remote branch into your current branch to bring it up to date</li>
-              <li>git push [alias] [branch] - Transmit local branch commits to the remote repository branch</li>
-              <li>git pull - fetch and merge any commits from the tracking remote branch</li>
-            </ul>
-            <h4>REWRITE HISTORY - Rewriting branches, updating commits and clearing history</h4>
-            <ul class="indented-bullets">
-              <li>git rebase [branch] - apply any commits of current branch ahead of specified one</li>
-              <li>git reset --hard [commit] - clear staging area, rewrite working tree from specified commit</li>
-            </ul>
-            <h4>TEMPORARY COMMITS - Temporarily store modified, tracked files in order to change branches</h4>
-            <ul class="indented-bullets">
-              <li>git stash - Save modified and staged changes</li>
-              <li>git stash list - list stack-order of stashed file changes</li>
-              <li>git stash pop - write working from top of stash stack</li>
-              <li>git stash drop - discard the changes from top of stash stack</li>
+              <li>open - open file or folder // this opens the file or folder in the appropriate application</li>
+              <li>cp - copy files or directories // creates a copy of the file in the first location specified, in the second location specified. This is basically just creating a new copy and you're specifying the name. It isn't copying into a new folder.</li>
+              <li>mv - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file.</li>
+              <ul>
+                <li>Example: mv mdn-example.md mdn-example.txt will rename the .md file to a .txt file.</li>
+              </ul>
+              <li>-h or --help // will give you more information about a specific command</li>
+              <li>curl - download files found at specific URLs</li>
+              <li>grep - search for fragments of text inside larger bodies of text</li>
+              <li>less, cat - view a file's contents page by page</li>
+              <li>awk, tr, sed - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
+            </ul><br>
+
+          <h3>Git Commands:</h3>
+            <ul>
+              <li><strong>Setup & Init</strong> - Configuring user information, initializing and cloning repositories</li>
+                <ul>
+                  <li>git init - initialize an existing directory as a Git repository</li>
+                  <li>git clone [url] - retrieve an entire repository from a hosted location via URL</li>
+                </ul>
+              <li><strong>Stage & Snapshot</strong> - Working with snapshots and the Git staging area</li>
+                <ul>
+                  <li>git status - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
+                  <li>git add [file] - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
+                  <li>git reset [file] - unstage a file while retaining the changes in working directory</li>
+                  <li>git diff - diff of what is changed but not staged</li>
+                  <li>git diff --staged - diff of what is staged but not yet committed</li>
+                  <li>git commit -m “[descriptive message]” - commit your staged content as a new commit snapshot</li>
+                </ul>
+              <li><strong>Branch & Merge</strong> - Isolating work in branches, changing context, and integrating changes</li>
+                <ul>
+                  <li>git branch - list your branches. a * will appear next to the currently active branch</li>
+                  <li>git branch [branch-name] - create a new branch at the current commit</li>
+                  <li>git checkout - switch to another branch and check it out into your working directory
+                  <li>git checkout -b [insert new branch name] creates a branch</li>
+                  <li>git branch -d [insert branch name] - deletes git branch</li>
+                  <ki>git branch -a - shows all branches
+                    <ul>
+                      <li>
+                        remote branches (on server) will appear as red, while local branches (on computer) will appear as green
+                      </li>
+                    </ul>
+                  <li>git merge [branch] - merge the specified branch's history into the current one</li>
+                  <li>git log - show all commits in the current branch's history</li>
+                </ul>
+              <li><strong>Inspect & Compare</strong> - Examining logs, diffs and object information</li>
+                <ul>
+                  <li>git log - show the commit history for the currently active branch</li>
+                  <li>git log branchB..branchA - show the commits on branchA that are not on branchB</li>
+                  <li>git log --follow [file] - show the commits that changed file, even across renames</li>
+                  <li>git diff branchB...branchA - show the diff of what is in branchA that is not in branchB</li>
+                  <li>git show [SHA]- show any object in Git in human-readable format</li>
+                </ul>
+              <li><strong>Tracking Path Changes</strong> - Versioning file removes and path changes</li>
+                <ul>
+                  <li>git rm [file] - delete the file from project and stage the removal for commit</li>
+                  <li>git mv [existing-path] [new-path] - change an existing file path and stage the move</li>
+                  <li>git log --stat -M - show all commit logs with indication of any paths that moved</li>
+                </ul>
+              <li><strong>Ignoring Patterns</strong> - Preventing unintentional staging or committing of files</li>
+                <ul>
+                  <li>logs/<br>
+                    *.notes<br>
+                    pattern*/ - Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.</li>
+                  <li>git config --global core.excludesfile [file] - system wide ignore pattern for all local repositories</li>
+                </ul>
+              <li><strong>Share & Update</strong> - Retrieving updates from another repository and updating local repos</li>
+                <ul>
+                  <li>git remote add [alias] [url] - add a git URL as an alias</li>
+                  <li>git fetch [alias] - fetch down all the branches from that Git remote</li>
+                  <li>git merge [alias]/[branch] - merge a remote branch into your current branch to bring it up to date</li>
+                  <li>git push [alias] [branch] - Transmit local branch commits to the remote repository branch</li>
+                  <li>git pull - fetch and merge any commits from the tracking remote branch</li>
+                </ul>
+              <li><strong>Rewrite History</strong> - Rewriting branches, updating commits and clearing history</li>
+                <ul>
+                  <li>git rebase [branch] - apply any commits of current branch ahead of specified one</li>
+                  <li>git reset --hard [commit] - clear staging area, rewrite working tree from specified commit</li>
+                </ul>
+              <li><Strong>Temporary Commits</Strong> - Temporarily store modified, tracked files in order to change branches</li>
+                <ul>
+                  <li>git stash - Save modified and staged changes</li>
+                  <li>git stash list - list stack-order of stashed file changes</li>
+                  <li>git stash pop - write working from top of stash stack</li>
+                  <li>git stash drop - discard the changes from top of stash stack</li>
+                </ul>
             </ul>
       </section>
 
-      <section class="card" id="github-section">
+      <section class="card" id="github">
         <h2>GitHub</h2>
           <h3>Pulling from and pushing to GitHub</h3>
             <ol>
               <li>Never edit files directly in GitHub!</li>
-              <li>Make sure you're in the correct folder</li>
+              <li>Make sure you're in the correct folder. If there isn't already a repository set up, enter: git init</li>
               <li>To check what branch we are currently on, enter: git status</li>
               <li>To make a new branch, we'll enter: git checkout -b feature/[enter name]
                 <ul class="note">
@@ -166,7 +185,8 @@
                 </ul>
               <li>Finally, to push changes, enter: git push origin feature/[enter name]</li>
               <li>After this, when you open GitHub you'll see that there is a pull request. Great job!</li>
-            </ol>
+            </ol><br>
+
           <h3>Helpful Links</h3>
             <ul>
               <li><a href="https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide" target="blank">Professional README Guide</a></li>
@@ -176,33 +196,135 @@
 
       <section class="card" id="html-section">
         <h2>HTML</h2>
-          <ul>
-            <li>The head element contains information about the webpage.</li>
-            <li>The body element represents the visible content shown to the user.</li>
-            <li>&LT;a href="[url]"&GT;[link text]&LT;/a&GT; - adding a link</li>
-            <li>&LT;img src="[url or path]" alt="[image description]"&GT- adding an image</li>
-            <li>&LT;&excl;-- [insert comment] --&GT; - add comments in html file without them showing up on the actual webpage</li>
-          </ul>
-        <h3>Helpful Links</h3>
-          <ul>
-            <li><a href="https://validator.w3.org/" target="blank">HTML Validator</a></li>
-            <li><a href="https://tools.w3cub.com/html-entities" target="blank">Character Entity Reference Chart</a></li>
-          </ul>
+        <img src="assets/HTML.png" alt="HTML Structure" class="images">
+          <h3>HTML Notes</h3>
+            <ul>
+              <li>The head element contains information about the webpage.</li>
+              <li>The body element represents the visible content shown to the user.</li>
+              <li>&LT;a href="[url]"&GT;[link text]&LT;/a&GT; - adding a link</li>
+              <li>&LT;img src="[url or path]" alt="[image description]"&GT- adding an image</li>
+              <li>&LT;&excl;-- [insert comment] --&GT; - add comments in html file without them showing up on the actual webpage</li>
+                <ul>
+                  <li>The shortcut for this is to press command + / to make the current line into a comment.</li>
+                </ul>
+              <li>Classes and ids are similar, but a class can be used multiple times while an id can only be used once.</li>
+              <li>With self closing tags, make sure to do /> instead of >, even though > will still work.</li>
+              <li>&LT;div&GT; and &LT;span&GT; are generic tags with no meaning (not semantic)</li>
+                <ul>
+                  <li>Semantic HTML is better for code legibility, accessibility features like screen readers, and SEO. If you're using a generic tag, there is probably a semantic tag that would work better.</li>
+                </ul>
+              <li>head<strong>er</strong> vs head<strong>ing</strong> - header is at the top of the page, heading is &LT;h1&GT; through &LT;h6&GT;</li>
+            </ul><br>
+
+          <h3>Helpful Links</h3>
+            <ul>
+              <li><a href="https://validator.w3.org/" target="blank">HTML Validator</a></li>
+              <li><a href="https://tools.w3cub.com/html-entities" target="blank">Character Entity Reference Chart</a></li>
+            </ul>
       </section>
    
       <section class="card" id="css-section">
         <h2>CSS</h2>
-          <ul>
-            <li><img src="assets/CSS.png" alt="CSS Rule" class="should-be-id"></li>
-            <!-- Will probably learn about IDs later -->
-            <li>* - selects all elements visible on the page</li>
-            <li>to link an external stylesheet to your HTML file, you must type &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;</li>
-          </ul>
-        <h3>Helpful Links</h3>
-          <ul>
-            <li><a href="https://jigsaw.w3.org/css-validator/" target="blank">CSS Validator</a></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="blank">CSS Reference</a></li>
-          </ul>
+          <img src="assets/CSS.png" alt="CSS Structure" class="images">
+          <h3>CSS Notes</h3>
+            <ul>
+              <li>to link an external stylesheet to your HTML file, you must type &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;</li>
+              <li>You can apply multiple classes to HTML; just separate them by a space.</li>
+              <ul>
+                <li>Example: class="class-1 class-2"</li>
+              </ul>
+              <li>The font-family values go from most specific to least specific. This means that if the first font cannot be accessed by the device, it will move onto the next value. 
+                <ul>
+                  <li>Example: font-family: "Comic Sans" cursive sans-serif</li>
+                </ul>
+              <li>Setting the height and line height as the same number is a cheat code to center text vertically.</li>
+            </ul><br>
+
+          <h3>Selectors</h3>
+            <ul>
+              <li>From least to most specific:</li>
+                <ul>
+                  <li>Universal - selects all HTML elements on the page</li>
+                  <ul>
+                    <li>Example: * {</li>
+                  </ul>
+                <li>Element - selects HTML elements based on the element name</li>
+                  <ul>
+                    <li>Example: p {</li>
+                    <li>You can also specify that only specific HTML elements should be affected by a style rule</li>
+                    <ul>
+                      <li>Example: p.class would only affect paragraphs with the “class” class</li>
+                    </ul>
+                  </ul>
+                <li>Class - selects HTML elements based on (one of) their class(es)</li>
+                  <ul>
+                    <li>Example: .class {</li>
+                  </ul>
+                <li>ID - selects HTML elements based on the unique id</li>
+                  <ul>
+                    <li>Example: #unique-id {</li>
+                  </ul>
+                </ul>
+              <li>Any of these types of selectors can be given a further pseudo-class, which is used to define a special state of an element</li>
+              <ul>
+                <li>Example: .class:hover {</li>
+              </ul>
+            <li>The rule with more specificity is the one that will win if there are conflicting style rules</li>
+            <li>Style rules can be grouped</li>
+              <ul>
+                <li>Example: h1, h2, p {</li>
+              </ul>
+            </ul><br>
+
+          <h3>Display</h3>
+            <ul>
+              <li><strong>Inline elements</strong> do not start on a new line and only take up as much width as necessary.</li>
+                <ul>
+                  <li>You cannot set the width and height of inline elements - except for images</li>
+                </ul>
+              <li><strong>Block elements</strong> always start on a new line and take up the full width available.</li>
+                <ul>
+                  <li>margin: 0 auto can be used for block elements to set the top and bottom margins to 0 and center it horizontally within its parent element.</li>
+                </ul>
+              <li>Each element has a default display, but it can be changed with CSS by adding the “display” property.</li>
+              <li>Elements can be hidden by using the display:none declaration.</li>
+            </ul><br>
+
+          <h3>Box Model</h3>
+            <ul>
+              <li>From innermost to outermost: content -> padding -> border -> margin</li>
+              <li><strong>Content</strong> - the content's “hitbox”</li>
+              <li><strong>Padding</strong> - the space between the border and content</li>
+              <li><strong>Border</strong> - the border! Duh!</li>
+              <li><strong>Margin</strong> - the spacing between elements</li>
+              <li>The overall “size” of the image is only the content + padding + border, because the margin isn't a part of any element, it's just the spacing between them.</li>
+                <ul>
+                  <li>Example: 200px x 200px image with 20px padding, 10px border, and 30px of padding will have a width and height of 260px (200 + (20x2) + (10x2).</li>
+                </ul>
+              <li>The border-style needs to be set to have your border appear on the page.</li>
+            </ul><br>
+
+          <h3>Positioning</h3>
+            <ul>
+              <li>Types of positioning:</li>
+                <ul>
+                  <li><strong>Static</strong> - this is the default value and the element is in normal document flow</li>
+                  <li><strong>Relative</strong> - the element is still in normal flow, but the values top, right, left and bottom can be used to offset the element.</li>
+                  <li><strong>Absolute</strong> - The element is removed from the normal flow and its final position is relative to the determined parent or ancestor. To determine the parent, you must give it the position: absolute; declaration as well. Absolute-positioned elements are also moved by the values of top, right, bottom, and left.</li>
+                  <li><strong>Fixed</strong> - The element is removed from the normal document flow and the position is relative to the viewport. Fixed-position elements are also determined by the values of top, right, bottom, and left.</li>
+                    <ul>
+                      <li>Viewport: the area of the window in which web content can be seen</li>
+                    </ul>
+                </ul>
+              <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned &LT;img&GT; is written inside of a &LT;section&GT;, it will appear there on the page.</li>
+              <li>Z-index controls the stacking order of overlapping elements on a page. An element with a higher z-index value will appear in front of an element with a lower z-index value.</li>
+            </ul><br>
+
+          <h3>Helpful Links</h3>
+            <ul>
+              <li><a href="https://jigsaw.w3.org/css-validator/" target="blank">CSS Validator</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="blank">CSS Reference</a></li>
+            </ul>
       </section>
    
       <section class="card" id="javascript-section">

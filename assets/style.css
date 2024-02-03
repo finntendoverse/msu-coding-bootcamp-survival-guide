@@ -7,8 +7,12 @@ header,
 footer {
     width: 100%;
     height: auto;
-    background-color: rgb(23, 23, 130);
+    text-align: center;
+    font-size: 30px;
+    background-color: rgb(24, 69, 59);
     color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 h1 {
@@ -16,27 +20,30 @@ h1 {
     font-size: 40px;
 }
 
+#header-image {
+    display: block;
+    height: 80px;
+    width: auto;
+    margin: 20px auto;
+}
+
+#header-h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
 h2 {
+    color: white;
     text-align: center;
     font-size: 30px;
+    padding-bottom: 5px;
+    background-color: rgb(24, 69, 59);
+    margin-bottom: 10px;
 }
 
 h3 {
     padding-left: 20px;
     font-size: 24px;
-}
-
-h4 {
-    padding-left: 40px;
-    font-size: 20px;
-}
-
-.cat {
-    display: block;
-    height: 50px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 ul,
@@ -49,24 +56,12 @@ ol {
 .card {
     width: 80%;
     margin: 40px auto;
-    border: 5px solid gray;
-    box-shadow: 5px 10px #888888;
+    border: 5px solid rgb(24, 69, 59);
+    box-shadow: 10px 10px rgb(0, 130, 8);
+    padding-bottom: 20px;
 }
 
-.indented-bullets {
-    padding-left: 80px;
-}
-
-.note {
-    padding-left: 20px;
-}
-
-.footer {
-    text-align: center;
-    font-size: 30px;
-}
-
-.should-be-id {
+.images {
     width: 100%;
     height: auto;
 }
