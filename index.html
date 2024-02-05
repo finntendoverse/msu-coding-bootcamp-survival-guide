@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Stylesheet" href="assets/style.css">
     <title>MSU Coding Bootcamp Survival Guide</title>
   </head>
@@ -11,12 +11,12 @@
   <body>
     <header id="header">
       <h1>MSU Coding Bootcamp Survival Guide</h1>
-      <img src="./assets/Bootcamp.png" alt="MSU and edX logos" id="header-image"/>
+      <img src="./assets/Bootcamp.png" alt="MSU and edX logos" id="header-image">
       <h2 id="header-h2">✨ Open the Console in Chrome DevTools to See What's Happening ✨</h2>
     </header>
 
     <main>
-      <section class="card" id="important-links"></sectionclass>
+      <section class="card" id="important-links">
         <h2>Important Links</h2>
         <ul>
           <li><a href="https://bootcampspot.instructure.com/courses/5048" target="blank">MSU Coding Bootcamp</a></li>
@@ -26,7 +26,7 @@
         </ul>
       </section>
 
-      <section class="card" id="vs-code"></sectionclass>
+      <section class="card" id="vs-code">
         <h2>VS Code</h2>
         <ul>
           <li>Right click folder -> open in Integrated Terminal - opens Terminal in VS Code</li>
@@ -38,7 +38,7 @@
 
       <section class="card" id="terminal">
         <h2>Terminal</h2>
-          <h3>Terminal Notes</h2>
+          <h3>Terminal Notes</h3>
             <ul>
               <li>press tab to autocomplete names that you know are present</li>
               <li>When navigating in Terminal, a leading slash on your path makes the path absolute, whereas omitting it makes the path relative to your present working directory. A leading slash means "at the root of the website", whereas omitting the slash means "the URL is relative to my current page".</li>
@@ -51,45 +51,53 @@
             <ul>
               <li>pwd - print working directory // this shows what folder you're in</li>
               <li>ls - list // this lists the files in the folder you're in</li>
-              <li>cd - change directory // navigate to a different folder using slashes</li>
-              <ul>
-                <li>Example: cd users/finnlambouris</li>
-              </ul>
+              <li>cd - change directory // navigate to a different folder using slashes
+                <ul>
+                  <li>Example: cd users/finnlambouris</li>
+                </ul>
+              </li>
               <li>cd .. - navigate backwards // move up a folder</li>
-              <li>mkdir - make directory // creates folder</li>
-              <ul>
-                <li>Example: mkdir coding-bootcamp</li>
-              </ul>
-              <li>rmdir — remove directory // removes the named directory, but only if it's empty</li>
-              <ul>
-                <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the rm -r command. <strong>BUT this is dangerous.</strong> -r (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
-              </ul>
+              <li>mkdir - make directory // creates folder
+                <ul>
+                  <li>Example: mkdir coding-bootcamp</li>
+                </ul>
+              </li>
+                <li>rmdir — remove directory // removes the named directory, but only if it's empty
+                <ul>
+                  <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the rm -r command. <strong>BUT this is dangerous.</strong> -r (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
+                </ul>
+              </li>
               <li>rm - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
-              <li>touch - create file // create a file with any file extension</li>
+              <li>touch - create file // create a file with any file extension
                 <ul>
                   <li>touch [folder/folder/file] - creates a file within a folder without having to cd there</li>
                 </ul>
+              </li>
               <li>open - open file or folder // this opens the file or folder in the appropriate application</li>
               <li>cp - copy files or directories // creates a copy of the file in the first location specified, in the second location specified. This is basically just creating a new copy and you're specifying the name. It isn't copying into a new folder.</li>
-              <li>mv - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file.</li>
-              <ul>
-                <li>Example: mv mdn-example.md mdn-example.txt will rename the .md file to a .txt file.</li>
-              </ul>
+              <li>mv - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file.
+                <ul>
+                  <li>Example: mv mdn-example.md mdn-example.txt will rename the .md file to a .txt file.</li>
+                </ul>
+              </li>
               <li>-h or --help // will give you more information about a specific command</li>
               <li>curl - download files found at specific URLs</li>
               <li>grep - search for fragments of text inside larger bodies of text</li>
               <li>less, cat - view a file's contents page by page</li>
               <li>awk, tr, sed - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
-            </ul><br>
+              <li>code . - opens current directory in VS Code</li>
+            </ul>
+            <br>
 
           <h3>Git Commands:</h3>
             <ul>
-              <li><strong>Setup & Init</strong> - Configuring user information, initializing and cloning repositories</li>
+              <li><strong>Setup & Init</strong> - Configuring user information, initializing and cloning repositories
                 <ul>
                   <li>git init - initialize an existing directory as a Git repository</li>
                   <li>git clone [url] - retrieve an entire repository from a hosted location via URL</li>
                 </ul>
-              <li><strong>Stage & Snapshot</strong> - Working with snapshots and the Git staging area</li>
+              </li>
+              <li><strong>Stage & Snapshot</strong> - Working with snapshots and the Git staging area
                 <ul>
                   <li>git status - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
                   <li>git add [file] - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
@@ -98,23 +106,24 @@
                   <li>git diff --staged - diff of what is staged but not yet committed</li>
                   <li>git commit -m “[descriptive message]” - commit your staged content as a new commit snapshot</li>
                 </ul>
-              <li><strong>Branch & Merge</strong> - Isolating work in branches, changing context, and integrating changes</li>
+              </li>
+              <li><strong>Branch & Merge</strong> - Isolating work in branches, changing context, and integrating changes
                 <ul>
                   <li>git branch - list your branches. a * will appear next to the currently active branch</li>
                   <li>git branch [branch-name] - create a new branch at the current commit</li>
                   <li>git checkout - switch to another branch and check it out into your working directory
                   <li>git checkout -b [insert new branch name] creates a branch</li>
                   <li>git branch -d [insert branch name] - deletes git branch</li>
-                  <ki>git branch -a - shows all branches
+                  <li>git branch -a - shows all branches
                     <ul>
-                      <li>
-                        remote branches (on server) will appear as red, while local branches (on computer) will appear as green
-                      </li>
+                      <li>remote branches (on server) will appear as red, while local branches (on computer) will appear as green</li>
                     </ul>
+                  </li>
                   <li>git merge [branch] - merge the specified branch's history into the current one</li>
                   <li>git log - show all commits in the current branch's history</li>
                 </ul>
-              <li><strong>Inspect & Compare</strong> - Examining logs, diffs and object information</li>
+              </li>
+              <li><strong>Inspect & Compare</strong> - Examining logs, diffs and object information
                 <ul>
                   <li>git log - show the commit history for the currently active branch</li>
                   <li>git log branchB..branchA - show the commits on branchA that are not on branchB</li>
@@ -122,20 +131,23 @@
                   <li>git diff branchB...branchA - show the diff of what is in branchA that is not in branchB</li>
                   <li>git show [SHA]- show any object in Git in human-readable format</li>
                 </ul>
-              <li><strong>Tracking Path Changes</strong> - Versioning file removes and path changes</li>
+              </li>
+              <li><strong>Tracking Path Changes</strong> - Versioning file removes and path changes
                 <ul>
                   <li>git rm [file] - delete the file from project and stage the removal for commit</li>
                   <li>git mv [existing-path] [new-path] - change an existing file path and stage the move</li>
                   <li>git log --stat -M - show all commit logs with indication of any paths that moved</li>
                 </ul>
-              <li><strong>Ignoring Patterns</strong> - Preventing unintentional staging or committing of files</li>
+              </li>
+              <li><strong>Ignoring Patterns</strong> - Preventing unintentional staging or committing of files
                 <ul>
                   <li>logs/<br>
                     *.notes<br>
                     pattern*/ - Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.</li>
                   <li>git config --global core.excludesfile [file] - system wide ignore pattern for all local repositories</li>
                 </ul>
-              <li><strong>Share & Update</strong> - Retrieving updates from another repository and updating local repos</li>
+              </li>
+              <li><strong>Share & Update</strong> - Retrieving updates from another repository and updating local repos
                 <ul>
                   <li>git remote add [alias] [url] - add a git URL as an alias</li>
                   <li>git fetch [alias] - fetch down all the branches from that Git remote</li>
@@ -143,49 +155,59 @@
                   <li>git push [alias] [branch] - Transmit local branch commits to the remote repository branch</li>
                   <li>git pull - fetch and merge any commits from the tracking remote branch</li>
                 </ul>
-              <li><strong>Rewrite History</strong> - Rewriting branches, updating commits and clearing history</li>
+              </li>
+              <li><strong>Rewrite History</strong> - Rewriting branches, updating commits and clearing history
                 <ul>
                   <li>git rebase [branch] - apply any commits of current branch ahead of specified one</li>
                   <li>git reset --hard [commit] - clear staging area, rewrite working tree from specified commit</li>
                 </ul>
-              <li><Strong>Temporary Commits</Strong> - Temporarily store modified, tracked files in order to change branches</li>
+              </li>
+              <li><Strong>Temporary Commits</Strong> - Temporarily store modified, tracked files in order to change branches
                 <ul>
                   <li>git stash - Save modified and staged changes</li>
                   <li>git stash list - list stack-order of stashed file changes</li>
                   <li>git stash pop - write working from top of stash stack</li>
                   <li>git stash drop - discard the changes from top of stash stack</li>
                 </ul>
+              </li>
             </ul>
       </section>
 
       <section class="card" id="github">
         <h2>GitHub</h2>
           <h3>Pulling from and pushing to GitHub</h3>
+            <ul class="star-ul">
+              <li class="star-li">Never edit files directly in GitHub!</li>
+            </ul>
             <ol>
-              <li>Never edit files directly in GitHub!</li>
               <li>Make sure you're in the correct folder. If there isn't already a repository set up, enter: git init</li>
               <li>To check what branch we are currently on, enter: git status</li>
               <li>To make a new branch, we'll enter: git checkout -b feature/[enter name]
-                <ul class="note">
+                <ul>
                   <li>The checkout command is to move the working branch to a new branch, and the -b flag creates a new branch.</li>
                   <li>It's good to do "feature/" to indicate that it is a feature. It is good practice to name the branches for the feature that will be developed by them to help indicate the purpose of each branch.</li>
                 </ul>
+              </li>
               <li>To add/update code to the current working branch, enter: git add -A
-                <ul class="note">
+                <ul>
                   <li>The -A flag indicates that we want to add all changes.</li>
                 </ul>
+              </li>
               <li>To commit these files to the repo, enter: git commit -m [enter message]
-                <ul class="note">
-                  <li>If you forget to add the -m message, it will open up a new window where you must type the message. In this window, press I to enter insert mode and then type your message. When you're done, press esc to exit insert mode, and then press :wq to write and quit.</li></li>
+                <ul>
+                  <li>If you forget to add the -m message, it will open up a new window where you must type the message. In this window, press I to enter insert mode and then type your message. When you're done, press esc to exit insert mode, and then press :wq to write and quit.</li>
                 </ul>
-              <li>Always double check to make sure your local branch is in sync with the base branch in GitHub. To do this, enter: git pull origin main</li>
-                <ul class="note">
+              </li>
+              <li>Always double check to make sure your local branch is in sync with the base branch in GitHub. To do this, enter: git pull origin main
+                <ul>
                   <li>Use the pull command to receive a branch's modifications into the local environment. "origin" indicates the source of the pull will be in the GitHub repo. "main" indicates the branch.</li>
                   <li>If all is well, you should receive the message "Already up to date."</li>
                 </ul>
+              </li>
               <li>Finally, to push changes, enter: git push origin feature/[enter name]</li>
               <li>After this, when you open GitHub you'll see that there is a pull request. Great job!</li>
-            </ol><br>
+            </ol>
+            <br>
 
           <h3>Helpful Links</h3>
             <ul>
@@ -202,19 +224,22 @@
               <li>The head element contains information about the webpage.</li>
               <li>The body element represents the visible content shown to the user.</li>
               <li>&LT;a href="[url]"&GT;[link text]&LT;/a&GT; - adding a link</li>
-              <li>&LT;img src="[url or path]" alt="[image description]"&GT- adding an image</li>
-              <li>&LT;&excl;-- [insert comment] --&GT; - add comments in html file without them showing up on the actual webpage</li>
+              <li>&LT;img src="[url or path]" alt="[image description]"&GT;- adding an image</li>
+              <li>&LT;&excl;-- [insert comment] --&GT; - add comments in html file without them showing up on the actual webpage
                 <ul>
                   <li>The shortcut for this is to press command + / to make the current line into a comment.</li>
                 </ul>
+              </li>
               <li>Classes and ids are similar, but a class can be used multiple times while an id can only be used once.</li>
               <li>With self closing tags, make sure to do /> instead of >, even though > will still work.</li>
-              <li>&LT;div&GT; and &LT;span&GT; are generic tags with no meaning (not semantic)</li>
+              <li>&LT;div&GT; and &LT;span&GT; are generic tags with no meaning (not semantic)
                 <ul>
                   <li>Semantic HTML is better for code legibility, accessibility features like screen readers, and SEO. If you're using a generic tag, there is probably a semantic tag that would work better.</li>
                 </ul>
+              </li>
               <li>head<strong>er</strong> vs head<strong>ing</strong> - header is at the top of the page, heading is &LT;h1&GT; through &LT;h6&GT;</li>
-            </ul><br>
+            </ul>
+            <br>
 
           <h3>Helpful Links</h3>
             <ul>
@@ -229,66 +254,80 @@
           <h3>CSS Notes</h3>
             <ul>
               <li>to link an external stylesheet to your HTML file, you must type &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;</li>
-              <li>You can apply multiple classes to HTML; just separate them by a space.</li>
-              <ul>
-                <li>Example: class="class-1 class-2"</li>
-              </ul>
+              <li>You can apply multiple classes to HTML; just separate them by a space.
+                <ul>
+                  <li>Example: class="class-1 class-2"</li>
+                </ul>
+              </li>
               <li>The font-family values go from most specific to least specific. This means that if the first font cannot be accessed by the device, it will move onto the next value. 
                 <ul>
                   <li>Example: font-family: "Comic Sans" cursive sans-serif</li>
                 </ul>
+              </li>
               <li>Setting the height and line height as the same number is a cheat code to center text vertically.</li>
-            </ul><br>
+            </ul>
+            <br>
 
           <h3>Selectors</h3>
             <ul>
-              <li>From least to most specific:</li>
+              <li>From least to most specific:
                 <ul>
-                  <li>Universal - selects all HTML elements on the page</li>
-                  <ul>
-                    <li>Example: * {</li>
-                  </ul>
-                <li>Element - selects HTML elements based on the element name</li>
-                  <ul>
-                    <li>Example: p {</li>
-                    <li>You can also specify that only specific HTML elements should be affected by a style rule</li>
+                  <li>Universal - selects all HTML elements on the page
                     <ul>
-                      <li>Example: p.class would only affect paragraphs with the “class” class</li>
+                      <li>Example: * {</li>
                     </ul>
-                  </ul>
-                <li>Class - selects HTML elements based on (one of) their class(es)</li>
-                  <ul>
-                    <li>Example: .class {</li>
-                  </ul>
-                <li>ID - selects HTML elements based on the unique id</li>
-                  <ul>
-                    <li>Example: #unique-id {</li>
-                  </ul>
+                  </li>
+                  <li>Element - selects HTML elements based on the element name
+                    <ul>
+                      <li>Example: p {</li>
+                      <li>You can also specify that only specific HTML elements should be affected by a style rule
+                        <ul>
+                          <li>Example: p.class would only affect paragraphs with the “class” class</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  <li>Class - selects HTML elements based on (one of) their class(es)
+                    <ul>
+                      <li>Example: .class {</li>
+                    </ul>
+                  </li>
+                  <li>ID - selects HTML elements based on the unique id
+                    <ul>
+                      <li>Example: #unique-id {</li>
+                    </ul>
+                  </li>
                 </ul>
-              <li>Any of these types of selectors can be given a further pseudo-class, which is used to define a special state of an element</li>
-              <ul>
-                <li>Example: .class:hover {</li>
-              </ul>
-            <li>The rule with more specificity is the one that will win if there are conflicting style rules</li>
-            <li>Style rules can be grouped</li>
-              <ul>
-                <li>Example: h1, h2, p {</li>
-              </ul>
-            </ul><br>
+              </li>
+              <li>Any of these types of selectors can be given a further pseudo-class, which is used to define a special state of an element
+                <ul>
+                  <li>Example: .class:hover {</li>
+                </ul>
+              </li>
+              <li>The rule with more specificity is the one that will win if there are conflicting style rules</li>
+              <li>Style rules can be grouped
+                <ul>
+                  <li>Example: h1, h2, p {</li>
+                </ul>
+              </li>
+            </ul>
+            <br>
 
           <h3>Display</h3>
             <ul>
-              <li><strong>Inline elements</strong> do not start on a new line and only take up as much width as necessary.</li>
+              <li><strong>Inline elements</strong> do not start on a new line and only take up as much width as necessary.
                 <ul>
                   <li>You cannot set the width and height of inline elements - except for images</li>
                 </ul>
-              <li><strong>Block elements</strong> always start on a new line and take up the full width available.</li>
+              </li>
+              <li><strong>Block elements</strong> always start on a new line and take up the full width available.
                 <ul>
                   <li>margin: 0 auto can be used for block elements to set the top and bottom margins to 0 and center it horizontally within its parent element.</li>
                 </ul>
+              </li>
               <li>Each element has a default display, but it can be changed with CSS by adding the “display” property.</li>
               <li>Elements can be hidden by using the display:none declaration.</li>
-            </ul><br>
+            </ul>
+            <br>
 
           <h3>Box Model</h3>
             <ul>
@@ -297,28 +336,95 @@
               <li><strong>Padding</strong> - the space between the border and content</li>
               <li><strong>Border</strong> - the border! Duh!</li>
               <li><strong>Margin</strong> - the spacing between elements</li>
-              <li>The overall “size” of the image is only the content + padding + border, because the margin isn't a part of any element, it's just the spacing between them.</li>
+              <li>The overall “size” of the image is only the content + padding + border, because the margin isn't a part of any element, it's just the spacing between them.
                 <ul>
                   <li>Example: 200px x 200px image with 20px padding, 10px border, and 30px of padding will have a width and height of 260px (200 + (20x2) + (10x2).</li>
                 </ul>
+              </li>
               <li>The border-style needs to be set to have your border appear on the page.</li>
-            </ul><br>
+            </ul>
+            <br>
 
           <h3>Positioning</h3>
             <ul>
-              <li>Types of positioning:</li>
+              <li>Types of positioning:
                 <ul>
                   <li><strong>Static</strong> - this is the default value and the element is in normal document flow</li>
                   <li><strong>Relative</strong> - the element is still in normal flow, but the values top, right, left and bottom can be used to offset the element.</li>
                   <li><strong>Absolute</strong> - The element is removed from the normal flow and its final position is relative to the determined parent or ancestor. To determine the parent, you must give it the position: absolute; declaration as well. Absolute-positioned elements are also moved by the values of top, right, bottom, and left.</li>
-                  <li><strong>Fixed</strong> - The element is removed from the normal document flow and the position is relative to the viewport. Fixed-position elements are also determined by the values of top, right, bottom, and left.</li>
+                  <li><strong>Fixed</strong> - The element is removed from the normal document flow and the position is relative to the viewport. Fixed-position elements are also determined by the values of top, right, bottom, and left.
                     <ul>
                       <li>Viewport: the area of the window in which web content can be seen</li>
                     </ul>
+                  </li>
                 </ul>
+              </li>
               <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned &LT;img&GT; is written inside of a &LT;section&GT;, it will appear there on the page.</li>
               <li>Z-index controls the stacking order of overlapping elements on a page. An element with a higher z-index value will appear in front of an element with a lower z-index value.</li>
-            </ul><br>
+            </ul>
+            <br>
+
+          <h3>Flexbox</h3>
+            <ul>
+              <li>No floats! More responsive to different screens</li>
+              <li>Puts child objects into parent containers
+                <ul>
+                  <li>.container {
+                    <div class="tab">display: flex;</div>
+                    <div class="tab">flex-direction: row | row-reverse | column | column-reverse;</div>
+                    <div class="tab">flex-wrap: nowrap | wrap | wrap-reverse;</div>
+                    <div class="tab">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right | center | space-around | space-evenly + safe | unsafe;</div>
+                    <div class="tab">align-items: stretch | flex-start | flex-end | center | baseline + safe | unsafe;</div>
+                    <div class="tab">align-content: normal | flex-start | flex-end | center | space-between | space-around | space-evenly | stretch + safe | unsafe;</div>
+                    <div class="tab">gap: [insert value]</div>
+                    }
+                  </li>
+                </ul>
+              <li>Read more about Flexbox properties <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flexbox-properties" target="blank">here</a></li>
+              </li>
+              <li>Pairing the safe keyword ensures that you can't push an element off-screen.</li>
+              <li>Use flex-basis instead of width on child elements</li>
+            </ul>
+            <br>
+
+          <h3>Animation</h3>
+            <ul>
+              <li>Animations consist of two components:
+                <ol>
+                  <li>a style describing the CSS animation
+                    <ul>
+                      <li>.[element] {
+                        <div class="tab">animation: [name] [time] [how long the animation will last];</div>
+                        <div class="tab">/* or */</div>
+                        <div class="tab">[<a href="https://css-tricks.com/almanac/properties/a/animation/#aa-sub-properties" target="blank">animation sub-properties</a>];</div>
+                        }
+                      </li>
+                    </ul>
+                  </li>
+                  <li>a set of keyframes that indicate the states of the animation's style
+                    <ul>
+                      <li>@keyframes [name] {
+                        <div class="tab">0% {</div>
+                          <div class="tabx2">[insert rule];</div>
+                        <div class="tab"> }</div>
+                        <div class="tab">100% {</div>
+                          <div class="tabx2">[insert rule];</div>
+                        <div class="tab"> }</div>
+                        }
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </li>
+              <li>Each animation property can be defined individually, but for cleaner and faster code, it's recommended that you use the animation shorthand.
+                <ul>
+                  <li>animation: [animation-name] [animation-duration] [animation-timing-function] [animation-delay] [animation-iteration-count] [animation-direction] [animation-fill-mode] [animation-play-state];</li>
+                  <li>For an animation property to work, you <strong>must</strong> define the animation-name and animation-duration.</li>
+                </ul>
+              </li>
+              <li><a href="https://thoughtbot.com/blog/css-animation-for-beginners#additional-animation-properties" target="blank">Additional Animation Properties</a></li>
+            </ul>
+            <br>
 
           <h3>Helpful Links</h3>
             <ul>
@@ -333,17 +439,31 @@
           <li>A variable is a named container that allows us to store data in our code.</li>
           <li>Control flow is the order in which a computer executes code in a script.</li>
           <li>JavaScript linking should be added at the bottom of your code, directly before the /body closing tag. This is because the code is read in order from beginning to end by the browser, and we don't want any functions to run before the page is fully loaded.</li>
-          <li>&LT;script src="[path to .js file]"&GT;</script> - links JavaScript file to html webpage</li>
+          <li>&LT;script src="[path to .js file]"&GT;&LT;/script&GT; - links JavaScript file to html webpage</li>
+          <li>// [insert comment/code here] - single line comment</li>
           <li>/* <br>
-              [insert comment]<br>
-              */ - add multiple lines of comments in the JavaScript file without them showing up on the actual webpage</li>
-          <li>// [insert comment] - add a single line of comments in the JavaScript file without them showing up on the actual webpage</li>
+              [insert comment/code here]<br>
+              */ - multi-line comment
+          </li>
           <li>JavaScript starts array counts from 0, not 1</li>
-          <li>There are 2 requirements for JavaScript functions</li>
-          <ol>
-            <li>Define the function</li>
-            <li>Call the function</li>
-          </ol>
+          <li>There are 2 requirements for JavaScript functions
+            <ol>
+              <li>Define the function</li>
+              <li>Call the function</li>
+            </ol>
+          </li>
+          <li>There are eight fundamental data types:
+            <ol>
+              <li><strong>Number:</strong> Any number, including numbers with decimals: 4, 8, 1516, 23.42.</li>
+              <li><strong>BigInt:</strong> Any number, greater than 253-1 or less than -(253-1), with n appended to the number: 1234567890123456n.</li>
+              <li><strong>String:</strong> Any grouping of characters on your keyboard (letters, numbers, spaces, symbols, etc.) surrounded by single quotes: ' ... ' or double quotes " ... ".</li>
+              <li><strong>Boolean:</strong> This data type only has two possible values— either true or false (without quotes). It's helpful to think of booleans as on and off switches or as the answers to a “yes” or “no” question.</li>
+              <li><strong>Null:</strong> This data type represents the intentional absence of a value, and is represented by the keyword null (without quotes).</li>
+              <li><strong>Undefined:</strong> This data type is denoted by the keyword undefined (without quotes). It also represents the absence of a value though it has a different use than null. undefined means that a given value does not exist.</li>
+              <li><strong>Symbol:</strong> A newer feature to the language, symbols are unique identifiers, useful in more complex coding. No need to worry about these for now.</li>
+              <li><strong>Object:</strong> Collections of related data.</li>
+            </ol>
+          </li>
         </ul>
       </section>
     </main>

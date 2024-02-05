@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Stylesheet" href="../assets/style.css">
+    <title>MSU Coding Bootcamp Survival Guide</title>
+  </head>
+
+  <body>
+    <header id="header">
+      <h1>Responsive Web Design</h1>
+      <img src="../assets/Bootcamp.png" alt="MSU and edX logos" id="header-image">
+    </header>
+
+    <main>
+    <section class="card" id="concept-notes">
+        <h2>Concept Notes</h2>
+            <ul>
+                <li>There are 2 main tricks for responsive websites:
+                    <ol>
+                        <li>@media queries</li>
+                        <li>fluid design</li>
+                    </ol>
+                </li>
+                <li><strong>Fluid</strong> layouts are better than <strong>fixed</strong> layouts because they are responsive and will fit all different viewport sizes. 
+                    <ul>
+                        <li>Values like percentages are fluid, while pixel designations are fixed and will not change depending on the size of the viewport.</li>
+                    </ul>
+                </li>
+                <li>Instead of having one large image that is shrunk for mobile devices, you should have a variety of image sizes. This is so your website will load faster and use less data.
+                    <ul>
+                        <li>You can do this using <a href="#the-picture-tag">the picture tag</a></li>
+                    </ul>
+                </li>
+                <li>You do not need device specific breakpoints, and in fact, you actively should avoid using them. This is because new devices come out all the time with different screen sizes. Instead, create your breakpoints based on the how the content looks.</li>
+                <li>You can download frameworks like Bootstrap and use their formatting to utilize popular practices instead of writing all your own styling.</li>
+            </ul>
+    </section>
+
+      <section class="card" id="html-notes">
+        <h2>HTML Notes</h2>
+        <ul>
+            <li>Make the content on your webpage fit correctly on different devices:
+                <ul>
+                    <li>&LT;head&GT;
+                    <div class="tab">&LT;meta name=“viewport” content=“width=device-width, initial-scale=1.0”&GT;</div>
+                    &LT;/head&GT;
+                </ul>
+            </li>
+            <li><a id="the-picture-tag">The Picture Tag</a>
+                <ul>
+                    <li>&LT;picture&GT;
+                            <div class="tab">&LT;source srcset=“small.jpg” media=“(max-width: 480px)”&GT;</div>
+                            <div class="tab">&LT;source srcset=“medium.jpg” media=“(max-width: 768px)”&GT;</div>
+                            <div class="tab">&LT;source srcset=“large.jpg”&GT;</div>
+                        &LT;/picture&GT;
+                    </li>
+                </ul>
+            </li>
+        </ul>
+      </section>
+
+      <section class="card" id="css-notes">
+        <h2>CSS Notes</h2>
+            <ul>
+                <li>Media queries allow us to set CSS rules based on various parameters like viewport size
+                    <ul>
+                        <li>@media [media-type] and (expressions) {</li>
+                        <li>Example: @media screen and (min-width: 400px) {</li>
+                    </ul>
+                </li>
+                <li>CSS is read in order, so if there are conflicting rules, whichever rule is lower will win (unless the other has more specificity)
+                    <ul>
+                        <li>Therefore, you want your media queries after your original selectors in the sequence. Otherwise, those rules will likely be overwritten.</li>
+                    </ul>
+                </li>
+            </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>I can code!</p>
+    </footer>
+  </body>
+</html>

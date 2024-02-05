@@ -47,7 +47,8 @@ h3 {
 }
 
 ul,
-ol {
+ol,
+p {
     padding-left: 40px;
     padding-right: 30px;
     font-size: 20px;
@@ -64,4 +65,21 @@ ol {
 .images {
     width: 100%;
     height: auto;
+}
+
+.tab {
+    margin-left: 40px;
+}
+
+.tabx2 {
+    margin-left: 60px;
+}
+
+.star-ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.star-li::before {
+    content: "⭐ ";
 }
