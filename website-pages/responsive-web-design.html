@@ -78,6 +78,74 @@
                 </li>
             </ul>
       </section>
+
+      <section class="card" id="flexbox">
+        <h2>Flexbox</h2>
+        <ul class="star-ul">
+            <li class="star-li">Always mess with flex box in Chrome Dev Tools!</li>
+        </ul>
+        <ul>
+            <li>The main use of flexbox is to create responsive webpages without having to use floats.</li>
+            <li>Puts child objects into parent containers
+                <ul>
+                  <li>.container {
+                    <div class="tab">display: flex;</div>
+                    <div class="tab">flex-direction: row | row-reverse | column | column-reverse;</div>
+                    <div class="tab">flex-wrap: nowrap | wrap | wrap-reverse;</div>
+                    <div class="tab">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right | center | space-around | space-evenly;</div>
+                    <div class="tab">align-items: stretch | flex-start | flex-end | center | baseline;</div>
+                    <div class="tab">align-content: normal | flex-start | flex-end | center | space-between | space-around | space-evenly | stretch;</div>
+                    <div class="tab">gap: [insert value]</div>
+                    }
+                  </li>
+                </ul>
+            <li>Flexbox has two axes - the main axis is defined by the flex-direction property, and the cross axis runs perpendicular to it</li>
+            <li>Flexbox does not require @media queries to be responsive</li>
+            <li>There are some properties that need to be set on the parent element, and some that need to be set on the children
+                <ul>
+                    <li>Set on parent container:
+                        <ul>
+                            <li>Display: flex;</li>
+                            <li>Flex-wrap: wrap;</li>
+                        </ul>
+                    </li>
+                    <li>Set on child elements:
+                        <ul>
+                            <li>Flex-grow: [number value - typically 1];</li>
+                            <li>Flex-shrink: [number value - typically 1];</li>
+                            <li>Flex-basis: [pixel or percentage value];</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Flex-grow is the ratio it will grow at in comparison to the other boxes
+                <ul>
+                    <li>Example: if you want one image to grow twice as fast as all the others, set that flex grow to 2 and the others' to 1</li>
+                </ul>
+            </li>
+            <li>Flex-shrink is the ratio it will shrink at in comparison to the other boxes
+                <ul>
+                    <li>Example: if you want one image to shrink twice as fast as all the others, set that flex shrink to 2 and the others' to 1</li>
+                </ul>
+            </li>
+            <li>Flex basis is how big each box should be
+                <ul>
+                    <li>Use flex-basis instead of width</li>
+                    <li>Use percentage to always stay as a certain portion of the screen 
+                        <ul>
+                            <li>Example: flex-basis: 30%; to keep 3 on each row)</li>
+                        </ul>
+                    </li>
+                    <li>Use pixel value to have boxes wrap before they get too small
+                        <ul>
+                            <li>Example: flex-basis: 200px; to keep each box around 200px and have as many fit on each row as possible</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Read more about Flexbox properties <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flexbox-properties" target="blank">here</a></li>
+        </ul>
+      </section>
     </main>
 
     <footer class="footer">

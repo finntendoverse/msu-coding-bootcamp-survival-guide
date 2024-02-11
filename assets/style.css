@@ -1,3 +1,9 @@
+:root {
+    --green: rgb(24, 69, 59);
+    --white: white;
+    --lightgreen: rgb(0, 130, 8);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +15,38 @@ footer {
     height: auto;
     text-align: center;
     font-size: 30px;
-    background-color: rgb(24, 69, 59);
-    color: white;
+    background-color: var(--green);
+    color: var(--white);
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+nav ul {
+    padding: 0px;
+}
+
+nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 2px solid var(--green);
+}
+
+nav ul li:nth-child(odd) a {
+    color: var(--lightgreen)
+}
+
+nav ul li:nth-child(odd) {
+    background-color: var(--white);
+}
+
+nav ul li:nth-child(even) a {
+    color: var(--white)
+}
+
+nav ul li:nth-child(even) {
+    background-color: var(--lightgreen);
 }
 
 h1 {
@@ -33,11 +67,11 @@ h1 {
 }
 
 h2 {
-    color: white;
+    color: var(--white);
     text-align: center;
     font-size: 30px;
     padding-bottom: 5px;
-    background-color: rgb(24, 69, 59);
+    background-color: var(--green);
     margin-bottom: 10px;
 }
 
@@ -57,8 +91,8 @@ p {
 .card {
     width: 80%;
     margin: 40px auto;
-    border: 5px solid rgb(24, 69, 59);
-    box-shadow: 10px 10px rgb(0, 130, 8);
+    border: 5px solid var(--green);
+    box-shadow: 10px 10px var(--lightgreen);
     padding-bottom: 20px;
 }
 

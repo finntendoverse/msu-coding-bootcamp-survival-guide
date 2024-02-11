@@ -15,6 +15,12 @@
       <h2 id="header-h2">✨ Open the Console in Chrome DevTools to See What's Happening ✨</h2>
     </header>
 
+    <nav>
+      <ul>
+        <li><a href="website-pages/responsive-web-design.html" target="blank">Responsive Web Design</a></li>
+      </ul>
+    </nav>
+
     <main>
       <section class="card" id="important-links">
         <h2>Important Links</h2>
@@ -33,6 +39,7 @@
           <li>Get in the habit of always killing terminal when done by clicking the trash can icon</li>
           <li>Right click -> preview lets you see your markdown preview</li>
           <li>Double click a tab on the top to make it stay. You can tell it worked when the text goes from italic to normal.</li>
+          <li>Option + click selects multiple areas to start typing</li>
         </ul>
       </section>
 
@@ -238,7 +245,45 @@
                 </ul>
               </li>
               <li>head<strong>er</strong> vs head<strong>ing</strong> - header is at the top of the page, heading is &LT;h1&GT; through &LT;h6&GT;</li>
-            </ul>
+            </ul><br>
+            <h3>HTML Forms</h3>
+              <ul>
+                <li>The HTML &LT;form&GT; element can contain one or more of the following form elements:
+                  <ul>
+                    <li>&LT;input&GT;</li>
+                    <li>&LT;label&GT;</li>
+                    <li>&LT;select&GT;</li>
+                    <li>&LT;textarea&GT;</li>
+                    <li>&LT;button&GT;</li>
+                    <li>&LT;fieldset&GT;</li>
+                    <li>&LT;legend&GT;</li>
+                    <li>&LT;datalist&GT;</li>
+                    <li>&LT;output&GT;</li>
+                    <li>&LT;option&GT;</li>
+                    <li>&LT;optgroup&GT;</li>
+                  </ul>
+                </li>
+                <li>The input element is used for text fields like names, email addresses, and messages
+                  <ul>
+                    <li>&LT;label for=“[input id]”&GT;[label text]&LT;/label&GT;</li>
+                    <li>&LT;input id=“[id]'': type=“[text]"" / "[password]” placeholder=“[placeholder]”&GT;</li>
+                  </ul>
+                </li>
+                <li>The select element defines a drop-down list
+                  <ul>
+                    <li>&LT;label for=“[input id]”&GT;[label text]&LT;/label&GT;</li>
+                    <li>
+                      &LT;select id="[id]" name="[name]"&GT;
+                      <div class="tab">&LT;option value="[option 1]"&GT;[option 1]&LT;/option&GT;</div>
+                      <div class="tab">&LT;option value="[option 2]"&GT;[option 2]&LT;/option&GT;</div>
+                      <div class="tab">&LT;option value="[option 3]"&GT;[option 3]&LT;/option&GT;</div>
+                      &LT;/select&GT;
+                    </li>
+                  </ul>
+                </li>
+                <li>The button element defines a clickable button</li>
+                <li>read more about HTML forms <a href="https://www.w3schools.com/html/html_form_elements.asp" target="blank">here</a></li>
+              </ul>
             <br>
 
           <h3>Helpful Links</h3>
@@ -252,6 +297,9 @@
         <h2>CSS</h2>
           <img src="assets/CSS.png" alt="CSS Structure" class="images">
           <h3>CSS Notes</h3>
+            <ul class="star-ul">
+              <li class="star-li">In Chrome Dev Tools, click the triangle icon on shortcuts to see what each declaration is</li>
+            </ul>
             <ul>
               <li>to link an external stylesheet to your HTML file, you must type &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;</li>
               <li>You can apply multiple classes to HTML; just separate them by a space.
@@ -267,6 +315,23 @@
               <li>Setting the height and line height as the same number is a cheat code to center text vertically.</li>
             </ul>
             <br>
+
+          <h3>Reset Stylesheets</h3>
+          <ul>
+            <li>Every browser has its own default style rules. It is best practice to overwrite these rules so that your webpages will look uniform across all browsers.</li>
+            <li>Have a seperate reset.css stylesheet</li>
+            <li>Stylesheet order:
+              <ul>
+                <li>
+                  &LT;link rel=“stylesheet” href=“reset.css”&GT;<br>
+                  &LT;link rel=“stylesheet” href=“thirdparty.css”&GT;<br>
+                  &LT;link rel=“stylesheet” href=“style.css”&GT;
+                </li>
+              </ul>
+            </li>
+            <li>The reason they should be in this specific order is because HTML is read from beginning to end, meaning that your CSS rules can be overwritten if they're in the wrong order.</li>
+          </ul>
+          <br>
 
           <h3>Selectors</h3>
             <ul>
@@ -309,6 +374,58 @@
                   <li>Example: h1, h2, p {</li>
                 </ul>
               </li>
+              <li>You can use + sign to determine rules for a specific tag directly following another tag
+                <ul>
+                  <li>Example: article ul + p selects<br>
+                    &LT;article&GT;
+                      <div class="tab">&LT;p&GT;</div>
+                      <div class="tab">...</div>
+                      <div class="tab">&LT;ul&GT;</div>
+                      <div class="tab"><strong>&LT;p&GT;</strong></div>
+                  </li>
+                </ul>
+              </li>
+              <li>You can also use the * symbol to select everything within a parent element
+                <ul>
+                  <li>Example: section ul * {</li>
+                </ul>
+              </li>
+              <li>The &GT; symbol only selects direct children
+                <ul>
+                  <li>Example: section ul &GT; * {</li>
+                </ul>
+              </li>
+              <li>Creating variables at the root
+                <ul>
+                  <li>:root {
+                    <div class="tab">--name: [any repeated style rule];</div>
+                  }
+                  </li>
+                </ul>
+              </li>
+              <li>Then, later in the document when you want to reference the variable, use:
+                <ul>
+                  <li>
+                    [element] {
+                      <div class="tab">[property]: var(--name);</div>
+                    }
+                  </li>
+                </ul>
+              </li>
+              <li>Root variable example:
+                <ul>
+                  <li>
+                    :root {
+                      <div class="tab">--white: #fff;</div>
+                    }
+                    <br>
+                    <br>
+                    p {
+                      <div class="tab">color: var(--white);</div>
+                    }
+                  </li>
+                </ul>
+              </li>
             </ul>
             <br>
 
@@ -342,6 +459,7 @@
                 </ul>
               </li>
               <li>The border-style needs to be set to have your border appear on the page.</li>
+              <li>shortcuts that have 4 values around it such as "padding" are writtem in NESW direction</li>
             </ul>
             <br>
 
@@ -361,29 +479,24 @@
               </li>
               <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned &LT;img&GT; is written inside of a &LT;section&GT;, it will appear there on the page.</li>
               <li>Z-index controls the stacking order of overlapping elements on a page. An element with a higher z-index value will appear in front of an element with a lower z-index value.</li>
+              <li>Viewport units:
+                <ul>
+                  <li>vh - the height of the screen
+                    <ul>
+                      <li>As opposed to “height,” which is just the height of any given object</li>
+                    </ul>
+                  </li>
+                  <li>vw - viewport width</li>
+                </ul>
+              </li>
             </ul>
             <br>
 
-          <h3>Flexbox</h3>
+          <h3>Transformations</h3>
             <ul>
-              <li>No floats! More responsive to different screens</li>
-              <li>Puts child objects into parent containers
-                <ul>
-                  <li>.container {
-                    <div class="tab">display: flex;</div>
-                    <div class="tab">flex-direction: row | row-reverse | column | column-reverse;</div>
-                    <div class="tab">flex-wrap: nowrap | wrap | wrap-reverse;</div>
-                    <div class="tab">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right | center | space-around | space-evenly + safe | unsafe;</div>
-                    <div class="tab">align-items: stretch | flex-start | flex-end | center | baseline + safe | unsafe;</div>
-                    <div class="tab">align-content: normal | flex-start | flex-end | center | space-between | space-around | space-evenly | stretch + safe | unsafe;</div>
-                    <div class="tab">gap: [insert value]</div>
-                    }
-                  </li>
-                </ul>
-              <li>Read more about Flexbox properties <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-flexbox-properties" target="blank">here</a></li>
-              </li>
-              <li>Pairing the safe keyword ensures that you can't push an element off-screen.</li>
-              <li>Use flex-basis instead of width on child elements</li>
+              <li>Apply transformations with the transform property</li>
+              <li>HTML text written in all caps will always be read by screen readers as acronyms. If you want any words to be in all caps, use the "text-transform: uppercase;" declaration.</li>
+              <li>Read more about the transform property <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">here</a></li>
             </ul>
             <br>
 
