@@ -40,6 +40,8 @@
           <li>Right click -> preview lets you see your markdown preview</li>
           <li>Double click a tab on the top to make it stay. You can tell it worked when the text goes from italic to normal.</li>
           <li>Option + click selects multiple areas to start typing</li>
+          <li>Option+Z toggles text wrap in VS Code</li>
+          <li>Right click > rename symbol lets you change the name of something everywhere in your document</li>
         </ul>
       </section>
 
@@ -426,6 +428,7 @@
                   </li>
                 </ul>
               </li>
+              <li>Here's a fun game to help practice selectors: <a href="https://flukeout.github.io/">CSS Diner</a></li>
             </ul>
             <br>
 
@@ -548,24 +551,28 @@
    
       <section class="card" id="javascript-section">
         <h2>JavaScript</h2>
+        <h3>JavaScript notes</h3>
+        <ul class="star-ul">
+          <li class="star-li">Add debugger; into any section of code where you're having a problem, and then Chrome DevTools will open a helpful debugger menu where you can go step by step to see where your exact problem is</li>
+        </ul>
         <ul>
-          <li>A variable is a named container that allows us to store data in our code.</li>
+          <li>JavaScript is case sensitive. This means myVariable is not the same as myvariable.</li>
           <li>Control flow is the order in which a computer executes code in a script.</li>
           <li>JavaScript linking should be added at the bottom of your code, directly before the /body closing tag. This is because the code is read in order from beginning to end by the browser, and we don't want any functions to run before the page is fully loaded.</li>
+          <li>JavaScript programs can be inserted almost anywhere into an HTML document using the &LT;script&GT; tag. But as a rule, only the simplest scripts are put into HTML. More complex ones reside in separate files.</li>
           <li>&LT;script src="[path to .js file]"&GT;&LT;/script&GT; - links JavaScript file to html webpage</li>
           <li>// [insert comment/code here] - single line comment</li>
           <li>/* <br>
               [insert comment/code here]<br>
               */ - multi-line comment
           </li>
-          <li>JavaScript starts array counts from 0, not 1</li>
-          <li>There are 2 requirements for JavaScript functions
-            <ol>
-              <li>Define the function</li>
-              <li>Call the function</li>
-            </ol>
+          <li><strong>Local</strong> vs. <strong>global</strong> is very important.
+            <ul>
+              <li>If you define a var inside of a function, it will be local, meaning it can only be accessed inside of that function. That is what “local” means.</li>
+            </ul>
           </li>
-          <li>There are eight fundamental data types:
+          <li>JavaScript starts array counts from 0, not 1</li>
+          <li>There are 7 primitive data types:
             <ol>
               <li><strong>Number:</strong> Any number, including numbers with decimals: 4, 8, 1516, 23.42.</li>
               <li><strong>BigInt:</strong> Any number, greater than 253-1 or less than -(253-1), with n appended to the number: 1234567890123456n.</li>
@@ -574,9 +581,222 @@
               <li><strong>Null:</strong> This data type represents the intentional absence of a value, and is represented by the keyword null (without quotes).</li>
               <li><strong>Undefined:</strong> This data type is denoted by the keyword undefined (without quotes). It also represents the absence of a value though it has a different use than null. undefined means that a given value does not exist.</li>
               <li><strong>Symbol:</strong> A newer feature to the language, symbols are unique identifiers, useful in more complex coding. No need to worry about these for now.</li>
-              <li><strong>Object:</strong> Collections of related data.</li>
             </ol>
           </li>
+          <li>Normally, one uses null to assign an “empty” or “unknown” value to a variable, while undefined is reserved as a default initial value for unassigned things.</li>
+          <li>There are several other types as well, including
+            <ul>
+              <li><strong>Objects:</strong> collections of related data and/or functionality. These usually consist of several variables and functions (which are called properties and methods when they are inside objects).</li>
+            </ul>
+          </li>
+          <li>The “this” keyword refers to the current object the code is being written inside. It is very helpful because it lets you reuse functions in different execution contexts.</li>
+        </ul>
+        <br>
+
+        <h3>Variables</h3>
+        <ul>
+          <li>A variable is a named container that allows us to store data in our code.</li>
+          <li>A variable name should have a clean, obvious meaning, describing the data that it stores.</li>
+          <li>To declare/create a variable, the “var” or ”let” keyword is used
+            <ul>
+              <li>Example: let message=“Hello!”</li>
+              <li>You can change your variable later, but you cannot use the “var” or “let” keyword again. For example, to change the message above to something else, you would just add this later into the code: message=“This can say anything!” So, we should declare a variable once and then refer to it without var or let.</li>
+              <li>"var" was the old way of declaring variables, and "let" and "const" is the new way. Neither is really wrong.</li>
+              <li>The reason let is different from var is because let allows you to scope to any curly brackets (like if loops) whereas var can only scope to functions.</li>
+            </ul>
+          </li>
+          <li>Long variables should be named in camelCase like this: myVeryLongName</li>
+          <li>You can name your variable pretty much anything, but there are still some rules
+            <ul>
+              <li>The only special characters allowed are _ and $. Hyphens or anything else are not allowed</li>
+              <li>The variable cannot start with a number</li>
+              <li>It can not be a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words">reserved word</a></li>
+            </ul>
+          </li>
+          <li>To declare a constant (unchanging) variable, use const instead of var or let. Variables declared using const are called “constants” and cannot be reassigned. An attempt to do so would cause an error.</li>
+          <li>When you have a variable that is hard to remember (like hex codes), it is standard practice to define them as constants in all caps with underscores.
+            <ul>
+              <li>Example: const COLOR_RED = "#F00";</li>
+            </ul>
+          </li>
+          <li>For strings, if you need to use a “ or ' within it, put a backslash before it so it doesn't close your string
+            <ul>
+              <li>Example: “I/'m a string!”</li>
+            </ul>
+          </li>
+          <li>Use backticks (`) to embed variables and expressions into a string by wrapping them in ${…}
+            <ul>
+              <li>Example: let name = “Finn”;<br>
+                alert(`Hello, ${name}!`); // Hello, Finn!</li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Operators</h3>
+        <ul>
+          <li><a href="https://www.w3schools.com/js/js_operators.asp">JavaScript Operators</a></li>
+          <li>The Assignment Operator (=) assigns a value to a variable
+            <ul>
+              <li>Example let x = 3; // now x has the value of 3</li>
+            </ul>
+          </li>
+          <li>Arithmetic operators are for simple math like addition, subtraction, multiplication, etc.</li>
+          <li>Comparison Operators are for comparing values.
+            <ul>
+              <li>“=“ is an assignment operator. Meaning, when you're trying to see if two values are equal, you shouldn't use “=“. Instead, you should use “==“ or “===“</li>
+              <li>"==" just checks the value, whereas "===" checks the value and type
+                <ul>
+                  <li>Example: “5” == 5 is true, whereas “5” === 5 is false, because the first 5 is a string while the second 5 is a number, meaning their type does not match.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Logical Operators are for checking to see if certain functions are met.
+            <ul>
+              <li>&& - logical and</li>
+              <li>|| - logical or
+                <ul>
+                  <li>Example: IF (function1 && !function2) {
+                    <div class="tab">console.log (“this will print if function1 is true and function2 is false”);</div>
+                    }</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>The typeof operator simply returns the type
+            <ul>
+              <li>Example: let myVar = 4<br>
+                  typeof myVar // “number”</li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Conditionals</h3>
+        <ul>
+          <li>Conditionals are code structures used to test if an expression returns true or not. A very common form of conditionals is the if...else statement.
+            <ul>
+              <li>Example: let iceCream = "chocolate";<br>
+                if (iceCream === "chocolate") {
+                <div class="tab">alert("Yay, I love chocolate ice cream!");</div>
+                } else {
+                <div class="tab">alert("Awwww, but chocolate is my favorite…");</div>
+              }</li>
+              <li>The expression inside the if () is the test</li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Functions</h3>
+        <ul>
+          <li>Functions are the basic building block of JavaScript. Functions allow us to encapsulate a block of code and reuse it multiple times.</li>
+          <li>There are 2 requirements for JavaScript functions
+            <ol>
+              <li>Define the function</li>
+              <li>Call the function</li>
+            </ol>
+          </li>
+          <li>A function can be defined using the function keyword, followed by the name of a function and parentheses.
+            <ul>
+              <li>Example: function [function name] ([input parameters if there are any]) {
+                  <div class="tab">// write function code here</div>
+                  }</li>
+            </ul>
+          </li>
+          <li>Function parameters are variables that are defined in the function definition and can have a value of any data type.
+            <ul>
+              <li>Example: function greet(firstName, lastName) {
+                  <div class="tab">alert("Hello " + firstName + " " + lastName);</div>
+                  }
+                  <br>
+                  greet("Steve", "Jobs");
+              </li>
+            </ul>
+          </li>
+          <li>Function EXPRESSIONS start with a var and are stored as values. This means they can then be called inside of other functions.
+            <ul>
+              <li>Example: var myFunction = function(x,y) {
+                  <div class="tab">// function code</div>
+                  }
+              </li>
+            </ul>
+          </li>
+          <li>Function DECLARATIONS on the other hand do not start with a var can cannot then be called inside of other functions.
+            <ul>
+              <li>function myFunction2(x,y) {
+                  <div class="tab">// function code</div>
+                  }
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Loops</h3>
+        <ul>
+          <li><strong>For loops:</strong>
+            <ul>
+              <li>3 properties needed: iterator; criteria; increment
+                <ul>
+                  <li>Example: (i = 0; i < array.length; I++)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>While loops:</strong>
+            <ul>
+              <li>While loops are repeated until the condition is no longer met. If the condition is always met, the loop will continue infinitely and crash the computer. Therefore, something needs to change to mean the condition won't always be met.</li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Objects</h3>
+        <ul>
+          <li>In JavaScript, almost anything is an object. All JavaScript values, except primitives, are objects.
+            <ul>
+              <li>Object examples: Arrays, Maths, and Dates.</li>
+            </ul>
+          </li>
+          <li>Creating an object: var myObject = {
+              <div class="tab">(property name: value),</div>
+              <div class="tab">(property name: value),</div>
+              };
+          </li>
+          <li>After you create an object, you can access the properties within it by using a “.”
+            <ul>
+              <li>Example: myObject.propertyName;</li>
+            </ul>
+          </li>
+          <li><strong>Methods</strong> are <strong>functions</strong> that exist on <strong>objects</strong></li>
+          <li>Creating an array: var myArray = [(insert your array separated by commas)]</li>
+          <li>Constructors are used when you need to to create more than one object, and they should be started with a capital letter</li>
+        </ul>
+        <br>
+
+        <h3>Document Object Model</h3>
+        <ul>
+          <li>Document - webpage (usually html)</li>
+          <li>Object: every html element in the document</li>
+          <li>object.method notation
+            <ul>
+              <li>Example: document.getElementById(h1);</li>
+            </ul>
+          </li>
+          <li>.getElements will return an array, while .getElement will return a singular value</li>
+          <li>You can't use hyphens in JavaScript, so if you're updating a property with multiple words, you'll use camelCase instead
+            <ul>
+              <li>Example: title.color.backgroundColor = “blue”;</li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Helpful links</h3>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a></li>
         </ul>
       </section>
     </main>
