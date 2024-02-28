@@ -285,6 +285,11 @@
                 </li>
                 <li>The button element defines a clickable button</li>
                 <li>read more about HTML forms <a href="https://www.w3schools.com/html/html_form_elements.asp" target="blank">here</a></li>
+                <li>Data Attributes allow us to store extra information on HTML elements
+                  <ul>
+                    <li>Syntax to create custom data attributes: data-[insert anything here]=“[insert value here]”</li>
+                  </ul>
+                </li>
               </ul>
             <br>
 
@@ -706,6 +711,7 @@
                   }</li>
             </ul>
           </li>
+          <li>You can put (arr) inside a function argument to denote that the input should be an array</li>
           <li>Function parameters are variables that are defined in the function definition and can have a value of any data type.
             <ul>
               <li>Example: function greet(firstName, lastName) {
@@ -774,6 +780,12 @@
           <li><strong>Methods</strong> are <strong>functions</strong> that exist on <strong>objects</strong></li>
           <li>Creating an array: var myArray = [(insert your array separated by commas)]</li>
           <li>Constructors are used when you need to to create more than one object, and they should be started with a capital letter</li>
+          <li>There are also JSON objects, which contain data in the form of key/value pairs
+            <ul>
+              <li>JSON.stringify puts all object text into a string</li>
+              <li>JSON.parse then takes a string and puts it back into object form</li>
+            </ul>
+          </li>
         </ul>
         <br>
 
@@ -792,6 +804,122 @@
               <li>Example: title.color.backgroundColor = “blue”;</li>
             </ul>
           </li>
+          <li>The DOM is essentially an API to the page which allows programs to read and manipulate the page’s content, structure, and styles.</li>
+          <li>There are 3 types of objects:
+            <ol>
+              <li>user defined objects</li>
+              <li>core language objects (arrays, strings, booleans, etc.)</li>
+              <li>host objects (browser-specific objects - HTML elements)</li>
+            </ol>
+          </li>
+          <li>The object structure of the DOM is represented by a “node tree”. It is called a tree because of the “branches” it has. Everything stems from the HTML tag, and then it breaks off into different branches for the head and body. Then, each of those break off into other branches, such as h1, p, img, etc.</li>
+          <li>Nodes are also referred to by their position in the tree relative to other nodes:
+            <ul>
+              <li>Root node: The top node in the tree, which in the case of HTML is always the HTML nod</li>
+              <li>Child node: A node directly inside another node.</li>
+              <li>Descendant node: A node anywhere inside another node.</li>
+              <li>Parent node: A node which has another node inside it.</li>
+              <li>Sibling nodes: Nodes that sit on the same level in the DOM tree.</li>
+            </ul>
+          </li>
+          <li>The DOM is <strong>not</strong> your source HTML because they can be different. One way they would be different is if your HTML is not valid, and the other way would be if you're using JavaScript to manipulate the HTML.</li>
+          <li>Pseudo-elements (such as ::after) cannot be targeted by Javascript, because they are not part of the DOM</li>
+          <li>Hidden elements (such as display: none) <strong>are</strong> part of the DOM and can be manipulated.</li>
+          <li>JavaScript is used for <i>interactivity</i>, so while you wouldn’t normally use JavaScript to set style rules, you would use it when you’re changing style rules during events like clicks, hoverovers, etc.</li>
+          <li>document.querySelector allows you to select IDs using CSS queries (anything with a single selection)
+            <ul>
+              <li>Example: document.querySelector(“#id”)</li>
+            </ul>
+          </li>
+          <li>document.querySelectorAll is used for tags and classes (anything with multiple selections)
+            <ul>
+              <li>Example: document.querySelectorAll(“p”);</li>
+              <li>When selecting elements by class, you can’t just change everything within it. You need to use a for loop to change the style of each element within the class.</li>
+            </ul>
+          </li>
+          <li>Here is the order for creating new elements in JavaScript:
+            <ol>
+              <li>Create:
+                <ul>
+                  <li>document.createElement(“tagName”)</li>
+                </ul>
+              </li>
+              <li>Set Attributes:
+                <ul>
+                  <li>Element.setAttribute([“enter several attributes here”]); 
+                    <ul>
+                      <li>This allows you to set multiple attributes at once instead of having to write several lines of code.</li>
+                      <li>When setting multiple styles, the syntax is (“style”, “[insert styles in CSS syntax here”])</li>
+                    </ul>
+                  </li>
+                  <li>Element.textContent changes text content</li>
+                  <li>Element.innerHTML does the same thing</li>
+                </ul>
+              </li>
+              <li>Append:
+                <ul>
+                  <li>document.appendChild(“[new tag]”);
+                    <ul>
+                      <li>This adds a child to the parent</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ul>
+        <br>
+
+        <h3>Object Events</h3>
+        <ul>
+          <li><a href= https://javascript.info/introduction-browser-events>Most useful object events</a></li>
+          <li>There are 3 ways to assign event handlers:
+            <ol>
+              <li>HTML attribute
+                <ul>
+                  <li>Example: onclick="..."</li>
+                  <li>HTML attributes are not often used, because it’s generally best practice to separate your languages (HTML, CSS, JavaScript)</li>
+                </ul>
+              </li>
+              <li>DOM property
+                <ul>
+                  <li>Example: element.onclick = function</li>
+                  <li>DOM properties are ok to use, but the biggest issue with them is that you can’t assign multiple handlers to an event. Trying to do so will overwrite the earlier rule. Therefore, you must put all of your code within one handler.</li>
+                </ul>
+              </li>
+              <li>Methods
+                <ul>
+                  <li>This way is the most flexible, but it is also the longest to write.</li>
+                  <li>Example: element.addEventListener(event, handler, [options]);
+                    <ul>
+                      <li><strong>event</strong> - event name, e.g. "click".</li>
+                      <li><strong>handler</strong> - the function that gets called when the event happens</li>
+                      <li><strong>options</strong> - an additional optional object with properties</li>
+                    </ul>
+                  </li>
+                  <li>Removing elements works the same way, only it’s element.removeEventListener (event, handler, [options]);</li>
+                  <li>You cannot remove anonymous functions. They must be stored in a variable to be removed.</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+          <li>The event object has properties
+            <ul>
+              <li>Example: event.type will tell you the event type (such as “click”)</li>
+            </ul>
+          </li>
+          <li>The setInterval method requires a function and then a time in milliseconds</li>
+          <li>The only way to stop an interval is to store it in a variable so you can declare it later inside a clearInterval();</li>
+          <li>event.stopPropagation(); stops event bubbling from happening</li>
+        </ul>
+        <br>
+
+        <h3>Local & Session Storage</h3>
+        <ul>
+          <li>You can view local and session storage under the application tab in Chrome DevTools</li>
+          <li>Local storage stores data for a longer period of time until you delete the items there, whereas session storage only stores while your browser tab is open</li>
+          <li>The local and session storage are child objects of the window</li>
+          <li>localStorage.setItem([key name], [value]); - create keys and values in local storage</li>
         </ul>
         <br>
 
