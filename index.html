@@ -17,7 +17,7 @@
 
     <nav>
       <ul>
-        <li><a href="website-pages/responsive-web-design.html" target="blank">Responsive Web Design</a></li>
+        <li><a href="website-pages/responsive-web-design.html" target="_blank">Responsive Web Design</a></li>
       </ul>
     </nav>
 
@@ -25,10 +25,10 @@
       <section class="card" id="important-links">
         <h2>Important Links</h2>
         <ul>
-          <li><a href="https://bootcampspot.instructure.com/courses/5048" target="blank">MSU Coding Bootcamp</a></li>
-          <li><a href="https://git.bootcampcontent.com/Michigan-State-University" target="blank">MSU GitLab</a></li>
-          <li><a href="https://github.com/" target="blank">GitHub</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/" target="blank">MDN Web Docs</a></li>
+          <li><a href="https://bootcampspot.instructure.com/courses/5048" target="_blank">MSU Coding Bootcamp</a></li>
+          <li><a href="https://git.bootcampcontent.com/Michigan-State-University" target="_blank">MSU GitLab</a></li>
+          <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/" target="_blank">MDN Web Docs</a></li>
         </ul>
       </section>
 
@@ -73,7 +73,7 @@
               </li>
                 <li>rmdir — remove directory // removes the named directory, but only if it's empty
                 <ul>
-                  <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the rm -r command. <strong>BUT this is dangerous.</strong> -r (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
+                  <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the rm -r command. <strong><span class="caps">but</span> this is dangerous.</strong> -r (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
                 </ul>
               </li>
               <li>rm - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
@@ -91,6 +91,7 @@
               </li>
               <li>-h or --help // will give you more information about a specific command</li>
               <li>curl - download files found at specific URLs</li>
+              <li>curl -v - lets you see https requests and shows you if your connection to a site is working or not</li>
               <li>grep - search for fragments of text inside larger bodies of text</li>
               <li>less, cat - view a file's contents page by page</li>
               <li>awk, tr, sed - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
@@ -221,8 +222,8 @@
 
           <h3>Helpful Links</h3>
             <ul>
-              <li><a href="https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide" target="blank">Professional README Guide</a></li>
-              <li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="blank">Markdown Writing and Formatting Syntax</a></li>
+              <li><a href="https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide" target="_blank">Professional README Guide</a></li>
+              <li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown Writing and Formatting Syntax</a></li>
             </ul>
       </section>
 
@@ -234,7 +235,7 @@
               <li>The head element contains information about the webpage.</li>
               <li>The body element represents the visible content shown to the user.</li>
               <li>&LT;a href="[url]"&GT;[link text]&LT;/a&GT; - adding a link</li>
-              <li>&LT;img src="[url or path]" alt="[image description]"&GT;- adding an image</li>
+              <li>&LT;img src="[url or path]" alt="[image description]"&GT; - adding an image</li>
               <li>&LT;&excl;-- [insert comment] --&GT; - add comments in html file without them showing up on the actual webpage
                 <ul>
                   <li>The shortcut for this is to press command + / to make the current line into a comment.</li>
@@ -269,7 +270,7 @@
                 <li>The input element is used for text fields like names, email addresses, and messages
                   <ul>
                     <li>&LT;label for=“[input id]”&GT;[label text]&LT;/label&GT;</li>
-                    <li>&LT;input id=“[id]'': type=“[text]"" / "[password]” placeholder=“[placeholder]”&GT;</li>
+                    <li>&LT;input id=“[id]" type=“[text]" / "[password]” placeholder=“[placeholder]”&GT;</li>
                   </ul>
                 </li>
                 <li>The select element defines a drop-down list
@@ -285,19 +286,20 @@
                   </ul>
                 </li>
                 <li>The button element defines a clickable button</li>
-                <li>read more about HTML forms <a href="https://www.w3schools.com/html/html_form_elements.asp" target="blank">here</a></li>
+                <li>read more about HTML forms <a href="https://www.w3schools.com/html/html_form_elements.asp" target="_blank">here</a></li>
                 <li>Data Attributes allow us to store extra information on HTML elements
                   <ul>
                     <li>Syntax to create custom data attributes: data-[insert anything here]=“[insert value here]”</li>
                   </ul>
                 </li>
+                <li>The network tab of Chrome Dev Tools will show you if all your https requests are working or not</li>
               </ul>
             <br>
 
           <h3>Helpful Links</h3>
             <ul>
-              <li><a href="https://validator.w3.org/" target="blank">HTML Validator</a></li>
-              <li><a href="https://tools.w3cub.com/html-entities" target="blank">Character Entity Reference Chart</a></li>
+              <li><a href="https://validator.w3.org/" target="_blank">HTML Validator</a></li>
+              <li><a href="https://tools.w3cub.com/html-entities" target="_blank">Character Entity Reference Chart</a></li>
             </ul>
       </section>
    
@@ -434,7 +436,7 @@
                   </li>
                 </ul>
               </li>
-              <li>Here's a fun game to help practice selectors: <a href="https://flukeout.github.io/">CSS Diner</a></li>
+              <li>Here's a fun game to help practice selectors: <a href="https://flukeout.github.io/" target="_blank">CSS Diner</a></li>
             </ul>
             <br>
 
@@ -505,7 +507,7 @@
             <ul>
               <li>Apply transformations with the transform property</li>
               <li>HTML text written in all caps will always be read by screen readers as acronyms. If you want any words to be in all caps, use the "text-transform: uppercase;" declaration.</li>
-              <li>Read more about the transform property <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">here</a></li>
+              <li>Read more about the transform property <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">here</a></li>
             </ul>
             <br>
 
@@ -518,7 +520,7 @@
                       <li>.[element] {
                         <div class="tab">animation: [name] [time] [how long the animation will last];</div>
                         <div class="tab">/* or */</div>
-                        <div class="tab">[<a href="https://css-tricks.com/almanac/properties/a/animation/#aa-sub-properties" target="blank">animation sub-properties</a>];</div>
+                        <div class="tab">[<a href="https://css-tricks.com/almanac/properties/a/animation/#aa-sub-properties" target="_blank">animation sub-properties</a>];</div>
                         }
                       </li>
                     </ul>
@@ -544,14 +546,14 @@
                   <li>For an animation property to work, you <strong>must</strong> define the animation-name and animation-duration.</li>
                 </ul>
               </li>
-              <li><a href="https://thoughtbot.com/blog/css-animation-for-beginners#additional-animation-properties" target="blank">Additional Animation Properties</a></li>
+              <li><a href="https://thoughtbot.com/blog/css-animation-for-beginners#additional-animation-properties" target="_blank">Additional Animation Properties</a></li>
             </ul>
             <br>
 
           <h3>Helpful Links</h3>
             <ul>
-              <li><a href="https://jigsaw.w3.org/css-validator/" target="blank">CSS Validator</a></li>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="blank">CSS Reference</a></li>
+              <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validator</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">CSS Reference</a></li>
             </ul>
       </section>
    
@@ -617,13 +619,13 @@
             <ul>
               <li>The only special characters allowed are _ and $. Hyphens or anything else are not allowed</li>
               <li>The variable cannot start with a number</li>
-              <li>It can not be a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words">reserved word</a></li>
+              <li>It can not be a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words" target="_blank">reserved word</a></li>
             </ul>
           </li>
           <li>To declare a constant (unchanging) variable, use const instead of var or let. Variables declared using const are called “constants” and cannot be reassigned. An attempt to do so would cause an error.</li>
           <li>When you have a variable that is hard to remember (like hex codes), it is standard practice to define them as constants in all caps with underscores.
             <ul>
-              <li>Example: const COLOR_RED = "#F00";</li>
+              <li>Example: const <span class="caps">color_red</span> = "#F00";</li>
             </ul>
           </li>
           <li>For strings, if you need to use a “ or ' within it, put a backslash before it so it doesn't close your string
@@ -642,7 +644,7 @@
 
         <h3>Operators</h3>
         <ul>
-          <li><a href="https://www.w3schools.com/js/js_operators.asp">JavaScript Operators</a></li>
+          <li><a href="https://www.w3schools.com/js/js_operators.asp" target="_blank">JavaScript Operators</a></li>
           <li>The Assignment Operator (=) assigns a value to a variable
             <ul>
               <li>Example let x = 3; // now x has the value of 3</li>
@@ -675,6 +677,11 @@
             <ul>
               <li>Example: let myVar = 4<br>
                   typeof myVar // “number”</li>
+            </ul>
+          </li>
+          <li>"?." is an optional chaining operator
+            <ul>
+              <li>If you’re trying to access a property within an object and it’s not there, you’ll get an error. Using the ?. Operator will ensure that you get an “undefined” reading instead of getting an error.</li>
             </ul>
           </li>
         </ul>
@@ -723,7 +730,7 @@
               </li>
             </ul>
           </li>
-          <li>Function EXPRESSIONS start with a var and are stored as values. This means they can then be called inside of other functions.
+          <li>Function <span class="caps">expressions</span> start with a var and are stored as values. This means they can then be called inside of other functions.
             <ul>
               <li>Example: var myFunction = function(x,y) {
                   <div class="tab">// function code</div>
@@ -731,7 +738,7 @@
               </li>
             </ul>
           </li>
-          <li>Function DECLARATIONS on the other hand do not start with a var can cannot then be called inside of other functions.
+          <li>Function <span class="caps">declarations</span> on the other hand do not start with a var can cannot then be called inside of other functions.
             <ul>
               <li>function myFunction2(x,y) {
                   <div class="tab">// function code</div>
@@ -873,7 +880,7 @@
 
         <h3>Object Events</h3>
         <ul>
-          <li><a href= https://javascript.info/introduction-browser-events>Most useful object events</a></li>
+          <li><a href= https://javascript.info/introduction-browser-events target="_blank">Most useful object events</a></li>
           <li>There are 3 ways to assign event handlers:
             <ol>
               <li>HTML attribute
@@ -936,18 +943,54 @@
             </ul>
           </li>
           <li>Many frameworks are available through content delivery networks, meaning there are several servers hosted throughout the world, and developers are able to use a link and the nearest server will supply their script src.</li>
-          <li>A newer, more popular framework is <a href="https://react.dev">React</a></li>
+          <li>A newer, more popular framework is <a href="https://react.dev" target="_blank">React</a></li>
           <li>In jQuery, the curly brackets are used to select values
             <ul>
               <li>Example: ${name}</li>
             </ul>
           </li>
+          <li>Anytime you’re using jQuery, you should put your jQuery code (any dollar signs) in a function like this to ensure that the code only runs after the page is fully loaded:<br>
+            $(function() {
+              <div class="tab">// write your code here</div>
+            } );
+          </li>
+          <li>Linking any framework will be different, but just refer to the documentation and you will be able to figure it out.
+            <ul>
+              <li>For example, jQuery UI requires a &LT;link&GT; tag and a couple &LT;script&GT; tags.</li>
+            </ul>
+          </li>
+        </ul>
+        <br>
+
+        <h3>APIs</h3>
+        <ul>
+          <li>Syntax for fetching APIs:<br>
+            fetch([api])
+              <div class="tab">.then(function (response) {</div>
+                <div class="tabx2">return response.json();</div>
+              <div class="tab">})</div>
+              <div class="tab">.then(function (data) {</div>
+                <div class="tabx2">// write code here</div>
+              <div class="tab">});</div>
+          </li>
+          <li>Most JavaScript code is synchronous, meaning it runs exactly when it is called. However, some things, like https requests, are asynchronous. Since JavaScript can only run one line of code at a time, to ensure that our code is not frozen while we’re waiting for a response, the code will return a “Promise object.”</li>
+          <li>A Promise is an object representing the eventual completion or error of an operation.</li>
+          <li>Returning a promise object does 2 important things:
+            <ol>
+              <li>t automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a chance to continue execution.</li>
+              <li>t gives us access to two methods: .then() and .catch().</li>
+            </ol>
+          </li>
+          <li>If the fetch is successful, the Promise object is considered resolved, and the .then() block will execute.</li>
+          <li>The response object returns a lot of extra information that we don’t necessarily need. Typically, all we want in this scenario is a JSON object which we can get by calling response.json()</li>
+          <li>Converting the body to a JSON data structure with response.json() actually returns another promise, because converting the data to a particular type can take significant time.</li>
         </ul>
         <br>
 
         <h3>Helpful links</h3>
         <ul>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a></li>
+          <li><a href="caniuse.com" target="_blank">Can I Use?</a></li>
         </ul>
       </section>
     </main>

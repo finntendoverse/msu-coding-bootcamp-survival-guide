@@ -117,3 +117,7 @@ p {
 .star-li::before {
     content: "⭐ ";
 }
+
+.caps {
+    text-transform: uppercase;
+}
