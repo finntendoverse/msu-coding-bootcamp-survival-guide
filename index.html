@@ -44,6 +44,7 @@
             <li>Option + click selects multiple areas to start typing</li>
             <li>Option+Z toggles text wrap in VS Code</li>
             <li>Right click > rename symbol lets you change the name of something everywhere in your document</li>
+            <li>VS Code contains code templates that can be used. For example, if you type “for”, you can click on “forof” and VS Code will give you a template to fill in.</li>
           </ul>
         </section>
 
@@ -1159,7 +1160,309 @@
       </div>
 
       <div id="back-end-section">
+        <section class="card" id="javascript-section-2">
+          <h2>JavaScript</h2>
+          <h3>Arrow Functions</h3>
+          <ul>
+            <li>Arrow functions bind “this” automatically so we don't have to do .bind(this)</li>
+            <li>Never use arrow functions when creating objects</li>
+            <li>Pretty much always use arrow functions when using event listeners & setTimeouts</li>
+            <li>Syntax (all the following are the same function):
+              <ul>
+                <li>var createGreeting = function(message, name) {
+                  <div class="tab">return `${message}, ${name}!`;</div>
+                  <div class="tab">this;</div>
+                  };
+                </li>
+                <li>var createGreeting = (message, name) => {
+                  <div class="tab">return `${message}, ${name}!`;</div>
+                  };
+                </li>
+                <li>var createGreeting = (message, name) => ${message}, ${name}!`; // implicit return</li>
+              </ul>
+            </li>
+          </ul>
+          <br>
 
+          <h3>let & const</h3>
+          <ul>
+            <li>You can use const to reference arrays and then add or remove items to the array, because the const applies to the array itself, not what's in it.</li>
+            <li>You pretty much only need to use const when creating arrays or creating objects</li>
+            <li>An important thing to note is that because of shadow scoping, you can have a variable set as a “const” within a function but then change it within another code block.</li>
+          </ul>
+          <br>
+
+          <h3>for...of loops</h3>
+          <ul>
+            <li>for...of loops are used to iterate over iterable objects like arrays.
+              <ul>
+                <li>Example: const fruits = ['apple', 'banana', 'orange'];<br>
+                  for (const fruit of fruits) {
+                  <div class="tab">console.log(fruit);</div>
+                  }
+                </li>
+              </ul>
+            </li>
+            <li>When you have an array of arrays, you can use the for...of loop to more easily access items in the array
+              <ul>
+                <li>Example: const billboardChart = {
+                  <div class="tab">[“bad Idea right?”, “Olivia Rodrigo”, 1],</div>
+                  <div class="tab">[“What Was I Made For?”, “Billie Eilish”, 2]</div>
+                  <div class="tab">[“Hummingbird”, “Metro Boomin”, 3]</div>
+                }<br>
+                for (const song of billboardChart) {
+                  <div class="tab">console.log(`${song[0]} by ${song[1]} is number ${song[2]} on the charts!);</div>
+                  }
+                </li>
+              </ul>
+            </li>
+            <li>A recursive function is one that calls itself. If you need to access values deep within an array, use printRecursive() with a for...of loop.</li>
+            <li>Example: function printRecursive(array) {
+              <div class="tab">for (const iterator of array) {</div>
+                <div class="tabx2">if (Array.isArray(iterator)) {</div>
+                  <div class="tabx3">printRecursive(iterator)</div>
+                <div class="tabx2">};</div>
+              <div class="tab">};</div>
+              };
+            </li>
+          </ul>
+          <br>
+
+          <h3>Rest and spread operators</h3>
+          <ul>
+            <li>Rest and spread operators are designated by 3 dots “...”</li>
+            <li>When you use the 3 dots inside of a function expression or declaration, it is the <strong>rest</strong> operator.</li>
+            <li>When you use the rest operator, it means you can pass any number of parameters into the function and they will all be executed
+              <ul>
+                <li>Example: function add(...numbers) {
+                  <div class="tab">// code</div>
+                  };<br>
+                  add(1, 10, 5) // returns 16<br>
+                  add(3, 6) // returns 9<br>
+                  add(10, 10, 15, 4) // returns 39
+                </li>
+              </ul>
+            </li>
+            <li>When you use the 3 dots outside of a function expression or declaration, it is the <strong>spread</strong> operator.</li>
+            <li>When you use the spread operator, it means that you're copying all the values of an array into another array
+              <ul>
+                <li>Example: const music = [“Life is Strange”, “PUP”, “Olivia Rodrigo”];<br>
+                  const thingsILove = [“Video games”, “my friends”, ...music];<br>
+                  console.log(thingsILove); // returns [“Video games”, “my friends”, “Life is Strange”, “PUP”, “Olivia Rodrigo”]
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Object Destructuring</h3>
+          <ul>
+            <li>Object destructuring allows you to extract multiple properties from an object and assign them to variables
+              <ul>
+                <li>Example: const person = {
+                  <div class="tab">firstName: 'Max',</div>
+                  <div class="tab">lastName: 'Caulfield',</div>
+                  <div class="tab">age: 18</div>
+                };<br>
+                const { firstName, lastName, age } = person;<br>
+                console.log(firstName); // Output: Max<br>
+                console.log(lastName); // Output: Caulfield<br>
+                console.log(age); // Output: 18
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Constructors</h3>
+          <ul>
+            <li>Constructor functions work as a blueprint to allow you to create multiple objects without having to rewrite the code each time.</li>
+            <li>Always capitalize the first letter of your constructor as a convention.</li>
+            <li>There are 2 ways to create constructors:
+              <ul>
+                <li>Functions
+                  <ul>
+                    <li>function Dog(name, age, breed) {
+                      <div class="tab">this.name = name,</div>
+                      <div class="tab">this.age = age,</div>
+                      <div class="tab">this.breed = breed,</div>
+                      <div class="tab">this.nap = function() {</div>
+                        <div class="tabx2">console.log(`${this.name}: Zzzzzzz`);</div>
+                      <div class="tab">};</div>
+                      };
+                    </li>
+                    <li>Then, to create a new “Dog”: const rexDog = new Dog(“Rex”, 2, “Bulldog”);</li>
+                    <li>Then, to access methods or properties within your new “Dog”: rexDog.nap();</li>
+                    <li>You can also use the prototype to create new properties after the constructor has already been created
+                      <ul>
+                        <li>Example: Dog.prototype.wag = function () { //enter code here };</li>
+                      </ul>
+                    </li>
+                    <li>When using this method, if you want to inherit properties from another constructor function, you would use the .call method,
+                      <ul>
+                        <li>Syntax: [parent class].call(this, [properties you want to inherit])</li>
+                        <li>Example: Animal.call(this, name, age, breed)</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>Classes
+                  <ul>
+                    <li>Class Cat {
+                      <div class="tab">constructor(name, age, breed) {</div>
+                        <div class="tabx2">this.name = name,</div>
+                        <div class="tabx2">this.age = age,</div>
+                        <div class="tabx2">this.breed = breed,</div>
+                      <div class="tab">}</div>
+                      <div class="tab">nap() {</div>
+                        <div class="tabx2">console.log(`${this.name}: Zzzzzzz`);</div>
+                      <div class="tab">}</div>
+                    };
+                    </li>
+                    <li>Then, to create a new “Cat”: const tomCat = new Cat(“Tom”, 4, “Shorthair”);</li>
+                    <li>Then, to access methods or properties within your new “Cat”: tomCat.nap();</li>
+                    <li>Syntax to inherit parent properties in class constructors:
+                      <div class="tab">Class [className] extends [parentClassName] {</div>
+                        <div class="tabx2">super([inheritedValues]);</div>
+                      <div class="tab">};</div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Helpful Links</h3>
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=h33Srr5J9nY" target="_blank">Arrow Functions Explained</a></li>
+          </ul>
+        </section>
+
+        <section class="card" id="node.js-section">
+          <h2>node.js</h2>
+          <h3>node.js notes</h3>
+          <ul>
+            <li>Node.js allows us to run JavaScript on the command line, which means we can use it to create back-end servers, command-line tools, desktop apps, and plenty of other things.</li>
+            <li>To run node, enter  enter node [filename] [additional info if needed] in the command line.</li>
+          </ul>
+          <br>
+
+          <h3>Process.argv</h3>
+          <ul>
+            <li>Process.argv returns an array of each command passed into the command line
+              <ul>
+                <li>numbers 0 and 1 in the array will always be the node application being used and the file path to the executed file</li>
+                <li>anything typed after the file name in the command line will be entered as the next item in the array, and each space will separate items in the array
+                  <ul>
+                    <li>(Unless you want to escape the space key, which can be done with a backslash)
+                      <ul>
+                        <li>Example: hello\ world</li>
+                      </ul>
+                    </li>
+                    <li>(or, you can just put it into a string)
+                      <ul>
+                        <li>Example: 'hello world'</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>The array is recreated every time the file is run, so your first word typed after node [filename] will always be process.argv[2]</li>
+                <li>Process.argv will return everything as a string, meaning that numbers and boolean values (true, false) will not be returned as we expect them to be. This means they require additional manipulation if we need other values
+                  <ul>
+                    <li>Example: if (process.argv[2] === 'true') { console.log('it was true') } // will let you check if it is true or not by seeing if it matches the string</li>
+                    <li>parseInt() or parseFloat() can be used to change a number in a string back into a number.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>node modules</h3>
+          <ul>
+            <li>require([module]) is the common JS syntax for using node.js modules. This syntax is becoming deprecated, though, in favor of ESM syntax.</li>
+            <li>Let fs = require('fs') utilizes the file system module and stores it in an object
+              <ul>
+                <li>.readFile, .writeFile, and .appendFile can now be used to read/write/append files</li>
+                <li>readFile syntax: fs.readFile([path to filename], [encoding data type], [callback function]);</li>
+                <li>The encoding data type will pretty much always be “utf8”</li>
+                <li>Example: fs.readFile(data.csv, 'utf8', function(error, data) {
+                  <div class="tab">if (error) {</div>
+                    <div class="tabx2">console.error(error)</div>
+                  <div class="tab">} else {</div>
+                    <div class="tabx2"> console.log(data)</div>
+                  <div class="tab">}</div>
+                  });
+                </li>
+                <li>Example with a more concise syntax: fs.readFile('data.csv', 'utf8', (error, data) => {
+                  <div class="tab">error ? console.error(error) : console.log(data);</div>
+                  });
+                </li>
+                <li>writeFile syntax: fs.writeFile([path to filename], [what you want to be written to the file], [callback function]);</li>
+                <li>Example: fs.writeFile(log.txt, process.argv[2], function(err) {
+                  <div class="tab">if (err) {</div>
+                    <div class="tabx2">console.error(err)</div>
+                  <div class="tab">} else {</div>
+                    <div class="tabx2">console.log('Success!')</div>
+                  <div class="tab">}</div>
+                  });
+                </li>
+                <li>Example with a more concise syntax: fs.writeFile('log.txt', process.argv[2], (err) => {
+                  <div class="tab">err ? console.error(err) : console.log('Success!');</div>
+                  });
+                </li>
+                <li>appendFile syntax: fs.appendFile([path to filename], [what you want to be appended to the file], [callback function]);</li>
+                <li>Example: fs.appendFile('log.txt', `${process.argv[2]}\n`, function(error) {
+                  <div class="tab">if (error) {</div>
+                    <div class="tabx2">console.error(err)</div>
+                  <div class="tab">} else {</div>
+                    <div class="tabx2">console.log('Commit logged!')</div>
+                  <div class="tab">}</div>
+                  });
+                </li>
+                <li>Example with a more concise syntax: fs.appendFile('log.txt', `${process.argv[2]}\n`, (err) => {
+                  <div class="tab">err ? console.error(err) : console.log('Commit logged!');</div>
+                  });
+                </li>
+                <li>All of the above concise syntax examples include arrow functions and ternary operators
+                  <ul>
+                    <li>Arrow function syntax: () =></li>
+                    <li>Ternary operator syntax: condition ? expressionIfTrue : expressionIfFalse;</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>If you want to require another file in your code, you can use require([insert path to file])
+              <ul>
+                <li>Within the required file, anything that we want to be accessible within the other file must be contained within a module.exports = { } object</li>
+                <li>After you require() a file, you can access those exported properties like so: [variable].[property]</li>
+                <li>const should be used for defining variables we're pulling from another file, since we probably will not want to overwrite that.</li>
+              </ul>
+            </li>
+            <li>npm init should be passed into the terminal to get a package.json file into your repository</li>
+            <li>npm install [package] [optional: @[version number]] should be passed into the terminal to install a node package.
+              <ul>
+                <li>Example: npm install inquirer@8.2.4</li>
+              </ul>
+            </li>
+            <li>Installing a package creates a package-lock.json file and a node_modules folder.
+              <ul>
+                <li>The package-lock.json file should be committed to your GitHub repository, but your node_modules folder should not.</li>
+              </ul>
+            </li>
+            <li>View available packages <a href="https://www.npmjs.com/" target="_blank">here</a></li>
+            <li>Async/await syntax: async function() { 
+              <div class="tab">const [name] = await [package].[method]</div>
+              }
+            </li>
+          </ul>
+
+          <h3>Helpful Links</h3>
+          <ul>
+            <li><a href="https://nodejs.org/docs/latest/api/" target="_blank">node.js documentation</a></li>
+          </ul>
+        </section>
       </div>
     </main>
     <script src="./assets/js/script.js"></script>
