@@ -1300,8 +1300,14 @@
                     </li>
                     <li>When using this method, if you want to inherit properties from another constructor function, you would use the .call method,
                       <ul>
-                        <li>Syntax: [parent class].call(this, [properties you want to inherit])</li>
-                        <li>Example: Animal.call(this, name, age, breed)</li>
+                        <li>Syntax: function [functionName]([function parameters]) {
+                          <div class="tab">[parent class].call(this, [properties you want to inherit])</div>
+                          }
+                          </li>
+                        <li>Example: function Dog(name, age, breed, puppues) {
+                          <div class="tab">Animal.call(this, name, age, breed)</div>
+                          }
+                          </li>
                       </ul>
                     </li>
                   </ul>
@@ -1321,11 +1327,14 @@
                     </li>
                     <li>Then, to create a new “Cat”: const tomCat = new Cat(“Tom”, 4, “Shorthair”);</li>
                     <li>Then, to access methods or properties within your new “Cat”: tomCat.nap();</li>
-                    <li>Syntax to inherit parent properties in class constructors:
-                      <div class="tab">Class [className] extends [parentClassName] {</div>
-                        <div class="tabx2">super([inheritedValues]);</div>
-                      <div class="tab">};</div>
+                    <li>Syntax to inherit parent properties in class constructors:<br>
+                      class [className] extends [parentClassName] {
+                        <div class="tab">constructor([parameters]) {</div>
+                          <div class="tabx2">super([inheritedValues]);</div>
+                        <div class="tab">};</div>
+                      };
                     </li>
+                    <li>You can then overwrite properties or methods just by changing them within the object.</li>
                   </ul>
                 </li>
               </ul>
@@ -1441,6 +1450,7 @@
               </ul>
             </li>
             <li>npm init should be passed into the terminal to get a package.json file into your repository</li>
+            <li>If the package.json file is already there, you don't need to initialize. Just pass npm i in the terminal to install the dependencies/devDependencies noted in the package.json file.</li>
             <li>npm install [package] [optional: @[version number]] should be passed into the terminal to install a node package.
               <ul>
                 <li>Example: npm install inquirer@8.2.4</li>
@@ -1451,12 +1461,83 @@
                 <li>The package-lock.json file should be committed to your GitHub repository, but your node_modules folder should not.</li>
               </ul>
             </li>
+            <li>In your package.json file, there will be a lot of information
+              <ul>
+                <li>dependencies are the packages you used within your program (like Inquirer)</li>
+                <li>devDependencies are the developer packages that the users don’t interact with (like Jest)
+                  <ul>
+                    <li>to install packages as devDependencies, pass npm i --save-dev [package] into the terminal</li>
+                  </ul>
+                </li>
+                <li>scripts are sequences of instructions that are interpreted or carried out by another program
+                  <ul>
+                    <li>To run a script, pass npm run [script] in terminal</li>
+                    <li>Anything you do in your terminal, you can create as a script
+                      <ul>
+                        <li>Example: “makeFile”: “mkdir folder && cd folder && touch index.html”</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>All of these are key value pairs
+                  <ul>
+                    <li>“scripts”: {
+                      <div class="tab">“test”: “jest”</div>
+                    },<br>
+                    “dependencies”: {
+                      <div class="tab">“inquirer”: “^8.2.4”</div>
+                    },<br>
+                    “devDependencies”: {
+                      <div class="tab">“jest”: “^24.9.0”</div>
+                    }
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
             <li>View available packages <a href="https://www.npmjs.com/" target="_blank">here</a></li>
             <li>Async/await syntax: async function() { 
               <div class="tab">const [name] = await [package].[method]</div>
               }
             </li>
           </ul>
+          <br>
+
+          <h3>Jest</h3>
+          <ul>
+            <li>Jest is a framework for creating tests.</li>
+            <li>Tests are useful to make sure your code works without having to click around in your website to see if everything is working or not</li>
+            <li>You should create a positive AND negative test for each scenario
+              <ul>
+                <li>positive tests are when the behavior goes as expected</li>
+                <li>negative tests are when the behavior is unexpected (errors, undefined values, etc)</li>
+              </ul>
+            </li>
+            <li>Jest automatically looks for files named [fileName].test.js</li>
+            <li>When you want to test something in your file, you need to module export it so you can import it into your test file.</li>
+            <li>There are 3 main components of jest syntax:
+              <ul>
+                <li>describe: the function you are testing</li>
+                <li>it: the test being executed</li>
+                <li>expect: what the behavior of the test should be</li>
+              </ul>
+            </li>
+            <li>Syntax: describe(“[the function you are testing], () => {
+              <div class="tab">it(“[should ...]”, () => {</div>
+                <div class="tabx2">expect([defined value]).[comparison to the expected value];</div>
+              <div class="tab">});</div>
+            });
+            </li>
+            <li>Example: describe(“modulus function”, () => {
+              <div class="tab">it(“should take 2 numbers, divide them, and return the remainder”, () => {</div>
+                <div class="tabx2">const modulus = new Modulus();</div>
+                <div class="tabx2">expect(modulus(2, 2)).toEqual(0);</div>
+              <div class="tab">});</div>
+            });
+            </li>
+            <li>Read the <a href="https://jestjs.io/docs/getting-started" target="_blank">Jest documentation</a> to learn all about the different comparisons you can make (but make sure you're looking at the right version).</li>
+          </ul>
+          <br>
 
           <h3>Helpful Links</h3>
           <ul>
