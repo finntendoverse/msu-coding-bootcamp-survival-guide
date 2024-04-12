@@ -193,6 +193,7 @@
           <ul class="star-ul">
             <li class="star-li">Never edit files directly in GitHub!</li>
             <li class="star-li">You should <span class="caps">never</span> commit secrets to your gitHub repo</li>
+            <li class="star-li">Usually when you see a “dist” folder when coding, it is not meant to be distributed to the public. It is meant to be packaged into a .zip file and shouldn't be committed to the repo.</li>
           </ul>
           <ol>
             <li>Make sure you're in the correct folder. If there isn't already a repository set up, enter: git init</li>
@@ -1125,10 +1126,14 @@
                 <li>It gives us access to two methods: .then() and .catch().</li>
               </ol>
             </li>
+            <li>Every time an asynchronous function is run, it <strong>must</strong> be followed by a .then();</li>
             <li>If the fetch is successful, the Promise object is considered resolved, and the .then() block will execute.</li>
+            <li>You should never nest .then() statements within other .then() statements, because the code will be very difficult to read and refactor into functions.</li>
+            <li>When you get to the end of your .then() block, you should always return your last line of code before going into your next .then() statement.</li>
             <li>The response object returns a lot of extra information that we don't necessarily need. Typically, all we want in this scenario is a JSON object which we can get by calling response.json()</li>
             <li>Converting the body to a JSON data structure with response.json() actually returns another promise, because converting the data to a particular type can take significant time.</li>
             <li>The .catch() method should be used to handle any errors that may occur during the fetch request</li>
+            <li>When you have multiple .thens() and you add a .catch() onto the end, it will trigger if any of the prior .thens() fail. You do not need to have a .catch() after each .then().</li>
             <li>You can also use an if statement inside of the function to have different code run depending on the response status
               <ul>
                 <li>For example, you could redirect users to a different page within an if statement using the document.location.replace() method.
@@ -1145,6 +1150,13 @@
                   </ul>
                 </li>
               </ul>
+            </li>
+            <li>"catch" is used within try...catch code blocks as well. Try...catch syntax lets you recover if a part of your function doesn't execute correctly</li>
+            <li>Example: try {
+              <div class="tab">// function code</div>
+              } catch {
+              <div class="tab">// code that will run if your function above fails</div>
+              }
             </li>
             <li>There are different fetch options, such as “GET” and “POST”</li>
             <li>In URLs, anything after the ? are called parameters. Parameters narrow your search to fit specific criteria, and you can group several parameters together with an &.</li>
@@ -1513,6 +1525,7 @@
                 <li>negative tests are when the behavior is unexpected (errors, undefined values, etc)</li>
               </ul>
             </li>
+            <li>When you have exceptions in your code--for example, if every string is valid except for empty ones, then you will want to test to confirm that your exception is working as it should</li>
             <li>Jest automatically looks for files named [fileName].test.js</li>
             <li>When you want to test something in your file, you need to module export it so you can import it into your test file.</li>
             <li>There are 3 main components of jest syntax:
@@ -1522,6 +1535,7 @@
                 <li>expect: what the behavior of the test should be</li>
               </ul>
             </li>
+            <li>“describe” is just a label that blocks lines of code together. The outermost “describe” is your test suite, and you can have describes inside it to create different tests for one function.</li>
             <li>Syntax: describe(“[the function you are testing], () => {
               <div class="tab">it(“[should ...]”, () => {</div>
                 <div class="tabx2">expect([defined value]).[comparison to the expected value];</div>
