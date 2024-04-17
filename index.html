@@ -1553,9 +1553,157 @@
           </ul>
           <br>
 
+          <h3>Express.js</h3>
+          <ul class="star-ul">
+            <li class="star-li">Whenever you're running a server and you change the code, you must stop and restart the server to see those changes. The shortcut for this on Mac is control + c</li>
+            <li class="star-li">When using the POST method in Insomnia, you need to put everything in double quotes. Single quotes will not work.</li>
+          </ul>
+          <ul>
+            <li>Express.js is a framework that allows you to write APIs, handle HTTP requests, and implement middleware in your server-side application.</li>
+            <li>Express.js connects the front end and back end because we can use the fetch API (in the front end) to make requests to the server (the back end).</li>
+            <li>Routes allow us to create, read, update, and delete data (CRUD).</li>
+            <li>A route is a path (URL) + the HTTP request method</li>
+            <li>These are the different HTTP methods we can use:
+              <ul>
+                <li>Get: retrieves a resource from the server</li>
+                <li>Post: submits data to the specified resource, often causing a change on the server</li>
+                <li>Delete: deletes a specified resource</li>
+                <li>Put/patch: updates a specified resource with a payload</li>
+              </ul>
+            </li>
+            <li>You can not use app.get() more than 1 time on any given path, however, you can use different methods on the same path.</li>
+            <li>We use insomnia to test our Express.js apps because the browser is only capable of letting us view our get requests, not our post or other requests.</li>
+            <li>HTTP is a stateless connection (it doesn't know who you are). We need REST, or representational state transfer, to build state into our HTTP requests.</li>
+            <li>When using Express.js, there are a few things you need to do on the server side.
+              <ol>
+                <li>Require Express.js</li>
+                <li>Require any other modules you would like to use, such as the node:path module</li>
+                <li>Create the app</li>
+                <li>Set up any middleware you want to use</li>
+                <li>Create and define paths</li>
+                <li>Add an app.listen() to notify the user where their server is running</li>
+              </ol>
+            </li>
+            <li>In practice, it looks like this:<br>
+                const express = require('express');<br>
+                const path = require('path');<br>
+                const app = express();<br>
+                app.use(express.json());<br>
+                app.get('[path]'', (req, res) => {
+                  <div class="tab">return res.send([what to send]) / res.json([what to send])</div>
+                });<br>
+                const PORT = process.env.PORT || 3001;<br>
+                app.listen(PORT, () => {
+                  <div class="tab">console.log(`your app is running at https://localhost:${PORT}`);</div>
+                });
+            </li>
+            <li>The path module provides utilities for working with file and directory paths</li>
+            <li>path.join() allows you to create paths in a way that will work both for Mac and PC.
+              <ul>
+                <li>You can specify as many path segments as you like.</li>
+                <li>The specified path segments must be strings, separated by comma.</li>
+                <li>Example res.sendFile(path.join('Documents', 'Coding', 'msu-coding-bootcamp', sendFile.html))</li>
+              </ul>
+            </li>
+            <li>res.send() sends text or html</li>
+            <li>res.json() sends json</li>
+            <li>res.sendFile() sends a file</li>
+            <li>When you have a /api path, usually the responses you get from it should all just be JSON. Otherwise, most of the responses will be HTML.</li>
+            <li>When creating paths, the : is used to create route parameters
+              <ul>
+                <li>Example: ./api/terms/:term</li>
+                <li>Then, you use the “params” method to access each term like so: req.params.term</li>
+                <li>the text after the : and the params. must match.</li>
+                <li>Then, you can use a for loop to make paths for each “term”
+                  <ul>
+                    <li>const requestedTerm = req.params.term.toLowerCase()<br>
+                        for (i = 0; i < [array].length; i++) {
+                          <div class="tab">if (requestedTerm === [array[i]].toLowerCase()) {</div>
+                            <div class="tabx2">return res.json([array[i]].);</div>
+                          <div class="tab">}</div>
+                        };<br>
+                        return res.send(“no match found”);
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>You always want to do returns to make sure that the function stops running. If you don't “return” the line of code you're looking for, it will end up running the code outside of the block in the example above.</li>
+            <li>When creating paths, the ? Is used to create query parameters
+              <ul>
+                <li>Example: ./api/terms?sort=asc</li>
+                <li>Then, you can use req.query to access the queries.</li>
+                <li>We use query parameters during GET requests.</li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Middleware</h3>
+          <ul>
+            <li>Express.js is popular because of how easy it is to use middlewares with it.</li>
+            <li>Middleware processes data in between a request and a response. Because of this, you always need to have your middlewares come before your routes.</li>
+            <li>You need middlewares for Insomnia to be able to read your POST requests. app.use(express.json()); will let it read json that you write into the body, and app.use(express.urlencoded({ extended: true })); will let it read URL encoded forms.</li>
+            <li>app.use(express.static()) allows you to change the file reference location into a different folder and automatically create routes for everything inside of it.
+              <ul>
+                <li>For example, the following code will change the file reference location from the location of the 'index' file to a assets folder:<br>
+                    app.use(express.static('assets'));
+                </li>
+              </ul>
+            </li>
+            <li>Middleware gets 3 values passed into it: req, res, and next. Then, at the end of your middleware, you should do next() to designate that the next middleware will be run.
+              <ul>
+                <li>Example: const middleware = (req, res, next) => {
+                  <div class="tab">// everything you need your middleware to do</div>
+                  };
+                </li>
+              </ul>
+            </li>
+            <li>The express router is also middleware.</li>
+          </ul>
+          <br>
+
+          <h3>Modular Routing</h3>
+          <ul>
+            <li>When you're doing modular routing, you need to require the express.js router method and export that router.
+              <ul>
+                <li>const router = require('express').Router();<br>
+                    module.exports = router
+                </li>
+              </ul>
+            </li>
+            <li>As you diverge into different modular routes, the need for long paths disappear. The path becomes relative to the file that you are in.
+              <ul>
+                <li>Example: index -> api -> feedback<br><br>
+                  in Index file:<br>
+                  const api = require([path to api file])<br>
+                  app.use('/api', api);<br><br>
+                  in api file:<br>
+                  const feedback = require([path to feedback])<br>
+                  app.use('/feedback', feedback);
+                </li>
+                <li>The path to feedback is server.js/api/feedback</li>
+              </ul>
+            </li>
+            <li>Then, when you are within each of those files, you won't use the entire path for the http request methods (such as app.get). You will just use '/''.
+              <ul>
+                <li>Example: const feedbackRouter = require('express').Router();<br>
+                  feedbackRouter.get('/'', (req, res) => {
+                    <div class="tab">// code goes here</div>
+                  });<br>
+                  module.exports = feedbackRouter
+                </li>
+                <li>In each path, you should define the path with the http request methods (app.get, app.post, etc.) and define any further routes using app.use.</li>
+                <li>Since you're module exporting the router in each path, you don't need to include the router in your root server.js file.</li>
+                <li>When you’re creating a webpage with modular routing in mind, you should define your routes before starting the project, and then work backwards from the routes to the server.</li>
+              </ul>
+            </li>
+          </ul>
+
           <h3>Helpful Links</h3>
           <ul>
             <li><a href="https://nodejs.org/docs/latest/api/" target="_blank">node.js documentation</a></li>
+            <li><a href="https://blog.hubspot.com/marketing/parts-url" target="_blank">Parts of a URL</a></li>
           </ul>
         </section>
       </div>
