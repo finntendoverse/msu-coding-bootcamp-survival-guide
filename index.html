@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="Stylesheet" href="./assets/css/style.css">
     <title>MSU Coding Bootcamp Survival Guide</title>
   </head>
@@ -52,7 +55,7 @@
           <h2>Terminal</h2>
           <h3>Terminal Notes</h3>
           <ul>
-            <li>press tab to autocomplete names that you know are present</li>
+            <li>Tab to autocomplete names that you know are present</li>
             <li>When navigating in Terminal, a leading slash on your path makes the path absolute, whereas omitting it makes the path relative to your present working directory. A leading slash means "at the root of the website", whereas omitting the slash means "the URL is relative to my current page".</li>
             <li>Most terminal commands have options — these are modifiers that you add onto the end of a command, which make it behave in a slightly different way.</li>
             <li>To find out exactly what options each command has available, you can look at its man page. This is done by typing the man command, followed by the name of the command you want to look up, for example man ls. Press q to quit when you're done.</li>
@@ -632,7 +635,7 @@
   
           <h3>Flexbox</h3>
           <ul class="star-ul">
-              <li class="star-li">Always mess with flex box in Chrome Dev Tools!</li>
+              <li class="star-li">Always mess with flexbox in Chrome Dev Tools!</li>
           </ul>
           <ul>
             <li>The main use of flexbox is to create responsive webpages without having to use floats.</li>
@@ -1617,7 +1620,7 @@
                 <li>Then, you can use a for loop to make paths for each “term”
                   <ul>
                     <li>const requestedTerm = req.params.term.toLowerCase()<br>
-                        for (i = 0; i < [array].length; i++) {
+                        for (i = 0; i &lt; [array].length; i++) {
                           <div class="tab">if (requestedTerm === [array[i]].toLowerCase()) {</div>
                             <div class="tabx2">return res.json([array[i]].);</div>
                           <div class="tab">}</div>

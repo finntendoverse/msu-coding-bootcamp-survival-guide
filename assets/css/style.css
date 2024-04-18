@@ -4,9 +4,24 @@
     --lightgreen: rgb(0, 130, 8);
 }
 
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 * {
     margin: 0;
     padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+li {
+    font-family: "Roboto";
+    line-height: 1.25em;
 }
 
 header {
@@ -97,6 +112,11 @@ h3 {
     height: auto;
 }
 
+a:link,
+a:visited {
+    color: var(--lightgreen);
+}
+
 .tab {
     margin-left: 40px;
 }
@@ -111,11 +131,11 @@ h3 {
 
 .star-ul {
     list-style-type: none;
-    padding-left: 20px;
 }
 
 .star-li::before {
     content: "⭐ ";
+    margin-left: -22px;
 }
 
 .caps {
