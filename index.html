@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="./assets/css/prism.css" rel="stylesheet">
     <link rel="Stylesheet" href="./assets/css/style.css">
     <title>MSU Coding Bootcamp Survival Guide</title>
   </head>
@@ -1183,18 +1184,18 @@
             <li>Never use arrow functions when creating objects</li>
             <li>Pretty much always use arrow functions when using event listeners & setTimeouts</li>
             <li>Syntax (all the following are the same function):
-              <ul>
-                <li>var createGreeting = function(message, name) {
-                  <div class="tab">return `${message}, ${name}!`;</div>
-                  <div class="tab">this;</div>
-                  };
-                </li>
-                <li>var createGreeting = (message, name) => {
-                  <div class="tab">return `${message}, ${name}!`;</div>
-                  };
-                </li>
-                <li>var createGreeting = (message, name) => ${message}, ${name}!`; // implicit return</li>
-              </ul>
+              <pre data-whitespace-normalization="true"><code class="language-js" lass="no-whitespace-normalization">
+                var createGreeting = function(message, name) {
+                  return `${message}, ${name}!`;
+                  this;
+                };
+                
+                var createGreeting = (message, name) => {
+                  return `${message}, ${name}!`;
+                };
+
+                var createGreeting = (message, name) => ${message}, ${name}!`; // implicit return
+            </code></pre>
             </li>
           </ul>
           <br>
@@ -1712,6 +1713,8 @@
         </section>
       </div>
     </main>
+    <script src="./assets/js/prism.js"></script>
+    <script src="plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
