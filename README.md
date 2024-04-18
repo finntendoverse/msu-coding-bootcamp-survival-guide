@@ -1,14 +1,19 @@
-# Prework Study Guide Webpage
+# MSU Coding Bootcamp Survival Guide
 ## Description
 This is my MSU Coding Bootcamp Survival Guide. This webpage contains important links, notes, and references to help me learn how to code. If you're reading this, hopefully it will help you, too!
+
+## Deployed Application
+[Deployed Application Link](finntendoverse.github.io/msu-coding-bootcamp-survival-guide/)
+![Deployed Application](./assets/img/DeployedApplication.png)
 
 ## Installation
 N/A
 
 ## Usage
-To use this Prework Study Guide, you can review the notes in each section. The **Important Links** section at the top contains all of the websites I will be using daily. Each section below that contains notes about a specific program (like **Terminal**), software (like **GitHub**), or language (like **JavaScript**).
+To use this Prework Study Guide, you can review the notes in each section. The **Fundamentals** section contains all of the websites I will be using daily, as well as some VS Code, Github, and Terminal basics. The **Front End** section contains HTML, CSS, and JavaScript notes. The **Back End** section contains more advanced JavaScript notes, as well as node.js notes.
 
-For suggestions on what to study first, open the Chrome DevTools by pressing Command+Option+I (macOS) or Control+Shift+I (Windows). A console panel should open either below or to the side of the webpage in the browser. There you will see a list of topics we learned from the prework along with a suggestion on which topic to study first.
+## Credits
+I am using [Prism](https://prismjs.com/index.html) with Normalize Whitespace to create code blocks.
 
 ## License
-Please refer to the LICENSE in the repo.
+MIT License
