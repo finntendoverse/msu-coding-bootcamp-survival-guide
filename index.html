@@ -42,12 +42,12 @@
           <h2>VS Code</h2>
           <ul>
             <li>Right click folder -> open in Integrated Terminal - opens Terminal in VS Code</li>
-            <li>Get in the habit of always killing terminal when done by clicking the trash can icon</li>
+            <li>Get in the habit of always killing terminal when done by clicking the trash can icon.</li>
             <li>Right click -> preview lets you see your markdown preview</li>
             <li>Double click a tab on the top to make it stay. You can tell it worked when the text goes from italic to normal.</li>
-            <li>Option + click selects multiple areas to start typing</li>
-            <li>Option+Z toggles text wrap in VS Code</li>
-            <li>Right click > rename symbol lets you change the name of something everywhere in your document</li>
+            <li>Option + click selects multiple areas to start typing.</li>
+            <li>Option + Z toggles text wrap in VS Code.</li>
+            <li>Right click > rename symbol lets you change the name of something everywhere in your document.</li>
             <li>VS Code contains code templates that can be used. For example, if you type “for”, you can click on “forof” and VS Code will give you a template to fill in.</li>
           </ul>
         </section>
@@ -66,44 +66,44 @@
 
           <h3>Terminal commands</h3>
           <ul>
-            <li>pwd - print working directory // this shows what folder you're in</li>
-            <li>ls - list // this lists the files in the folder you're in</li>
-            <li>cd - change directory // navigate to a different folder using slashes
+            <li><code class="language-html">pwd</code> - print working directory // this shows what folder you're in</li>
+            <li><code class="language-html">ls</code> - list // this lists the files in the folder you're in</li>
+            <li><code class="language-html">cd</code> - change directory // navigate to a different folder using slashes
               <ul>
-                <li>Example: cd users/finnlambouris</li>
+                <li>Example: <code class="language-html">cd users/finnlambouris</code></li>
               </ul>
             </li>
-            <li>cd .. - navigate backwards // move up a folder</li>
-            <li>mkdir - make directory // creates folder
+            <li><code class="language-html">cd ..</code> - navigate backwards // move up a folder</li>
+            <li><code class="language-html">mkdir</code> - make directory // creates folder
               <ul>
-                <li>Example: mkdir coding-bootcamp</li>
+                <li>Example: <code class="language-html">mkdir coding-bootcamp</code></li>
               </ul>
             </li>
-              <li>rmdir — remove directory // removes the named directory, but only if it's empty
+              <li><code class="language-html">rmdir</code> — remove directory // removes the named directory, but only if it's empty
               <ul>
-                <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the rm -r command. <strong><span class="caps">but</span> this is dangerous.</strong> -r (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
+                <li>If you want to remove a directory that is not empty (and also remove everything it contains), then you can use the <code class="language-html">rm -r</code> command. <strong><span class="caps">but</span> this is dangerous.</strong> <code class="language-html">-r</code> (recursive) deletes everything within the directory, so make sure there is nothing you might need later on, as it will be gone <strong>forever</strong>.</li>
               </ul>
             </li>
-            <li>rm - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
-            <li>touch - create file // create a file with any file extension
+            <li><code class="language-html">rm</code> - remove // rm [filename] deletes a file. This delete is permanent and can't be undone via the recycle bin that you might have on your desktop user interface.</li>
+            <li><code class="language-html">touch</code> - create file // create a file with any file extension
               <ul>
-                <li>touch [folder/folder/file] - creates a file within a folder without having to cd there</li>
+                <li><code class="language-html">touch /*folder/folder/file*/</code> - creates a file within a folder without having to cd there</li>
               </ul>
             </li>
-            <li>open - open file or folder // this opens the file or folder in the appropriate application</li>
-            <li>cp - copy files or directories // creates a copy of the file in the first location specified, in the second location specified. This is basically just creating a new copy and you're specifying the name. It isn't copying into a new folder.</li>
-            <li>mv - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file.
+            <li><code class="language-html">open</code> - open file or folder // this opens the file or folder in the appropriate application</li>
+            <li><code class="language-html">cp</code> - copy files or directories // creates a copy of the file in the first location specified, in the second location specified. This is basically just creating a new copy and you're specifying the name. It isn't copying into a new folder.</li>
+            <li><code class="language-html">mv</code> - move files or directories // Technically the file is being moved, but from a practical perspective, this command is actually renaming the file.
               <ul>
-                <li>Example: mv mdn-example.md mdn-example.txt will rename the .md file to a .txt file.</li>
+                <li>Example: <code class="language-html">mv mdn-example.md mdn-example.txt</code> will rename the .md file to a .txt file.</li>
               </ul>
             </li>
-            <li>-h or --help // will give you more information about a specific command</li>
-            <li>curl - download files found at specific URLs</li>
-            <li>curl -v - lets you see https requests and shows you if your connection to a site is working or not</li>
-            <li>grep - search for fragments of text inside larger bodies of text</li>
-            <li>less, cat - view a file's contents page by page</li>
-            <li>awk, tr, sed - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
-            <li>code . - opens current directory in VS Code</li>
+            <li><code class="language-html">-h</code> or <code class="language-html">--help</code> // will give you more information about a specific command</li>
+            <li><code class="language-html">curl</code> - download files found at specific URLs</li>
+            <li><code class="language-html">curl -v</code> - lets you see https requests and shows you if your connection to a site is working or not</li>
+            <li><code class="language-html">grep</code> - search for fragments of text inside larger bodies of text</li>
+            <li><code class="language-html">less</code>, <code class="language-html">cat</code> - view a file's contents page by page</li>
+            <li><code class="language-html">awk</code>, <code class="language-html">tr</code>, <code class="language-html">sed</code> - manipulate and transform streams of text // for example, changing all the instances of &LT;div&GT;s in an HTML file to &LT;article&GT;</li>
+            <li><code class="language-html">code .</code> - opens current directory in VS Code</li>
           </ul>
           <br>
 
@@ -111,81 +111,87 @@
           <ul>
             <li><strong>Setup & Init</strong> - Configuring user information, initializing and cloning repositories
               <ul>
-                <li>git init - initialize an existing directory as a Git repository</li>
-                <li>git clone [url] - retrieve an entire repository from a hosted location via URL</li>
+                <li><code class="language-html">git init</code> - initialize an existing directory as a Git repository</li>
+                <li><code class="language-html">git clone /*url*/</code> - retrieve an entire repository from a hosted location via URL</li>
               </ul>
             </li>
             <li><strong>Stage & Snapshot</strong> - Working with snapshots and the Git staging area
               <ul>
-                <li>git status - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
-                <li>git add [file] - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
-                <li>git reset [file] - unstage a file while retaining the changes in working directory</li>
-                <li>git diff - diff of what is changed but not staged</li>
-                <li>git diff --staged - diff of what is staged but not yet committed</li>
-                <li>git commit -m "[descriptive message]" - commit your staged content as a new commit snapshot</li>
+                <li><code class="language-html">git status</code> - show modified files in working directory, staged for your next commit // shows what branch we're on</li>
+                <li><code class="language-html">git add /*file*/</code> - add a file as it looks now to your next commit (stage): git add -A adds all changes</li>
+                <li><code class="language-html">git reset /*file*/</code> - unstage a file while retaining the changes in working directory</li>
+                <li><code class="language-html">git diff</code> - diff of what is changed but not staged</li>
+                <li><code class="language-html">git diff</code> --staged - diff of what is staged but not yet committed</li>
+                <li><code class="language-html">git commit -m</code> "[descriptive message]" - commit your staged content as a new commit snapshot</li>
               </ul>
             </li>
             <li><strong>Branch & Merge</strong> - Isolating work in branches, changing context, and integrating changes
               <ul>
-                <li>git branch - list your branches. a * will appear next to the currently active branch</li>
-                <li>git branch [branch-name] - create a new branch at the current commit</li>
-                <li>git checkout - switch to another branch and check it out into your working directory
-                <li>git checkout -b [insert new branch name] creates a branch</li>
-                <li>git branch -d [insert branch name] - deletes git branch</li>
-                <li>git branch -a - shows all branches
+                <li><code class="language-html">git branch</code> - list your branches. a * will appear next to the currently active branch</li>
+                <li><code class="language-html">git branch /*branch-name*/</code> - create a new branch at the current commit</li>
+                <li><code class="language-html">git checkout</code> - switch to another branch and check it out into your working directory
+                <li><code class="language-html">git checkout -b /*insert new branch name*/</code> - creates a new branch</li>
+                <li><code class="language-html">git branch -d /*insert branch name*/</code> - deletes git branch</li>
+                <li><code class="language-html">git branch -a</code> - shows all branches
                   <ul>
                     <li>remote branches (on server) will appear as red, while local branches (on computer) will appear as green</li>
                   </ul>
                 </li>
-                <li>git merge [branch] - merge the specified branch's history into the current one</li>
-                <li>git log - show all commits in the current branch's history</li>
+                <li><code class="language-html">git merge /*branch*/</code> - merge the specified branch's history into the current one</li>
+                <li><code class="language-html">git log</code> - show all commits in the current branch's history</li>
               </ul>
             </li>
             <li><strong>Inspect & Compare</strong> - Examining logs, diffs and object information
               <ul>
-                <li>git log - show the commit history for the currently active branch</li>
-                <li>git log branchB..branchA - show the commits on branchA that are not on branchB</li>
-                <li>git log --follow [file] - show the commits that changed file, even across renames</li>
-                <li>git diff branchB...branchA - show the diff of what is in branchA that is not in branchB</li>
-                <li>git show [SHA]- show any object in Git in human-readable format</li>
+                <li><code class="language-html">git log</code> - show the commit history for the currently active branch</li>
+                <li><code class="language-html">git log branchB..branchA</code> - show the commits on branchA that are not on branchB</li>
+                <li><code class="language-html">git log --follow [file]</code> - show the commits that changed file, even across renames</li>
+                <li><code class="language-html">git diff branchB...branchA</code> - show the diff of what is in branchA that is not in branchB</li>
+                <li><code class="language-html">git show /*SHA*/</code>- show any object in Git in human-readable format</li>
               </ul>
             </li>
             <li><strong>Tracking Path Changes</strong> - Versioning file removes and path changes
               <ul>
-                <li>git rm [file] - delete the file from project and stage the removal for commit</li>
-                <li>git mv [existing-path] [new-path] - change an existing file path and stage the move</li>
-                <li>git log --stat -M - show all commit logs with indication of any paths that moved</li>
+                <li><code class="language-html">git rm /*file*/</code> - delete the file from project and stage the removal for commit</li>
+                <li><code class="language-html">git mv /*existing-path*/ /*new-path*/</code> - change an existing file path and stage the move</li>
+                <li><code class="language-html">git log --stat -M</code> - show all commit logs with indication of any paths that moved</li>
               </ul>
             </li>
             <li><strong>Ignoring Patterns</strong> - Preventing unintentional staging or committing of files
               <ul>
-                <li>logs/<br>
-                  *.notes<br>
-                  pattern*/ - Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs.</li>
-                <li>git config --global core.excludesfile [file] - system wide ignore pattern for all local repositories</li>
+                <li>Save a file with desired patterns as .gitignore with either direct string matches or wildcard globs:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-html">
+                    logs/
+                    *.notes
+                    pattern*/
+                    </code>
+                  </pre>
+                </li>
+                <li><code class="language-html">git config</code> --global core.excludesfile /*file*/ - system wide ignore pattern for all local repositories</li>
               </ul>
             </li>
             <li><strong>Share & Update</strong> - Retrieving updates from another repository and updating local repos
               <ul>
-                <li>git remote add [alias] [url] - add a git URL as an alias</li>
-                <li>git fetch [alias] - fetch down all the branches from that Git remote</li>
-                <li>git merge [alias]/[branch] - merge a remote branch into your current branch to bring it up to date</li>
-                <li>git push [alias] [branch] - Transmit local branch commits to the remote repository branch</li>
-                <li>git pull - fetch and merge any commits from the tracking remote branch</li>
+                <li><code class="language-html">git remote add /*alias*/ /*url*/</code> - add a git URL as an alias</li>
+                <li><code class="language-html">git fetch /*alias*/</code> - fetch down all the branches from that Git remote</li>
+                <li><code class="language-html">git merge /*alias*/ || /*branch*/</code> - merge a remote branch into your current branch to bring it up to date</li>
+                <li><code class="language-html">git push /*alias*/ /*branch*/</code> - Transmit local branch commits to the remote repository branch</li>
+                <li><code class="language-html">git pull</code> - fetch and merge any commits from the tracking remote branch</li>
               </ul>
             </li>
             <li><strong>Rewrite History</strong> - Rewriting branches, updating commits and clearing history
               <ul>
-                <li>git rebase [branch] - apply any commits of current branch ahead of specified one</li>
-                <li>git reset --hard [commit] - clear staging area, rewrite working tree from specified commit</li>
+                <li><code class="language-html">git rebase /*branch*/</code> - apply any commits of current branch ahead of specified one</li>
+                <li><code class="language-html">git reset --hard /*commit*/</code> - clear staging area, rewrite working tree from specified commit</li>
               </ul>
             </li>
             <li><Strong>Temporary Commits</Strong> - Temporarily store modified, tracked files in order to change branches
               <ul>
-                <li>git stash - Save modified and staged changes</li>
-                <li>git stash list - list stack-order of stashed file changes</li>
-                <li>git stash pop - write working from top of stash stack</li>
-                <li>git stash drop - discard the changes from top of stash stack</li>
+                <li><code class="language-html">git stash</code> - Save modified and staged changes</li>
+                <li><code class="language-html">git stash list</code> - list stack-order of stashed file changes</li>
+                <li><code class="language-html">git stash pop</code> - write working from top of stash stack</li>
+                <li><code class="language-html">git stash drop</code> - discard the changes from top of stash stack</li>
               </ul>
             </li>
           </ul>
@@ -200,32 +206,32 @@
             <li class="star-li">Usually when you see a “dist” folder when coding, it is not meant to be distributed to the public. It is meant to be packaged into a .zip file and shouldn't be committed to the repo.</li>
           </ul>
           <ol>
-            <li>Make sure you're in the correct folder. If there isn't already a repository set up, enter: git init</li>
-            <li>To check what branch we are currently on, enter: git status</li>
-            <li>To see your remote GitHub repository, enter: git remote -v</li>
-            <li>To make a new branch, we'll enter: git checkout -b feature/[enter name]
+            <li>Make sure you're in the correct folder. If there isn't already a repository set up, enter: <code class="language-html">git init</code></li>
+            <li>To check what branch we are currently on, enter: <code class="language-html">git status</code></li>
+            <li>To see your remote GitHub repository, enter: <code class="language-html">git remote -v</code></li>
+            <li>To make a new branch, we'll enter: <code class="language-html">git checkout -b feature/[enter name]</code>
               <ul>
-                <li>The checkout command is to move the working branch to a new branch, and the -b flag creates a new branch.</li>
-                <li>It's good to do "feature/" to indicate that it is a feature. It is good practice to name the branches for the feature that will be developed by them to help indicate the purpose of each branch.</li>
+                <li>The checkout command is to move the working branch to a new branch, and the <code class="language-html">-b</code> flag creates a new branch.</li>
+                <li>It's good to do <code class="language-html">feature/</code> to indicate that it is a feature. It is good practice to name the branches for the feature that will be developed by them to help indicate the purpose of each branch.</li>
               </ul>
             </li>
-            <li>To add/update code to the current working branch, enter: git add -A
+            <li>To add/update code to the current working branch, enter: <code class="language-html">git add -A</code>
               <ul>
-                <li>The -A flag indicates that we want to add all changes.</li>
+                <li>The <code class="language-html">-A</code> flag indicates that we want to add all changes.</li>
               </ul>
             </li>
-            <li>To commit these files to the repo, enter: git commit -m [enter message]
+            <li>To commit these files to the repo, enter: git commit <code class="language-html">-m /*enter message*/</code>
               <ul>
-                <li>If you forget to add the -m message, it will open up a new window where you must type the message. In this window, press I to enter insert mode and then type your message. When you're done, press esc to exit insert mode, and then press :wq to write and quit.</li>
+                <li>If you forget to add the <code class="language-html">-m</code> message, it will open up a new window where you must type the message. In this window, press <code class="language-html">I</code> to enter insert mode and then type your message. When you're done, press <code class="language-html">esc</code> to exit insert mode, and then press <code class="language-html">:wq</code> to write and quit.</li>
               </ul>
             </li>
-            <li>Always double check to make sure your local branch is in sync with the base branch in GitHub. To do this, enter: git pull origin main
+            <li>Always double check to make sure your local branch is in sync with the base branch in GitHub. To do this, enter: <code class="language-html">git pull origin main</code>
               <ul>
                 <li>Use the pull command to receive a branch's modifications into the local environment. "origin" indicates the source of the pull will be in the GitHub repo. "main" indicates the branch.</li>
                 <li>If all is well, you should receive the message "Already up to date."</li>
               </ul>
             </li>
-            <li>Finally, to push changes, enter: git push origin feature/[enter name]</li>
+            <li>Finally, to push changes, enter: <code class="language-html">git push origin feature//*enter name*/</code></li>
             <li>After this, when you open GitHub you'll see that there is a pull request. Great job!</li>
           </ol>
           <br>
@@ -246,64 +252,79 @@
           <ul>
             <li>The head element contains information about the webpage.</li>
             <li>The body element represents the visible content shown to the user.</li>
-            <li>&LT;a href="[url]"&GT;[link text]&LT;/a&GT; - adding a link</li>
-            <li>&LT;img src="[url or path]" alt="[image description]"&GT; - adding an image</li>
-            <li>&LT;&excl;-- [insert comment] --&GT; - add comments in html file without them showing up on the actual webpage
+            <li>Adding a link:
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;a href="[url]"&GT;&LT;[link text]&LT;/a&GT;
+                </code>
+              </pre>
+            </li>
+            <li>adding an image
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;img src="url or path" alt="[image description]"&GT;
+                </code>
+              </pre>
+            </li>
+            <li><code class="language-html">&LT;&excl;-- insert comment --&GT;</code> - add comments in html file without them showing up on the actual webpage
               <ul>
                 <li>The shortcut for this is to press command + / to make the current line into a comment.</li>
               </ul>
             </li>
             <li>Classes and ids are similar, but a class can be used multiple times while an id can only be used once.</li>
-            <li>With self closing tags, make sure to do /> instead of >, even though > will still work.</li>
-            <li>&LT;div&GT; and &LT;span&GT; are generic tags with no meaning (not semantic)
+            <li>With self closing tags, make sure to do <code class="language-html">/&GT;</code> instead of <code class="language-html">&GT;</code>, even though <code class="language-html">&GT;</code> will still work.</li>
+            <li><code class="language-html">&LT;div&GT;</code> and <code class="language-html">&LT;span&GT;</code> are generic tags with no meaning (not semantic).
               <ul>
                 <li>Semantic HTML is better for code legibility, accessibility features like screen readers, and SEO. If you're using a generic tag, there is probably a semantic tag that would work better.</li>
               </ul>
             </li>
-            <li>head<strong>er</strong> vs head<strong>ing</strong> - header is at the top of the page, heading is &LT;h1&GT; through &LT;h6&GT;</li>
+            <li>head<strong>er</strong> vs head<strong>ing</strong> - header is at the top of the page, heading is <code class="language-html">&LT;h1&GT;</code> through <code class="language-html">&LT;h6&GT;</code>.</li>
           </ul>
           <br>
 
           <h3>HTML Forms</h3>
           <ul>
-            <li>The HTML &LT;form&GT; element can contain one or more of the following form elements:
+            <li>The HTML <code class="language-html">&LT;form&GT;</code> element can contain one or more of the following form elements:
               <ul>
-                <li>&LT;input&GT;</li>
-                <li>&LT;label&GT;</li>
-                <li>&LT;select&GT;</li>
-                <li>&LT;textarea&GT;</li>
-                <li>&LT;button&GT;</li>
-                <li>&LT;fieldset&GT;</li>
-                <li>&LT;legend&GT;</li>
-                <li>&LT;datalist&GT;</li>
-                <li>&LT;output&GT;</li>
-                <li>&LT;option&GT;</li>
-                <li>&LT;optgroup&GT;</li>
+                <li><code class="language-html">&LT;input&GT;</code></li>
+                <li><code class="language-html">&LT;label&GT;</code></li>
+                <li><code class="language-html">&LT;select&GT;</code></li>
+                <li><code class="language-html">&LT;textarea&GT;</code></li>
+                <li><code class="language-html">&LT;button&GT;</code></li>
+                <li><code class="language-html">&LT;fieldset&GT;</code></li>
+                <li><code class="language-html">&LT;legend&GT;</code></li>
+                <li><code class="language-html">&LT;datalist&GT;</code></li>
+                <li><code class="language-html">&LT;output&GT;</code></li>
+                <li><code class="language-html">&LT;option&GT;</code></li>
+                <li><code class="language-html">&LT;optgroup&GT;</code></li>
               </ul>
             </li>
             <li>The input element is used for text fields like names, email addresses, and messages
-              <ul>
-                <li>&LT;label for="[input id]"&GT;[label text]&LT;/label&GT;</li>
-                <li>&LT;input id="[id]" type="[text]" / "[password]" placeholder="[placeholder]"&GT;</li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;label for="[input id]"&GT;[label text]&LT;/label&GT;
+                &LT;input id="[id]" type="[text]" / "[password]" placeholder="[placeholder]"&GT;
+                </code>
+              </pre>
+            </li>
             </li>
             <li>The select element defines a drop-down list
-              <ul>
-                <li>&LT;label for="[input id]"&GT;[label text]&LT;/label&GT;</li>
-                <li>
-                  &LT;select id="[id]" name="[name]"&GT;
-                  <div class="tab">&LT;option value="[option 1]"&GT;[option 1]&LT;/option&GT;</div>
-                  <div class="tab">&LT;option value="[option 2]"&GT;[option 2]&LT;/option&GT;</div>
-                  <div class="tab">&LT;option value="[option 3]"&GT;[option 3]&LT;/option&GT;</div>
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;label for="[input id]"&GT;[label text]&LT;/label&GT;
+                &LT;select id="[id]" name="[name]"&GT;
+                  &LT;option value="[option 1]"&GT;[option 1]&LT;/option&GT;
+                  &LT;option value="[option 2]"&GT;[option 2]&LT;/option&GT;
+                  &LT;option value="[option 3]"&GT;[option 3]&LT;/option&GT;
                   &LT;/select&GT;
-                </li>
-              </ul>
+                </code>
+              </pre>
             </li>
             <li>The button element defines a clickable button</li>
             <li>read more about HTML forms <a href="https://www.w3schools.com/html/html_form_elements.asp" target="_blank">here</a></li>
             <li>Data Attributes allow us to store extra information on HTML elements
               <ul>
-                <li>Syntax to create custom data attributes: data-[insert anything here]="[insert value here]"</li>
+                <li>Syntax to create custom data attributes: <code class="language-html">data-[insert anything here]="[insert value here]"</code></li>
               </ul>
             </li>
             <li>The network tab of Chrome Dev Tools will show you if all your https requests are working or not</li>
@@ -325,16 +346,26 @@
             <li class="star-li">In Chrome Dev Tools, click the triangle icon on shortcuts to see what each declaration is</li>
           </ul>
           <ul>
-            <li>to link an external stylesheet to your HTML file, you must type &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;</li>
-            <li>You can apply multiple classes to HTML; just separate them by a space.
-              <ul>
-                <li>Example: class="class-1 class-2"</li>
-              </ul>
+            <li>Link an external stylesheet to your HTML file: 
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;
+                </code>
+              </pre>
             </li>
-            <li>The font-family values go from most specific to least specific. This means that if the first font cannot be accessed by the device, it will move onto the next value. 
-              <ul>
-                <li>Example: font-family: "Comic Sans" cursive sans-serif</li>
-              </ul>
+            <li>You can apply multiple classes to HTML; just separate them by a space.
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                class="class-1 class-2"
+                </code>
+              </pre>
+            </li>
+            <li>The <code class="language-css">font-family</code> values go from most specific to least specific. This means that if the first font cannot be accessed by the device, it will move onto the next value. 
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
+                font-family: "Comic Sans" cursive sans-serif
+                </code>
+              </pre>
             </li>
             <li>Setting the height and line height as the same number is a cheat code to center text vertically.</li>
           </ul>
@@ -345,13 +376,13 @@
             <li>Every browser has its own default style rules. It is best practice to overwrite these rules so that your webpages will look uniform across all browsers.</li>
             <li>Have a seperate reset.css stylesheet</li>
             <li>Stylesheet order:
-              <ul>
-                <li>
-                  &LT;link rel="stylesheet" href="reset.css"&GT;<br>
-                  &LT;link rel="stylesheet" href="thirdparty.css"&GT;<br>
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                  &LT;link rel="stylesheet" href="reset.css"&GT;
+                  &LT;link rel="stylesheet" href="thirdparty.css"&GT;
                   &LT;link rel="stylesheet" href="style.css"&GT;
-                </li>
-              </ul>
+                </code>
+              </pre>
             </li>
             <li>The reason they should be in this specific order is because HTML is read from beginning to end, meaning that your CSS rules can be overwritten if they're in the wrong order.</li>
           </ul>
@@ -363,92 +394,96 @@
               <ul>
                 <li>Universal - selects all HTML elements on the page
                   <ul>
-                    <li>Example: * {</li>
+                    <li>Example: <code class="language-css">* {</code></li>
                   </ul>
                 </li>
                 <li>Element - selects HTML elements based on the element name
                   <ul>
-                    <li>Example: p {</li>
+                    <li>Example: <code class="language-css">p {</code></li>
                     <li>You can also specify that only specific HTML elements should be affected by a style rule
                       <ul>
-                        <li>Example: p.class would only affect paragraphs with the "class" class</li>
+                        <li>Example: <code class="language-css">p.class {</code> would only affect paragraphs with the "class" class</li>
                       </ul>
                     </li>
                   </ul>
                 <li>Class - selects HTML elements based on (one of) their class(es)
                   <ul>
-                    <li>Example: .class {</li>
+                    <li>Example: <code class="language-css">.class {</code></li>
                   </ul>
                 </li>
                 <li>ID - selects HTML elements based on the unique id
                   <ul>
-                    <li>Example: #unique-id {</li>
+                    <li>Example: <code class="language-css">#unique-id {</code></li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li>Any of these types of selectors can be given a further pseudo-class, which is used to define a special state of an element
               <ul>
-                <li>Example: .class:hover {</li>
+                <li>Example: <code class="language-css">.class:hover {</code></li>
               </ul>
             </li>
             <li>The rule with more specificity is the one that will win if there are conflicting style rules</li>
             <li>Style rules can be grouped
               <ul>
-                <li>Example: h1, h2, p {</li>
+                <li>Example: <code class="language-css">h1, h2, p {</code></li>
               </ul>
             </li>
             <li>You can use + sign to determine rules for a specific tag directly following another tag
               <ul>
-                <li>Example: article ul + p selects<br>
-                  &LT;article&GT;
-                    <div class="tab">&LT;p&GT;</div>
-                    <div class="tab">...</div>
-                    <div class="tab">&LT;ul&GT;</div>
-                    <div class="tab"><strong>&LT;p&GT;</strong></div>
+                <li>Example: article ul + p selects:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-html">
+                    &LT;article&GT;
+                      &LT;p&GT;
+                      ...
+                      &LT;ul&GT;
+                      <strong>&LT;p&GT;</strong> // &LT;- selected
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li>You can also use the * symbol to select everything within a parent element
+            <li>You can also use the <code class="language-css">*</code> symbol to select everything within a parent element
               <ul>
-                <li>Example: section ul * {</li>
+                <li>Example: <code class="language-css">section ul * {</code></li>
               </ul>
             </li>
-            <li>The &GT; symbol only selects direct children
+            <li>The <code class="language-css">&GT;</code> symbol only selects direct children
               <ul>
-                <li>Example: section ul &GT; * {</li>
+                <li>Example: <code class="language-css">section ul &GT; * {</code></li>
               </ul>
             </li>
             <li>Creating variables at the root
-              <ul>
-                <li>:root {
-                  <div class="tab">--name: [any repeated style rule];</div>
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
+                :root {
+                  --name: [any repeated style rule];
                 }
-                </li>
-              </ul>
+                </code>
+              </pre>
             </li>
             <li>Then, later in the document when you want to reference the variable, use:
-              <ul>
-                <li>
-                  [element] {
-                    <div class="tab">[property]: var(--name);</div>
-                  }
-                </li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
+                [element] {
+                  [property]: var(--name);
+                }
+                </code>
+              </pre>
             </li>
             <li>Root variable example:
-              <ul>
-                <li>
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
                   :root {
-                    <div class="tab">--white: #fff;</div>
+                    --white: #fff;
                   }
-                  <br>
-                  <br>
+
                   p {
-                    <div class="tab">color: var(--white);</div>
+                    color: var(--white);
                   }
-                </li>
-              </ul>
+                  </code>
+                </pre>
             </li>
             <li>Here's a fun game to help practice selectors: <a href="https://flukeout.github.io/" target="_blank">CSS Diner</a></li>
           </ul>
@@ -463,11 +498,11 @@
             </li>
             <li><strong>Block elements</strong> always start on a new line and take up the full width available.
               <ul>
-                <li>margin: 0 auto can be used for block elements to set the top and bottom margins to 0 and center it horizontally within its parent element.</li>
+                <li><code class="language-css">margin: 0 auto</code> can be used for block elements to set the top and bottom margins to 0 and center it horizontally within its parent element.</li>
               </ul>
             </li>
             <li>Each element has a default display, but it can be changed with CSS by adding the "display" property.</li>
-            <li>Elements can be hidden by using the display:none declaration.</li>
+            <li>Elements can be hidden by using the <code class="language-css">display:none</code> declaration.</li>
           </ul>
           <br>
 
@@ -483,8 +518,8 @@
                 <li>Example: 200px x 200px image with 20px padding, 10px border, and 30px of padding will have a width and height of 260px (200 + (20x2) + (10x2).</li>
               </ul>
             </li>
-            <li>The border-style needs to be set to have your border appear on the page.</li>
-            <li>shortcuts that have 4 values around it such as "padding" are writtem in NESW direction</li>
+            <li>The <code class="language-css">border-style</code> needs to be set to have your border appear on the page.</li>
+            <li>shortcuts that have 4 values around it such as <code class="language-css">padding</code> are writtem in NESW direction</li>
           </ul>
           <br>
 
@@ -494,7 +529,7 @@
               <ul>
                 <li><strong>Static</strong> - this is the default value and the element is in normal document flow</li>
                 <li><strong>Relative</strong> - the element is still in normal flow, but the values top, right, left and bottom can be used to offset the element.</li>
-                <li><strong>Absolute</strong> - The element is removed from the normal flow and its final position is relative to the determined parent or ancestor. To determine the parent, you must give it the position: absolute; declaration as well. Absolute-positioned elements are also moved by the values of top, right, bottom, and left.</li>
+                <li><strong>Absolute</strong> - The element is removed from the normal flow and its final position is relative to the determined parent or ancestor. To determine the parent, you must give it the <code class="language-css">position: absolute;</code> declaration as well. Absolute-positioned elements are also moved by the values of top, right, bottom, and left.</li>
                 <li><strong>Fixed</strong> - The element is removed from the normal document flow and the position is relative to the viewport. Fixed-position elements are also determined by the values of top, right, bottom, and left.
                   <ul>
                     <li>Viewport: the area of the window in which web content can be seen</li>
@@ -502,7 +537,7 @@
                 </li>
               </ul>
             </li>
-            <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned &LT;img&GT; is written inside of a &LT;section&GT;, it will appear there on the page.</li>
+            <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned <code class="language-html"></code>&LT;img&GT;</li> is written inside of a <code class="language-html">&LT;section&GT;</code>, it will appear there on the page.</li>
             <li>Z-index controls the stacking order of overlapping elements on a page. An element with a higher z-index value will appear in front of an element with a lower z-index value.</li>
             <li>Viewport units:
               <ul>
@@ -520,7 +555,7 @@
           <h3>Transformations</h3>
           <ul>
             <li>Apply transformations with the transform property</li>
-            <li>HTML text written in all caps will always be read by screen readers as acronyms. If you want any words to be in all caps, use the "text-transform: uppercase;" declaration.</li>
+            <li>HTML text written in all caps will always be read by screen readers as acronyms. If you want any words to be in all caps, use the <code class="language-css">text-transform: uppercase;</code> declaration.</li>
             <li>Read more about the transform property <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">here</a></li>
           </ul>
           <br>
@@ -530,37 +565,42 @@
             <li>Animations consist of two components:
               <ol>
                 <li>a style describing the CSS animation
-                  <ul>
-                    <li>.[element] {
-                      <div class="tab">animation: [name] [time] [how long the animation will last];</div>
-                      <div class="tab">/* or */</div>
-                      <div class="tab">[<a href="https://css-tricks.com/almanac/properties/a/animation/#aa-sub-properties" target="_blank">animation sub-properties</a>];</div>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-css">
+                    .[element] {
+                      animation: [name] [time] [how long the animation will last];
+                      /* or */
+                      [animation sub-properties];
                       }
-                    </li>
-                  </ul>
+                      </code>
+                    </pre>
                 </li>
                 <li>a set of keyframes that indicate the states of the animation's style
-                  <ul>
-                    <li>@keyframes [name] {
-                      <div class="tab">0% {</div>
-                        <div class="tabx2">[insert rule];</div>
-                      <div class="tab"> }</div>
-                      <div class="tab">100% {</div>
-                        <div class="tabx2">[insert rule];</div>
-                      <div class="tab"> }</div>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-css">
+                    @keyframes [name] {
+                      0% {
+                        [insert rule];
                       }
-                    </li>
-                  </ul>
+                      100% {
+                        [insert rule];
+                      }
+                    }
+                    </code>
+                  </pre>
                 </li>
               </ol>
             </li>
             <li>Each animation property can be defined individually, but for cleaner and faster code, it's recommended that you use the animation shorthand.
-              <ul>
-                <li>animation: [animation-name] [animation-duration] [animation-timing-function] [animation-delay] [animation-iteration-count] [animation-direction] [animation-fill-mode] [animation-play-state];</li>
-                <li>For an animation property to work, you <strong>must</strong> define the animation-name and animation-duration.</li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
+                animation: [animation-name] [animation-duration] [animation-timing-function] [animation-delay] [animation-iteration-count] [animation-direction] [animation-fill-mode] [animation-play-state];
+                </code>
+              </pre>
             </li>
+            <li>For an animation property to work, you <strong>must</strong> define the animation-name and animation-duration.</li>
             <li><a href="https://thoughtbot.com/blog/css-animation-for-beginners#additional-animation-properties" target="_blank">Additional Animation Properties</a></li>
+            <li><a href="https://css-tricks.com/almanac/properties/a/animation/#aa-sub-properties" target="_blank">animation sub-properties</a></li>
           </ul>
           <br>
 
@@ -577,7 +617,7 @@
           <ul>
             <li>There are 2 main tricks for responsive websites:
               <ol>
-                <li>@media queries</li>
+                <li><code class="language-css">@media</code> queries</li>
                 <li>fluid design</li>
               </ol>
             </li>
@@ -588,7 +628,7 @@
             </li>
             <li>Instead of having one large image that is shrunk for mobile devices, you should have a variety of image sizes. This is so your website will load faster and use less data.
               <ul>
-                <li>You can do this using <a href="#the-picture-tag">the picture tag</a></li>
+                <li>You can do this using the picture tag</li>
               </ul>
             </li>
             <li>You do not need device specific breakpoints, and in fact, you actively should avoid using them. This is because new devices come out all the time with different screen sizes. Instead, create your breakpoints based on the how the content looks.</li>
@@ -599,21 +639,24 @@
           <h3>HTML Notes</h3>
           <ul>
             <li>Make the content on your webpage fit correctly on different devices:
-              <ul>
-                <li>&LT;head&GT;
-                <div class="tab">&LT;meta name=“viewport” content=“width=device-width, initial-scale=1.0”&GT;</div>
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;head&GT;
+                  &LT;meta name=“viewport” content=“width=device-width, initial-scale=1.0”&GT;
                 &LT;/head&GT;
-              </ul>
+                </code>
+              </pre>
             </li>
-            <li><a id="the-picture-tag">The Picture Tag</a>
-              <ul>
-                <li>&LT;picture&GT;
-                    <div class="tab">&LT;source srcset=“small.jpg” media=“(max-width: 480px)”&GT;</div>
-                    <div class="tab">&LT;source srcset=“medium.jpg” media=“(max-width: 768px)”&GT;</div>
-                    <div class="tab">&LT;source srcset=“large.jpg”&GT;</div>
-                  &LT;/picture&GT;
-                </li>
-              </ul>
+            <li>The Picture Tag</a>
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                &LT;picture&GT;
+                  &LT;source srcset=“small.jpg” media=“(max-width: 480px)”&GT;
+                  &LT;source srcset=“medium.jpg” media=“(max-width: 768px)”&GT;
+                  &LT;source srcset=“large.jpg”&GT;
+                &LT;/picture&GT;
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
@@ -621,10 +664,14 @@
           <h3>CSS Notes</h3>
           <ul>
             <li>Media queries allow us to set CSS rules based on various parameters like viewport size
-              <ul>
-                <li>@media [media-type] and (expressions) {</li>
-                <li>Example: @media screen and (min-width: 400px) {</li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
+                @media [media-type] and (expressions) {
+                
+                // Example: 
+                @media screen and (min-width: 400px) {
+                </code>
+              </pre>
             </li>
             <li>CSS is read in order, so if there are conflicting rules, whichever rule is lower will win (unless the other has more specificity)
               <ul>
@@ -641,58 +688,64 @@
           <ul>
             <li>The main use of flexbox is to create responsive webpages without having to use floats.</li>
             <li>Puts child objects into parent containers
-                <ul>
-                  <li>.container {
-                    <div class="tab">display: flex;</div>
-                    <div class="tab">flex-direction: row | row-reverse | column | column-reverse;</div>
-                    <div class="tab">flex-wrap: nowrap | wrap | wrap-reverse;</div>
-                    <div class="tab">justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right | center | space-around | space-evenly;</div>
-                    <div class="tab">align-items: stretch | flex-start | flex-end | center | baseline;</div>
-                    <div class="tab">align-content: normal | flex-start | flex-end | center | space-between | space-around | space-evenly | stretch;</div>
-                    <div class="tab">gap: [insert value]</div>
-                    }
-                  </li>
-                </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-css">
+                .container {
+                  display: flex;
+                  flex-direction: row | row-reverse | column | column-reverse;
+                  flex-wrap: nowrap | wrap | wrap-reverse;
+                  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right | center | space-around | space-evenly;
+                  align-items: stretch | flex-start | flex-end | center | baseline;
+                  align-content: normal | flex-start | flex-end | center | space-between | space-around | space-evenly | stretch;
+                  gap: [insert value]
+                }
+                </code>
+              </pre>
+            </li>
             <li>Flexbox has two axes - the main axis is defined by the flex-direction property, and the cross axis runs perpendicular to it</li>
             <li>Flexbox does not require @media queries to be responsive</li>
             <li>There are some properties that need to be set on the parent element, and some that need to be set on the children
               <ul>
                 <li>Set on parent container:
-                  <ul>
-                    <li>Display: flex;</li>
-                    <li>Flex-wrap: wrap;</li>
-                  </ul>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-css">
+                    Display: flex;
+                    Flex-wrap: wrap;
+                    </code>
+                  </pre>
                 </li>
                 <li>Set on child elements:
-                  <ul>
-                    <li>Flex-grow: [number value - typically 1];</li>
-                    <li>Flex-shrink: [number value - typically 1];</li>
-                    <li>Flex-basis: [pixel or percentage value];</li>
-                  </ul>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-css">
+                    Flex-grow: [number value - typically 1];
+                    Flex-shrink: [number value - typically 1];
+                    Flex-basis: [pixel or percentage value];
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li>Flex-grow is the ratio it will grow at in comparison to the other boxes
+            <li><code class="language-css">Flex-grow</code> is the ratio it will grow at in comparison to the other boxes
               <ul>
                 <li>Example: if you want one image to grow twice as fast as all the others, set that flex grow to 2 and the others' to 1</li>
               </ul>
             </li>
-            <li>Flex-shrink is the ratio it will shrink at in comparison to the other boxes
+            <li><code class="language-css">Flex-shrink</code> is the ratio it will shrink at in comparison to the other boxes
               <ul>
                 <li>Example: if you want one image to shrink twice as fast as all the others, set that flex shrink to 2 and the others' to 1</li>
               </ul>
             </li>
-            <li>Flex basis is how big each box should be
+            <li><code class="language-css">Flex-basis</code> is how big each box should be
               <ul>
                 <li>Use flex-basis instead of width</li>
                 <li>Use percentage to always stay as a certain portion of the screen 
                   <ul>
-                    <li>Example: flex-basis: 30%; to keep 3 on each row)</li>
+                    <li>Example: <code class="language-css">flex-basis: 30%;</code> will keep 3 on each row)</li>
                   </ul>
                 </li>
                 <li>Use pixel value to have boxes wrap before they get too small
                   <ul>
-                    <li>Example: flex-basis: 200px; to keep each box around 200px and have as many fit on each row as possible</li>
+                    <li>Example: <code class="language-css">flex-basis: 200px;</code> will keep each box around 200px and have as many fit on each row as possible</li>
                   </ul>
                 </li>
               </ul>
@@ -707,18 +760,35 @@
           <h3>JavaScript notes</h3>
           <img src="./assets/img/JavaScriptSyntax.png" alt="JavaScript Syntax" class="images">
           <ul class="star-ul">
-            <li class="star-li">Add debugger; into any section of code where you're having a problem, and then Chrome DevTools will open a helpful debugger menu where you can go step by step to see where your exact problem is</li>
+            <li class="star-li">Add <code class="language-js">debugger;</code> into any section of code where you're having a problem, and then Chrome DevTools will open a helpful debugger menu where you can go step by step to see where your exact problem is</li>
           </ul>
           <ul>
             <li>JavaScript is case sensitive. This means myVariable is not the same as myvariable.</li>
             <li>Control flow is the order in which a computer executes code in a script.</li>
-            <li>JavaScript linking should be added at the bottom of your code, directly before the /body closing tag. This is because the code is read in order from beginning to end by the browser, and we don't want any functions to run before the page is fully loaded.</li>
+            <li>JavaScript linking should be added at the bottom of your code, directly before the <code class="language-html">&LT;/body&GT;</code> closing tag. This is because the code is read in order from beginning to end by the browser, and we don't want any functions to run before the page is fully loaded.</li>
             <li>JavaScript programs can be inserted almost anywhere into an HTML document using the &LT;script&GT; tag. But as a rule, only the simplest scripts are put into HTML. More complex ones reside in separate files.</li>
-            <li>&LT;script src="[path to .js file]"&GT;&LT;/script&GT; - links JavaScript file to html webpage</li>
-            <li>// [insert comment/code here] - single line comment</li>
-            <li>/* <br>
-                [insert comment/code here]<br>
-                */ - multi-line comment
+            <li>Linking JavaScript to your HTML file:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                &LT;script src="[path to .js file]"&GT;&LT;/script&GT;
+                </code>
+              </pre>
+            </li>
+            <li>Single line comment:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                // comment/code
+                </code>
+              </pre>
+            </li>
+            <li>Multi line comment:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                /*
+                comment/code
+                */
+                </code>
+              </pre>
             </li>
             <li><strong>Local</strong> vs. <strong>global</strong> is very important.
               <ul>
@@ -743,7 +813,7 @@
                 <li><strong>Objects:</strong> collections of related data and/or functionality. These usually consist of several variables and functions (which are called properties and methods when they are inside objects).</li>
               </ul>
             </li>
-            <li>The "this" keyword refers to the current object the code is being written inside. It is very helpful because it lets you reuse functions in different execution contexts.</li>
+            <li>The <code class="language-js">this</code> keyword refers to the current object the code is being written inside. It is very helpful because it lets you reuse functions in different execution contexts.</li>
           </ul>
           <br>
 
@@ -751,38 +821,40 @@
           <ul>
             <li>A variable is a named container that allows us to store data in our code.</li>
             <li>A variable name should have a clean, obvious meaning, describing the data that it stores.</li>
-            <li>To declare/create a variable, the "var" or "let" keyword is used
+            <li>To declare/create a variable, the <code class="language-js">var</code> or <code class="language-js">let</code> keyword is used
               <ul>
-                <li>Example: let message="Hello!"</li>
-                <li>You can change your variable later, but you cannot use the "var" or "let" keyword again. For example, to change the message above to something else, you would just add this later into the code: message="This can say anything!" So, we should declare a variable once and then refer to it without var or let.</li>
-                <li>"var" was the old way of declaring variables, and "let" and "const" is the new way. Neither is really wrong.</li>
-                <li>The reason let is different from var is because let allows you to scope to any curly brackets (like if loops) whereas var can only scope to functions.</li>
+                <li>Example: <code class="language-js">let message = "Hello!"</code></li>
+                <li>You can change your variable later, but you cannot use the <code class="language-js">var</code> or <code class="language-js">let</code> keyword again. For example, to change the message above to something else, you would just add this later into the code: <code class="language-js">message = "This can say anything!"</code> So, we should declare a variable once and then refer to it without <code class="language-js">var</code> or <code class="language-js">let</code>.</li>
+                <li><code class="language-js">var</code> was the old way of declaring variables, and <code class="language-js">let</code> and <code class="language-js">const</code> is the new way. Neither is really wrong.</li>
+                <li>The reason <code class="language-js">let</code> is different from <code class="language-js">var</code> is because <code class="language-js">let</code> allows you to scope to any curly brackets (like <code class="language-js">if</code> loops) whereas <code class="language-js">var</code> can only scope to functions.</li>
               </ul>
             </li>
             <li>Long variables should be named in camelCase like this: myVeryLongName</li>
             <li>You can name your variable pretty much anything, but there are still some rules
               <ul>
-                <li>The only special characters allowed are _ and $. Hyphens or anything else are not allowed</li>
+                <li>The only special characters allowed are <code class="language-js">_</code> and <code class="language-js">$</code>. Hyphens or anything else are not allowed</li>
                 <li>The variable cannot start with a number</li>
                 <li>It can not be a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words" target="_blank">reserved word</a></li>
               </ul>
             </li>
-            <li>To declare a constant (unchanging) variable, use const instead of var or let. Variables declared using const are called "constants" and cannot be reassigned. An attempt to do so would cause an error.</li>
+            <li>To declare a constant (unchanging) variable, use <code class="language-js">const</code> instead of var or let. Variables declared using const are called "constants" and cannot be reassigned. An attempt to do so would cause an error.</li>
             <li>When you have a variable that is hard to remember (like hex codes), it is standard practice to define them as constants in all caps with underscores.
               <ul>
-                <li>Example: const <span class="caps">color_red</span> = "#F00";</li>
+                <li>Example: <code class="language-js">const COLOR_RED = "#F00";</code></li>
               </ul>
             </li>
-            <li>For strings, if you need to use a " or ' within it, put a backslash before it so it doesn't close your string
+            <li>For strings, if you need to use a <code class="language-js">"</code> or <code class="language-js">'</code> within it, put a backslash before it so it doesn't close your string
               <ul>
-                <li>Example: "I/'m a string!"</li>
+                <li>Example: <code class="language-js">"I/'m a string!"</code></li>
               </ul>
             </li>
-            <li>Use backticks (`) to embed variables and expressions into a string by wrapping them in ${…}
-              <ul>
-                <li>Example: let name = "Finn";<br>
-                  alert(`Hello, ${name}!`); // Hello, Finn!</li>
-              </ul>
+            <li>Use backticks: <code class="language-js">`</code> to embed variables and expressions into a string by wrapping them in <code class="language-js">${…}</code>
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                let name = "Finn";<br>
+                alert(`Hello, ${name}!`); // Hello, Finn!
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
@@ -790,43 +862,48 @@
           <h3>Operators</h3>
           <ul>
             <li><a href="https://www.w3schools.com/js/js_operators.asp" target="_blank">JavaScript Operators</a></li>
-            <li>The Assignment Operator (=) assigns a value to a variable
-              <ul>
-                <li>Example let x = 3; // now x has the value of 3</li>
-              </ul>
+            <li>The Assignment Operator: <code class="language-js">=</code> assigns a value to a variable
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                let x = 3; // now x has the value of 3
+                </code>
+              </pre>
             </li>
             <li>Arithmetic operators are for simple math like addition, subtraction, multiplication, etc.</li>
             <li>Comparison Operators are for comparing values.
               <ul>
-                <li>"=" is an assignment operator. Meaning, when you're trying to see if two values are equal, you shouldn't use "=". Instead, you should use "==" or "==="</li>
-                <li>"==" just checks the value, whereas "===" checks the value and type
+                <li><code class="language-js">=</code> is an assignment operator. Meaning, when you're trying to see if two values are equal, you shouldn't use <code class="language-js">=</code>. Instead, you should use <code class="language-js">==</code> or <code class="language-js">===</code>.</li>
+                <li><code class="language-js">==</code> just checks the value, whereas <code class="language-js">===</code> checks the value and type.
                   <ul>
-                    <li>Example: "5" == 5 is true, whereas "5" === 5 is false, because the first 5 is a string while the second 5 is a number, meaning their type does not match.</li>
+                    <li>Example: <code class="language-js">"5" == 5</code> is true, whereas <code class="language-js">"5" === 5</code> is false, because the first 5 is a string while the second 5 is a number, meaning their type does not match.</li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li>Logical Operators are for checking to see if certain functions are met.
               <ul>
-                <li>&& - logical and</li>
-                <li>|| - logical or
-                  <ul>
-                    <li>Example: IF (function1 && !function2) {
-                      <div class="tab">console.log ("this will print if function1 is true and function2 is false");</div>
-                      }</li>
-                  </ul>
-                </li>
+                <li><code class="language-js">&&</code> - logical and</li>
+                <li><code class="language-js">||</code> - logical or
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    IF (function1 && !function2) {
+                      console.log ("this will print if function1 is true and function2 is false");
+                    }
+                    </code>
+                </pre>
               </ul>
             </li>
-            <li>The typeof operator simply returns the type
-              <ul>
-                <li>Example: let myVar = 4<br>
-                    typeof myVar // "number"</li>
-              </ul>
+            <li>The <code class="language-js">typeof</code> operator simply returns the type
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                let myVar = 4
+                typeof myVar // "number"
+                </code>
+              </pre>
             </li>
-            <li>"?." is an optional chaining operator
+            <li><code class="language-js">?.</code> is an optional chaining operator
               <ul>
-                <li>If you're trying to access a property within an object and it's not there, you'll get an error. Using the ?. Operator will ensure that you get an "undefined" reading instead of getting an error.</li>
+                <li>If you're trying to access a property within an object and it's not there, you'll get an error. Using the <code class="language-js">?.</code> Operator will ensure that you get an "undefined" reading instead of getting an error.</li>
               </ul>
             </li>
           </ul>
@@ -834,16 +911,19 @@
 
           <h3>Conditionals</h3>
           <ul>
-            <li>Conditionals are code structures used to test if an expression returns true or not. A very common form of conditionals is the if...else statement.
-              <ul>
-                <li>Example: let iceCream = "chocolate";<br>
-                  if (iceCream === "chocolate") {
-                  <div class="tab">alert("Yay, I love chocolate ice cream!");</div>
-                  } else {
-                  <div class="tab">alert("Awwww, but chocolate is my favorite…");</div>
-                }</li>
-                <li>The expression inside the if () is the test</li>
-              </ul>
+            <li>Conditionals are code structures used to test if an expression returns true or not. A very common form of conditionals is the <code class="language-js">if...else</code> statement.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                // The expression inside the if () is the test
+                
+                let iceCream = "chocolate";
+                if (iceCream === "chocolate") {
+                  alert("Yay, I love chocolate ice cream!");
+                } else {
+                  alert("Awwww, but chocolate is my favorite…");
+                }
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
@@ -857,55 +937,62 @@
                 <li>Call the function</li>
               </ol>
             </li>
-            <li>A function can be defined using the function keyword, followed by the name of a function and parentheses.
-              <ul>
-                <li>Example: function [function name] ([input parameters if there are any]) {
-                    <div class="tab">// write function code here</div>
-                    }</li>
-              </ul>
+            <li>A function can be defined using the <code class="language-js">function</code> keyword, followed by the name of a function and parentheses.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                function [function name] ([input parameters if there are any]) {
+                  // write function code here
+                };
+                </code>
+              </pre>
             </li>
-            <li>You can put (arr) inside a function argument to denote that the input should be an array</li>
+            <li>You can put <code class="language-js">(arr)</code> inside a function argument to denote that the input should be an array</li>
             <li>Function parameters are variables that are defined in the function definition and can have a value of any data type.
-              <ul>
-                <li>Example: function greet(firstName, lastName) {
-                    <div class="tab">alert("Hello " + firstName + " " + lastName);</div>
-                    }
-                    <br>
-                    greet("Steve", "Jobs");
-                </li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                function greet(firstName, lastName) {
+                  alert("Hello " + firstName + " " + lastName);
+                }
+                
+                greet("Steve", "Jobs"); // Hello Steve Jobs
+                </code>
+              </pre>
             </li>
             <li>Function <span class="caps">expressions</span> start with a var and are stored as values. This means they can then be called inside of other functions.
-              <ul>
-                <li>Example: var myFunction = function(x,y) {
-                    <div class="tab">// function code</div>
-                    }
-                </li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                var myFunction = function(x,y) {
+                  // function code
+                };
+                </code>
+              </pre>
             </li>
             <li>Function <span class="caps">declarations</span> on the other hand do not start with a var can cannot then be called inside of other functions.
-              <ul>
-                <li>function myFunction2(x,y) {
-                    <div class="tab">// function code</div>
-                    }
-                </li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                function myFunction2(x,y) {
+                  // function code
+                }
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
 
           <h3>Loops</h3>
           <ul>
-            <li><strong>For loops:</strong>
+            <li><code class="language-js">for</code>  loops:
               <ul>
                 <li>3 properties needed: iterator; criteria; increment
-                  <ul>
-                    <li>Example: (i = 0; i &lt; array.length; I++)</li>
-                  </ul>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    (i = 0; i &lt; array.length; I++)
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li><strong>While loops:</strong>
+            <li><code class="language-js">while</code> loops:
               <ul>
                 <li>While loops are repeated until the condition is no longer met. If the condition is always met, the loop will continue infinitely and crash the computer. Therefore, something needs to change to mean the condition won't always be met.</li>
               </ul>
@@ -920,23 +1007,30 @@
                 <li>Object examples: Arrays, Maths, and Dates.</li>
               </ul>
             </li>
-            <li>Creating an object: var myObject = {
-                <div class="tab">(property name: value),</div>
-                <div class="tab">(property name: value),</div>
+            <li>Creating an object: 
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                var myObject = {
+                  (property name: value),
+                  (property name: value),
                 };
+                </code>
+              </pre>
             </li>
-            <li>After you create an object, you can access the properties within it by using a "."
-              <ul>
-                <li>Example: myObject.propertyName;</li>
-              </ul>
+            <li>After you create an object, you can access the properties within it by using a <code class="language-js">.</code>
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                myObject.propertyName;
+                </code>
+              </pre>
             </li>
             <li><strong>Methods</strong> are <strong>functions</strong> that exist on <strong>objects</strong></li>
-            <li>Creating an array: var myArray = [(insert your array separated by commas)]</li>
+            <li>Creating an array: <code class="language-js">var myArray = /*(insert your array separated by commas)*/</code></li>
             <li>Constructors are used when you need to to create more than one object, and they should be started with a capital letter</li>
             <li>There are also JSON objects, which contain data in the form of key/value pairs
               <ul>
-                <li>JSON.stringify puts all object text into a string</li>
-                <li>JSON.parse then takes a string and puts it back into object form</li>
+                <li><code class="language-js">JSON.stringify()</code> puts all object text into a string.</li>
+                <li><code class="language-js">JSON.parse()</code> then takes a string and puts it back into object form.</li>
               </ul>
             </li>
           </ul>
@@ -948,15 +1042,11 @@
             <li>Object: every html element in the document</li>
             <li>object.method notation
               <ul>
-                <li>Example: document.getElementById(h1);</li>
+                <li>Example: <code class="language-js">document.getElementById(h1);</code></li>
               </ul>
             </li>
-            <li>.getElements will return an array, while .getElement will return a singular value</li>
-            <li>You can't use hyphens in JavaScript, so if you're updating a property with multiple words, you'll use camelCase instead
-              <ul>
-                <li>Example: title.color.backgroundColor = "blue";</li>
-              </ul>
-            </li>
+            <li><code class="language-js">.getElements</code> will return an array, while <code class="language-js">.getElement</code> will return a singular value</li>
+            <li>You can't use hyphens in JavaScript, so if you're updating a property with multiple words, use camelCase instead</li>
             <li>The DOM is essentially an API to the page which allows programs to read and manipulate the page's content, structure, and styles.</li>
             <li>There are 3 types of objects:
               <ol>
@@ -965,10 +1055,10 @@
                 <li>host objects (browser-specific objects - HTML elements)</li>
               </ol>
             </li>
-            <li>The object structure of the DOM is represented by a "node tree". It is called a tree because of the "branches" it has. Everything stems from the HTML tag, and then it breaks off into different branches for the head and body. Then, each of those break off into other branches, such as h1, p, img, etc.</li>
+            <li>The object structure of the DOM is represented by a "node tree". It is called a tree because of the "branches" it has. Everything stems from the HTML tag, and then it breaks off into different branches for the head and body. Then, each of those break off into other branches, such as <code class="language-html">&LT;h1&GT;</code>, <code class="language-html">&LT;p&GT;</code>, <code class="language-html">&LT;img&GT;</code>, etc.</li>
             <li>Nodes are also referred to by their position in the tree relative to other nodes:
               <ul>
-                <li>Root node: The top node in the tree, which in the case of HTML is always the HTML nod</li>
+                <li>Root node: The top node in the tree, which in the case of HTML is always the HTML node</li>
                 <li>Child node: A node directly inside another node.</li>
                 <li>Descendant node: A node anywhere inside another node.</li>
                 <li>Parent node: A node which has another node inside it.</li>
@@ -981,41 +1071,51 @@
             <li>JavaScript is used for <i>interactivity</i>, so while you wouldn't normally use JavaScript to set style rules, you would use it when you're changing style rules during events like clicks, hoverovers, etc.</li>
             <li>document.querySelector allows you to select IDs using CSS queries (anything with a single selection)
               <ul>
-                <li>Example: document.querySelector("#id")</li>
+                <li>Example: <code class="language-js">document.querySelector("#id");</code></li>
               </ul>
             </li>
-            <li>document.querySelectorAll is used for tags and classes (anything with multiple selections)
+            <li><code class="language-js">document.querySelectorAll();</code> is used for tags and classes (anything with multiple selections)
               <ul>
-                <li>Example: document.querySelectorAll("p");</li>
+                <li>Example: <code class="language-js">document.querySelectorAll("p");</code></li>
                 <li>When selecting elements by class, you can't just change everything within it. You need to use a for loop to change the style of each element within the class.</li>
               </ul>
             </li>
             <li>Here is the order for creating new elements in JavaScript:
               <ol>
                 <li>Create:
-                  <ul>
-                    <li>document.createElement("tagName")</li>
-                  </ul>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    document.createElement("tagName")
+                    </code>
+                  </pre>
                 </li>
                 <li>Set Attributes:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    Element.setAttribute(/*"enter several attributes here"*/); 
+                    </code>
+                  </pre>
                   <ul>
-                    <li>Element.setAttribute(["enter several attributes here"]); 
-                      <ul>
-                        <li>This allows you to set multiple attributes at once instead of having to write several lines of code.</li>
-                        <li>When setting multiple styles, the syntax is ("style", "[insert styles in CSS syntax here"])</li>
-                      </ul>
+                    <li>This allows you to set multiple attributes at once instead of having to write several lines of code.</li>
+                    <li>When setting multiple styles, the syntax is:
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        ("style", "/*insert styles in CSS syntax here"*/)
+                        </code>
+                      </pre>
                     </li>
-                    <li>Element.textContent changes text content</li>
-                    <li>Element.innerHTML does the same thing</li>
+                    <li><code class="language-js">Element.textContent</code> changes the text content.</li>
+                    <li><code class="language-js">Element.innerHTML</code> does the same thing.</li>
                   </ul>
                 </li>
                 <li>Append:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    document.appendChild("/*new tag*/");
+                    </code>
+                  </pre>
                   <ul>
-                    <li>document.appendChild("[new tag]");
-                      <ul>
-                        <li>This adds a child to the parent</li>
-                      </ul>
-                    </li>
+                    <li>This adds a child to the parent</li>
                   </ul>
                 </li>
               </ol>
@@ -1030,27 +1130,30 @@
               <ol>
                 <li>HTML attribute
                   <ul>
-                    <li>Example: onclick="..."</li>
+                    <li>Example: <code class="language-html">onclick="..."</code></li>
                     <li>HTML attributes are not often used, because it's generally best practice to separate your languages (HTML, CSS, JavaScript)</li>
                   </ul>
                 </li>
                 <li>DOM property
                   <ul>
-                    <li>Example: element.onclick = function</li>
+                    <li>Example: <code class="language-js">element.onclick = function {</code></li>
                     <li>DOM properties are ok to use, but the biggest issue with them is that you can't assign multiple handlers to an event. Trying to do so will overwrite the earlier rule. Therefore, you must put all of your code within one handler.</li>
                   </ul>
                 </li>
                 <li>Methods
                   <ul>
                     <li>This way is the most flexible, but it is also the longest to write.</li>
-                    <li>Example: element.addEventListener(event, handler, [options]);
-                      <ul>
-                        <li><strong>event</strong> - event name, e.g. "click".</li>
-                        <li><strong>handler</strong> - the function that gets called when the event happens</li>
-                        <li><strong>options</strong> - an additional optional object with properties</li>
-                      </ul>
-                    </li>
-                    <li>Removing elements works the same way, only it's element.removeEventListener (event, handler, [options]);</li>
+                    <pre data-whitespace-normalization="true">
+                      <code class="language-js">
+                      element.addEventListener(event, handler, /*options*/);
+                      </code>
+                    </pre>
+                    <ul>
+                      <li><strong>event</strong> - event name, e.g. "click".</li>
+                      <li><strong>handler</strong> - the function that gets called when the event happens</li>
+                      <li><strong>options</strong> - an additional optional object with properties</li>
+                    </ul>
+                    <li>Removing elements works the same way, only it's <code class="language-js">element.removeEventListener (event, handler, /*options*/);</code></li>
                     <li>You cannot remove anonymous functions. They must be stored in a variable to be removed.</li>
                   </ul>
                 </li>
@@ -1058,12 +1161,12 @@
             </li>
             <li>The event object has properties
               <ul>
-                <li>Example: event.type will tell you the event type (such as "click")</li>
+                <li>Example: <code class="language-js">event.type();</code> will tell you the event type (such as "click")</li>
               </ul>
             </li>
-            <li>The setInterval method requires a function and then a time in milliseconds</li>
-            <li>The only way to stop an interval is to store it in a variable so you can declare it later inside a clearInterval();</li>
-            <li>event.stopPropagation(); stops event bubbling from happening</li>
+            <li>The <code class="language-js">setInterval();</code> method requires a function and then a time in milliseconds</li>
+            <li>The only way to stop an interval is to store it in a variable so you can declare it later inside a <code class="language-js">clearInterval();</code></li>
+            <li><code class="language-js">event.stopPropagation();</code> stops event bubbling from happening</li>
           </ul>
           <br>
 
@@ -1072,7 +1175,7 @@
             <li>You can view local and session storage under the application tab in Chrome DevTools</li>
             <li>Local storage stores data for a longer period of time until you delete the items there, whereas session storage only stores while your browser tab is open</li>
             <li>The local and session storage are child objects of the window</li>
-            <li>localStorage.setItem([key name], [value]); - create keys and values in local storage</li>
+            <li><code class="language-js">localStorage.setItem(/*key name*/, /*value*/);</code> - create keys and values in local storage</li>
           </ul>
           <br>
 
@@ -1080,10 +1183,10 @@
           <ul>
             <li>Developers realized that there were some very common things that they were always coding in JavaScript. To save time and be more efficient, they created shortcuts to do some of these common tasks. That's what jQuery is!</li>
             <li>It was also created to account for and write code that would work robustly for many different browser behaviors and edge cases.</li>
-            <li>jQuery makes selections much easier. Instead of doing document.getElementByClass, all you need to do it $('[selector]');</li>
+            <li>jQuery makes selections much easier. Instead of doing <code class="language-js">document.getElementByClass</code>, all you need to do it <code class="language-js">$('/*selector*/');</code></li>
             <li>Query is falling out of favor, now, though, because browsers have become much more standardized, and many of its use cases can now be used natively in javaScript or browser APIs.
               <ul>
-                <li>For example, the querySelector and querySelectorAll methods replicate jQuery's selection capabilities.</li>
+                <li>For example, the <code class="language-js">querySelector();</code> and <code class="language-js">querySelectorAll();</code> methods replicate jQuery's selection capabilities.</li>
                 <li>Similarly, many jQuery animation effects can now be implemented much more efficiently with CSS.</li>
               </ul>
             </li>
@@ -1091,17 +1194,21 @@
             <li>A newer, more popular framework is <a href="https://react.dev" target="_blank">React</a></li>
             <li>In jQuery, the curly brackets are used to select values
               <ul>
-                <li>Example: ${name}</li>
+                <li>Example: <code class="language-js">${name}</code></li>
               </ul>
             </li>
-            <li>Anytime you're using jQuery, you should put your jQuery code (any dollar signs) in a function like this to ensure that the code only runs after the page is fully loaded:<br>
-              $(function() {
-                <div class="tab">// write your code here</div>
-              } );
+            <li>Anytime you're using jQuery, you should put your jQuery code (any dollar signs) in a function like this to ensure that the code only runs after the page is fully loaded:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                $(function() {
+                  // write your code here
+                });
+                </code>
+              </pre>
             </li>
             <li>Linking any framework will be different, but just refer to the documentation and you will be able to figure it out.
               <ul>
-                <li>For example, jQuery UI requires a &LT;link&GT; tag and a couple &LT;script&GT; tags.</li>
+                <li>For example, jQuery UI requires a <code class="language-html">&LT;link&GT;</code> tag and a couple <code class="language-html">&LT;script&GT;</code> tags.</li>
               </ul>
             </li>
           </ul>
@@ -1110,60 +1217,69 @@
           <h3>APIs</h3>
           <ul>
             <li class="star-li">The network tab of Chrome Dev Tools only starts recording after you have it open. If you need to see earlier responses, copy url, open a new tab, inspect element, and then paste url.</li>
-            <li>Syntax for fetching APIs:<br>
-              fetch([api])
-                <div class="tab">.then(function (response) {</div>
-                  <div class="tabx2">return response.json();</div>
-                <div class="tab">})</div>
-                <div class="tab">.then(function (data) {</div>
-                  <div class="tabx2">// write code here</div>
-                <div class="tab">})</div>
-                <div class="tab">.catch(function (error) {</div>
-                  <div class="tabx2">console.error("There was a problem with the fetch operation", error);</div>
-                <div class="tab">});</div>
+            <li>Syntax for fetching APIs:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                fetch([api])
+                  .then(function (response) {
+                    return response.json();
+                  })
+                  .then(function (data) {
+                    // write code here
+                  })
+                  .catch(function (error) {
+                    console.error("There was a problem with the fetch operation", error);
+                  });
+                </code>
+              </pre>
             </li>
             <li>Most JavaScript code is synchronous, meaning it runs exactly when it is called. However, some things, like https requests, are asynchronous. Since JavaScript can only run one line of code at a time, to ensure that our code is not frozen while we're waiting for a response, the code will return a "Promise object."</li>
             <li>A Promise is an object representing the eventual completion or error of an operation.</li>
             <li>Returning a promise object does 2 important things:
               <ol>
                 <li>It automatically becomes asynchronous, allowing it to run in the background and giving the rest of our code a chance to continue execution.</li>
-                <li>It gives us access to two methods: .then() and .catch().</li>
+                <li>It gives us access to two methods: <code class="language-js">.then();</code> and <code class="language-js">.catch();</code>.</li>
               </ol>
             </li>
-            <li>Every time an asynchronous function is run, it <strong>must</strong> be followed by a .then();</li>
-            <li>If the fetch is successful, the Promise object is considered resolved, and the .then() block will execute.</li>
-            <li>You should never nest .then() statements within other .then() statements, because the code will be very difficult to read and refactor into functions.</li>
-            <li>When you get to the end of your .then() block, you should always return your last line of code before going into your next .then() statement.</li>
+            <li>Every time an asynchronous function is run, it <strong>must</strong> be followed by a <code class="language-js">.then();</code></li>
+            <li>If the fetch is successful, the Promise object is considered resolved, and the <code class="language-js">.then();</code> block will execute.</li>
+            <li>You should never nest <code class="language-js">.then();</code> statements within other <code class="language-js">.then();</code> statements, because the code will be very difficult to read and refactor into functions.</li>
+            <li>When you get to the end of your <code class="language-js">.then();</code> block, you should always return your last line of code before going into your next <code class="language-js">.then();</code> statement.</li>
             <li>The response object returns a lot of extra information that we don't necessarily need. Typically, all we want in this scenario is a JSON object which we can get by calling response.json()</li>
-            <li>Converting the body to a JSON data structure with response.json() actually returns another promise, because converting the data to a particular type can take significant time.</li>
-            <li>The .catch() method should be used to handle any errors that may occur during the fetch request</li>
-            <li>When you have multiple .thens() and you add a .catch() onto the end, it will trigger if any of the prior .thens() fail. You do not need to have a .catch() after each .then().</li>
-            <li>You can also use an if statement inside of the function to have different code run depending on the response status
+            <li>Converting the body to a JSON data structure with <code class="language-js">response.json();</code> actually returns another promise, because converting the data to a particular type can take significant time.</li>
+            <li>The <code class="language-js">.catch();</code> method should be used to handle any errors that may occur during the fetch request</li>
+            <li>When you have multiple <code class="language-js">.then();</code>s and you add a <code class="language-js">.catch();</code> onto the end, it will trigger if any of the prior <code class="language-js">.then();</code>s fail. You do not need to have a <code class="language-js">.catch();</code> after each <code class="language-js">.then();</code>.</li>
+            <li>You can also use an <code class="language-js">if</code> statement inside of the function to have different code run depending on the response status
               <ul>
-                <li>For example, you could redirect users to a different page within an if statement using the document.location.replace() method.
-                  <ul>
-                    <li>Example: fetch([api])
-                      <div class="tab">.then(function (response) {</div>
-                        <div class="tabx2">if (response.status === 404) {</div>
-                          <div class="tabx3">document.location.replace([new URL])</div>
-                        <div class="tabx2">} else {</div>
-                          <div class="tabx3">return response.json();</div>
-                        <div class="tabx2">}</div>
-                      <div class="tab">});</div>
-                    </li>
-                  </ul>
+                <li>For example, you could redirect users to a different page within an if statement using the<code class="language-js"> document.location.replace();</code> method.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fetch([api])
+                      .then(function (response) {
+                        if (response.status === 404) {
+                          document.location.replace([new URL])
+                        } else {
+                          return response.json();
+                        }
+                      });
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li>"catch" is used within try...catch code blocks as well. Try...catch syntax lets you recover if a part of your function doesn't execute correctly</li>
-            <li>Example: try {
-              <div class="tab">// function code</div>
-              } catch {
-              <div class="tab">// code that will run if your function above fails</div>
-              }
+            <li>"catch" is used within <code class="language-js">try...catch</code> code blocks as well. <code class="language-js">try...catch</code> syntax lets you recover if a part of your function doesn't execute correctly
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                try {
+                  // function code
+                } catch {
+                  // code that will run if your function above fails
+                }
+                </code>
+              </pre>
             </li>
-            <li>There are different fetch options, such as “GET” and “POST”</li>
-            <li>In URLs, anything after the ? are called parameters. Parameters narrow your search to fit specific criteria, and you can group several parameters together with an &.</li>
+            <li>There are different fetch options, such as <code class="language-js">get</code> and <code class="language-js">post</code></li>
+            <li>In URLs, anything after the <code class="language-js">?</code> are called parameters. Parameters narrow your search to fit specific criteria, and you can group several parameters together with an <code class="language-js">&</code>.</li>
           </ul>
           <br>
 
