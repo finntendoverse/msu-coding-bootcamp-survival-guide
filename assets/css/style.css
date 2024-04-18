@@ -117,18 +117,6 @@ a:visited {
     color: var(--lightgreen);
 }
 
-.tab {
-    margin-left: 40px;
-}
-
-.tabx2 {
-    margin-left: 80px;
-}
-
-.tabx3 {
-    margin-left: 120px;
-}
-
 .star-ul {
     list-style-type: none;
 }

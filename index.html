@@ -307,7 +307,6 @@
                 </code>
               </pre>
             </li>
-            </li>
             <li>The select element defines a drop-down list
               <pre data-whitespace-normalization="true">
                 <code class="language-html">
@@ -537,7 +536,7 @@
                 </li>
               </ul>
             </li>
-            <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned <code class="language-html"></code>&LT;img&GT;</li> is written inside of a <code class="language-html">&LT;section&GT;</code>, it will appear there on the page.</li>
+            <li>Note: normal flow means that the HTML will display in the order it is written. If a static or relative positioned <code class="language-html">&LT;img&GT;</code> is written inside of a <code class="language-html">&LT;section&GT;</code>, it will appear there on the page.</li>
             <li>Z-index controls the stacking order of overlapping elements on a page. An element with a higher z-index value will appear in front of an element with a lower z-index value.</li>
             <li>Viewport units:
               <ul>
@@ -647,7 +646,7 @@
                 </code>
               </pre>
             </li>
-            <li>The Picture Tag</a>
+            <li>The Picture Tag
               <pre data-whitespace-normalization="true">
                 <code class="language-html">
                 &LT;picture&GT;
@@ -1142,18 +1141,25 @@
                 </li>
                 <li>Methods
                   <ul>
-                    <li>This way is the most flexible, but it is also the longest to write.</li>
-                    <pre data-whitespace-normalization="true">
-                      <code class="language-js">
-                      element.addEventListener(event, handler, /*options*/);
-                      </code>
-                    </pre>
-                    <ul>
-                      <li><strong>event</strong> - event name, e.g. "click".</li>
-                      <li><strong>handler</strong> - the function that gets called when the event happens</li>
-                      <li><strong>options</strong> - an additional optional object with properties</li>
-                    </ul>
-                    <li>Removing elements works the same way, only it's <code class="language-js">element.removeEventListener (event, handler, /*options*/);</code></li>
+                    <li>This way is the most flexible, but it is also the longest to write.
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        element.addEventListener(event, handler, /*options*/);
+                        </code>
+                      </pre>
+                      <ul>
+                        <li><strong>event</strong> - event name, e.g. "click".</li>
+                        <li><strong>handler</strong> - the function that gets called when the event happens</li>
+                        <li><strong>options</strong> - an additional optional object with properties</li>
+                      </ul>
+                    </li>
+                    <li>Removing elements works the same way, only it's:
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        element.removeEventListener (event, handler, /*options*/);
+                        </code>
+                      </pre>
+                    </li>
                     <li>You cannot remove anonymous functions. They must be stored in a variable to be removed.</li>
                   </ul>
                 </li>
@@ -1215,8 +1221,10 @@
           <br>
 
           <h3>APIs</h3>
-          <ul>
+          <ul class="star-ul">
             <li class="star-li">The network tab of Chrome Dev Tools only starts recording after you have it open. If you need to see earlier responses, copy url, open a new tab, inspect element, and then paste url.</li>
+          </ul>
+          <ul>
             <li>Syntax for fetching APIs:
               <pre data-whitespace-normalization="true">
                 <code class="language-js">
