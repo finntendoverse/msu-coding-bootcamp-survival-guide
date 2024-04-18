@@ -1180,11 +1180,12 @@
           <h2>JavaScript</h2>
           <h3>Arrow Functions</h3>
           <ul>
-            <li>Arrow functions bind “this” automatically so we don't have to do .bind(this)</li>
+            <li>Arrow functions bind “this” automatically so we don't have to do <code class="language-js">.bind(this)</code></li>
             <li>Never use arrow functions when creating objects</li>
             <li>Pretty much always use arrow functions when using event listeners & setTimeouts</li>
             <li>Syntax (all the following are the same function):
-              <pre data-whitespace-normalization="true"><code class="language-js" lass="no-whitespace-normalization">
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
                 var createGreeting = function(message, name) {
                   return `${message}, ${name}!`;
                   this;
@@ -1195,97 +1196,110 @@
                 };
 
                 var createGreeting = (message, name) => ${message}, ${name}!`; // implicit return
-            </code></pre>
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
 
           <h3>let & const</h3>
           <ul>
-            <li>You can use const to reference arrays and then add or remove items to the array, because the const applies to the array itself, not what's in it.</li>
-            <li>You pretty much only need to use const when creating arrays or creating objects</li>
-            <li>An important thing to note is that because of shadow scoping, you can have a variable set as a “const” within a function but then change it within another code block.</li>
+            <li>You can use <code class="language-js">const</code> to reference arrays and then add or remove items to the array, because the <code class="language-js">const</code> applies to the array itself, not what's in it.</li>
+            <li>You pretty much only need to use <code class="language-js">const</code> when creating arrays or creating objects</li>
+            <li>An important thing to note is that because of shadow scoping, you can have a variable set as a <code class="language-js">const</code> within a function but then change it within another code block.</li>
           </ul>
           <br>
 
           <h3>for...of loops</h3>
           <ul>
-            <li>for...of loops are used to iterate over iterable objects like arrays.
-              <ul>
-                <li>Example: const fruits = ['apple', 'banana', 'orange'];<br>
+            <li><code class="language-js">for...of</code> loops are used to iterate over iterable objects like arrays.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const fruits = ['apple', 'banana', 'orange'];
                   for (const fruit of fruits) {
-                  <div class="tab">console.log(fruit);</div>
+                    console.log(fruit);
                   }
-                </li>
-              </ul>
+                </code>
+              </pre>
             </li>
-            <li>When you have an array of arrays, you can use the for...of loop to more easily access items in the array
-              <ul>
-                <li>Example: const billboardChart = {
-                  <div class="tab">[“bad Idea right?”, “Olivia Rodrigo”, 1],</div>
-                  <div class="tab">[“What Was I Made For?”, “Billie Eilish”, 2]</div>
-                  <div class="tab">[“Hummingbird”, “Metro Boomin”, 3]</div>
-                }<br>
+            <li>When you have an array of arrays, you can use the <code class="language-js">for...of</code> loop to more easily access items in the array
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const billboardChart = {
+                    [“bad Idea right?”, “Olivia Rodrigo”, 1],
+                    [“What Was I Made For?”, “Billie Eilish”, 2]
+                    [“Hummingbird”, “Metro Boomin”, 3]
+                }
+
                 for (const song of billboardChart) {
-                  <div class="tab">console.log(`${song[0]} by ${song[1]} is number ${song[2]} on the charts!);</div>
-                  }
-                </li>
-              </ul>
+                  console.log(`${song[0]} by ${song[1]} is number ${song[2]} on the charts!);
+                }
+                </code>
+              </pre>
             </li>
-            <li>A recursive function is one that calls itself. If you need to access values deep within an array, use printRecursive() with a for...of loop.</li>
-            <li>Example: function printRecursive(array) {
-              <div class="tab">for (const iterator of array) {</div>
-                <div class="tabx2">if (Array.isArray(iterator)) {</div>
-                  <div class="tabx3">printRecursive(iterator)</div>
-                <div class="tabx2">};</div>
-              <div class="tab">};</div>
-              };
+            <li>A recursive function is one that calls itself. If you need to access values deep within an array, use <code class="language-js">printRecursive()</code> with a <code class="language-js">for...of</code> loop.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                function printRecursive(array) {
+                  for (const iterator of array) {
+                    if (Array.isArray(iterator)) {
+                      printRecursive(iterator)
+                    };
+                  };
+                };
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
 
           <h3>Rest and spread operators</h3>
           <ul>
-            <li>Rest and spread operators are designated by 3 dots “...”</li>
+            <li>Rest and spread operators are designated by 3 dots <code class="language-js">...</code></li>
             <li>When you use the 3 dots inside of a function expression or declaration, it is the <strong>rest</strong> operator.</li>
-            <li>When you use the rest operator, it means you can pass any number of parameters into the function and they will all be executed
-              <ul>
-                <li>Example: function add(...numbers) {
-                  <div class="tab">// code</div>
-                  };<br>
-                  add(1, 10, 5) // returns 16<br>
-                  add(3, 6) // returns 9<br>
-                  add(10, 10, 15, 4) // returns 39
-                </li>
-              </ul>
+            <li>When you use the rest operator, it means you can pass any number of parameters into the function and they will all be executed.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                function add(...numbers) {
+                  // code
+                };
+
+                add(1, 10, 5) // returns 16
+                add(3, 6) // returns 9
+                add(10, 10, 15, 4) // returns 39
+                </code>
+              </pre>
             </li>
             <li>When you use the 3 dots outside of a function expression or declaration, it is the <strong>spread</strong> operator.</li>
-            <li>When you use the spread operator, it means that you're copying all the values of an array into another array
-              <ul>
-                <li>Example: const music = [“Life is Strange”, “PUP”, “Olivia Rodrigo”];<br>
-                  const thingsILove = [“Video games”, “my friends”, ...music];<br>
-                  console.log(thingsILove); // returns [“Video games”, “my friends”, “Life is Strange”, “PUP”, “Olivia Rodrigo”]
-                </li>
-              </ul>
+            <li>When you use the spread operator, it means that you're copying all the values of an array into another array.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                const music = [“Life is Strange”, “PUP”, “Olivia Rodrigo”];
+                const thingsILove = [“Video games”, “my friends”, ...music];
+                console.log(thingsILove); // returns [“Video games”, “my friends”, “Life is Strange”, “PUP”, “Olivia Rodrigo”]
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
 
           <h3>Object Destructuring</h3>
           <ul>
-            <li>Object destructuring allows you to extract multiple properties from an object and assign them to variables
-              <ul>
-                <li>Example: const person = {
-                  <div class="tab">firstName: 'Max',</div>
-                  <div class="tab">lastName: 'Caulfield',</div>
-                  <div class="tab">age: 18</div>
-                };<br>
-                const { firstName, lastName, age } = person;<br>
-                console.log(firstName); // Output: Max<br>
-                console.log(lastName); // Output: Caulfield<br>
+            <li>Object destructuring allows you to extract multiple properties from an object and assign them to variables.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                const person = {
+                  firstName: 'Max',
+                  lastName: 'Caulfield',
+                  age: 18
+                };
+
+                const { firstName, lastName, age } = person;
+                console.log(firstName); // Output: Max
+                console.log(lastName); // Output: Caulfield
                 console.log(age); // Output: 18
-                </li>
-              </ul>
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
@@ -1295,65 +1309,112 @@
             <li>Constructor functions work as a blueprint to allow you to create multiple objects without having to rewrite the code each time.</li>
             <li>Always capitalize the first letter of your constructor as a convention.</li>
             <li>There are 2 ways to create constructors:
-              <ul>
+              <ol>
                 <li>Functions
-                  <ul>
-                    <li>function Dog(name, age, breed) {
-                      <div class="tab">this.name = name,</div>
-                      <div class="tab">this.age = age,</div>
-                      <div class="tab">this.breed = breed,</div>
-                      <div class="tab">this.nap = function() {</div>
-                        <div class="tabx2">console.log(`${this.name}: Zzzzzzz`);</div>
-                      <div class="tab">};</div>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    function Dog(name, age, breed) {
+                      this.name = name,
+                      this.age = age,
+                      this.breed = breed,
+                      this.nap = function() {
+                        console.log(`${this.name}: Zzzzzzz`);
                       };
+                    };
+                    </code>
+                  </pre>
+                  <ul>
+                    <li>Then, to create a new “Dog”: 
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        const rexDog = new Dog(“Rex”, 2, “Bulldog”);
+                        </code>
+                      </pre>
                     </li>
-                    <li>Then, to create a new “Dog”: const rexDog = new Dog(“Rex”, 2, “Bulldog”);</li>
-                    <li>Then, to access methods or properties within your new “Dog”: rexDog.nap();</li>
+                    <li>Then, to access methods or properties within your new “Dog”:
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        rexDog.nap();
+                        </code>
+                      </pre>
+                    </li>
                     <li>You can also use the prototype to create new properties after the constructor has already been created
-                      <ul>
-                        <li>Example: Dog.prototype.wag = function () { //enter code here };</li>
-                      </ul>
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        Dog.prototype.wag = function () { //enter code here };
+                        </code>
+                      </pre>
                     </li>
                     <li>When using this method, if you want to inherit properties from another constructor function, you would use the .call method,
                       <ul>
-                        <li>Syntax: function [functionName]([function parameters]) {
-                          <div class="tab">[parent class].call(this, [properties you want to inherit])</div>
-                          }
-                          </li>
-                        <li>Example: function Dog(name, age, breed, puppues) {
-                          <div class="tab">Animal.call(this, name, age, breed)</div>
-                          }
-                          </li>
+                        <li>Syntax: 
+                          <pre data-whitespace-normalization="true">
+                            <code class="language-js">
+                            function /*functionName*/ (/*function parameters*/) {
+                              /*parent class*/.call(this, /*properties you want to inherit*/)
+                            }
+                            </code>
+                          </pre>
+                        </li>
+                        <li>Example: 
+                          <pre data-whitespace-normalization="true">
+                            <code class="language-js">
+                            function Dog(name, age, breed, puppues) {
+                              Animal.call(this, name, age, breed)
+                            }
+                            </code>
+                          </pre>
+                        </li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li>Classes
-                  <ul>
-                    <li>Class Cat {
-                      <div class="tab">constructor(name, age, breed) {</div>
-                        <div class="tabx2">this.name = name,</div>
-                        <div class="tabx2">this.age = age,</div>
-                        <div class="tabx2">this.breed = breed,</div>
-                      <div class="tab">}</div>
-                      <div class="tab">nap() {</div>
-                        <div class="tabx2">console.log(`${this.name}: Zzzzzzz`);</div>
-                      <div class="tab">}</div>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    Class Cat {
+                      constructor(name, age, breed) {
+                        this.name = name,
+                        this.age = age,
+                        this.breed = breed,
+                      }
+                      
+                      nap() {
+                          console.log(`${this.name}: Zzzzzzz`);
+                      }
                     };
+                    </code>
+                  </pre>
+                  <ul>
+                    <li>Then, to create a new “Cat”: 
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        const tomCat = new Cat(“Tom”, 4, “Shorthair”);
+                        </code>
+                      </pre>
                     </li>
-                    <li>Then, to create a new “Cat”: const tomCat = new Cat(“Tom”, 4, “Shorthair”);</li>
-                    <li>Then, to access methods or properties within your new “Cat”: tomCat.nap();</li>
-                    <li>Syntax to inherit parent properties in class constructors:<br>
-                      class [className] extends [parentClassName] {
-                        <div class="tab">constructor([parameters]) {</div>
-                          <div class="tabx2">super([inheritedValues]);</div>
-                        <div class="tab">};</div>
-                      };
+                    <li>Then, to access methods or properties within your new “Cat”:
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        tomCat.nap();
+                        </code>
+                      </pre>
+                    </li>
+                    <li>Syntax to inherit parent properties in class constructors:
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        class [className] extends [parentClassName] {
+                          constructor([parameters]) {
+                              super([inheritedValues]);
+                          };
+                        };
+                        </code>
+                      </pre>
                     </li>
                     <li>You can then overwrite properties or methods just by changing them within the object.</li>
                   </ul>
                 </li>
-              </ul>
+              </ol>
             </li>
           </ul>
           <br>
@@ -1369,34 +1430,29 @@
           <h3>node.js notes</h3>
           <ul>
             <li>Node.js allows us to run JavaScript on the command line, which means we can use it to create back-end servers, command-line tools, desktop apps, and plenty of other things.</li>
-            <li>To run node, enter  enter node [filename] [additional info if needed] in the command line.</li>
+            <li>To run node, enter  enter <code class="language-html">node /*filename*/ /*additional info if needed*/</code> in the command line.</li>
           </ul>
           <br>
 
           <h3>Process.argv</h3>
           <ul>
-            <li>Process.argv returns an array of each command passed into the command line
+            <li>
+              <code class="language-js">Process.argv</code> returns an array of each command passed into the command line
               <ul>
                 <li>numbers 0 and 1 in the array will always be the node application being used and the file path to the executed file</li>
-                <li>anything typed after the file name in the command line will be entered as the next item in the array, and each space will separate items in the array
+                <li>anything typed after the file name in the command line will be entered as the next item in the array, and each space will separate items in the array</li>
+                <li>If you want to use multiple words, you can put it into a string: <code class="language-html">'hello world'</code> or escape the space key with a backslash: <code class="language-html">hello\ world</code>.</li>
+                <li>The array is recreated every time the file is run, so your first word typed after <code class="language-html">node /*filename*/</code> will always be <code class="language-js">process.argv[2]</code></li>
+                <li><code class="language-js">Process.argv</code> will return everything as a string, meaning that numbers and boolean values (true, false) will not be returned as we expect them to be. This means they require additional manipulation if we need other values.
                   <ul>
-                    <li>(Unless you want to escape the space key, which can be done with a backslash)
-                      <ul>
-                        <li>Example: hello\ world</li>
-                      </ul>
+                    <li>
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-js">
+                        if (process.argv[2] === 'true') { console.log('it was true') } // will let you check if it is true or not by seeing if it matches the string
+                        </code>
+                      </pre>
                     </li>
-                    <li>(or, you can just put it into a string)
-                      <ul>
-                        <li>Example: 'hello world'</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>The array is recreated every time the file is run, so your first word typed after node [filename] will always be process.argv[2]</li>
-                <li>Process.argv will return everything as a string, meaning that numbers and boolean values (true, false) will not be returned as we expect them to be. This means they require additional manipulation if we need other values
-                  <ul>
-                    <li>Example: if (process.argv[2] === 'true') { console.log('it was true') } // will let you check if it is true or not by seeing if it matches the string</li>
-                    <li>parseInt() or parseFloat() can be used to change a number in a string back into a number.</li>
+                    <li><code class="language-js">parseInt()</code> or <code class="language-js">parseFloat()</code> can be used to change a number in a string back into a number.</li>
                   </ul>
                 </li>
               </ul>
@@ -1406,70 +1462,118 @@
 
           <h3>node modules</h3>
           <ul>
-            <li>require([module]) is the common JS syntax for using node.js modules. This syntax is becoming deprecated, though, in favor of ESM syntax.</li>
-            <li>Let fs = require('fs') utilizes the file system module and stores it in an object
+            <li><code class="language-js">require(/*module*/)</code> is the common JS syntax for using node.js modules. This syntax is becoming deprecated, though, in favor of ESM syntax.</li>
+            <li><code class="language-js">Let fs = require('fs')</code> utilizes the file system module and stores it in an object
               <ul>
-                <li>.readFile, .writeFile, and .appendFile can now be used to read/write/append files</li>
-                <li>readFile syntax: fs.readFile([path to filename], [encoding data type], [callback function]);</li>
+                <li><code class="language-js">.readFile()</code>, <code class="language-js">.writeFile()</code>, and <code class="language-js">.appendFile()</code> can now be used to read/write/append files.</li>
+                <li>readFile syntax: 
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.readFile(/*path to filename*/, /*encoding data type*/, /*callback function*/);
+                    </code>
+                  </pre>
+                </li>
                 <li>The encoding data type will pretty much always be “utf8”</li>
-                <li>Example: fs.readFile(data.csv, 'utf8', function(error, data) {
-                  <div class="tab">if (error) {</div>
-                    <div class="tabx2">console.error(error)</div>
-                  <div class="tab">} else {</div>
-                    <div class="tabx2"> console.log(data)</div>
-                  <div class="tab">}</div>
-                  });
+                <li>Example: 
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.readFile(data.csv, 'utf8', function(error, data) {
+                      if (error) {
+                        console.error(error)
+                      } else {
+                        console.log(data)
+                      }
+                    });
+                    </code>
+                  </pre>
                 </li>
-                <li>Example with a more concise syntax: fs.readFile('data.csv', 'utf8', (error, data) => {
-                  <div class="tab">error ? console.error(error) : console.log(data);</div>
-                  });
+                <li>Example with a more concise syntax:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.readFile('data.csv', 'utf8', (error, data) => {
+                      error ? console.error(error) : console.log(data);
+                    });
+                    </code>
+                  </pre>
                 </li>
-                <li>writeFile syntax: fs.writeFile([path to filename], [what you want to be written to the file], [callback function]);</li>
-                <li>Example: fs.writeFile(log.txt, process.argv[2], function(err) {
-                  <div class="tab">if (err) {</div>
-                    <div class="tabx2">console.error(err)</div>
-                  <div class="tab">} else {</div>
-                    <div class="tabx2">console.log('Success!')</div>
-                  <div class="tab">}</div>
-                  });
+                <li>writeFile syntax:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.writeFile(/*path to filename*/, /*what you want to be written to the file*/, /*callback function*/);
+                    </code>
+                  </pre>
                 </li>
-                <li>Example with a more concise syntax: fs.writeFile('log.txt', process.argv[2], (err) => {
-                  <div class="tab">err ? console.error(err) : console.log('Success!');</div>
-                  });
+                <li>Example:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.writeFile(log.txt, process.argv[2], function(err) {
+                      if (err) {
+                        console.error(err)
+                      } else {
+                        console.log('Success!')
+                      }
+                    });
+                    </code>
+                  </pre>
                 </li>
-                <li>appendFile syntax: fs.appendFile([path to filename], [what you want to be appended to the file], [callback function]);</li>
-                <li>Example: fs.appendFile('log.txt', `${process.argv[2]}\n`, function(error) {
-                  <div class="tab">if (error) {</div>
-                    <div class="tabx2">console.error(err)</div>
-                  <div class="tab">} else {</div>
-                    <div class="tabx2">console.log('Commit logged!')</div>
-                  <div class="tab">}</div>
-                  });
+                <li>Example with a more concise syntax:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.writeFile('log.txt', process.argv[2], (err) => {
+                      err ? console.error(err) : console.log('Success!');
+                    });
+                    </code>
+                  </pre>
                 </li>
-                <li>Example with a more concise syntax: fs.appendFile('log.txt', `${process.argv[2]}\n`, (err) => {
-                  <div class="tab">err ? console.error(err) : console.log('Commit logged!');</div>
-                  });
+                <li>appendFile syntax:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.appendFile(/*path to filename*/, /*what you want to be appended to the file*/, /*callback function*/);
+                    </code>
+                  </pre>
+                </li>
+                <li>Example:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.appendFile('log.txt', `${process.argv[2]}\n`, function(error) {
+                      if (error) {
+                        console.error(err)
+                      } else {
+                        console.log('Commit logged!')
+                      }
+                    });
+                    </code>
+                  </pre>
+                </li>
+                <li>Example with a more concise syntax:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    fs.appendFile('log.txt', `${process.argv[2]}\n`, (err) => {
+                      err ? console.error(err) : console.log('Commit logged!');
+                    });
+                    </code>
+                  </pre>
                 </li>
                 <li>All of the above concise syntax examples include arrow functions and ternary operators
                   <ul>
-                    <li>Arrow function syntax: () =></li>
-                    <li>Ternary operator syntax: condition ? expressionIfTrue : expressionIfFalse;</li>
+                    <li>Arrow function syntax: <code class="language-js">() =></code></li>
+                    <li>Ternary operator syntax: <code class="language-js">condition ? /*expressionIfTrue*/ : /*expressionIfFalse*/;</code></li>
                   </ul>
                 </li>
               </ul>
             </li>
-            <li>If you want to require another file in your code, you can use require([insert path to file])
+            <li>If you want to require another file in your code, you can use <code class="language-js">require(/*insert path to file*/)</code>.
               <ul>
-                <li>Within the required file, anything that we want to be accessible within the other file must be contained within a module.exports = { } object</li>
-                <li>After you require() a file, you can access those exported properties like so: [variable].[property]</li>
-                <li>const should be used for defining variables we're pulling from another file, since we probably will not want to overwrite that.</li>
+                <li>Within the required file, anything that we want to be accessible within the other file must be contained within a <code class="language-js">module.exports = { }</code> object.</li>
+                <li>After you <code class="language-js">require()</code> a file, you can access those exported properties like so: <code class="language-js">/*variable*/./*property*/</code></li>
+                <li><code class="language-js">const</code> should be used for defining variables we're pulling from another file, since we probably will not want to overwrite that.</li>
               </ul>
             </li>
-            <li>npm init should be passed into the terminal to get a package.json file into your repository</li>
-            <li>If the package.json file is already there, you don't need to initialize. Just pass npm i in the terminal to install the dependencies/devDependencies noted in the package.json file.</li>
-            <li>npm install [package] [optional: @[version number]] should be passed into the terminal to install a node package.
+            <li><code class="language-html">npm init</code> should be passed into the terminal to get a package.json file into your repository.</li>
+            <li>If the >package.json file is already there, you don't need to initialize. Just pass <code class="language-html">npm i</code> in the terminal to install the dependencies/devDependencies noted in the package.json file.</li>
+            <li><code class="language-html">npm install /*package*/ /*optional: @version number*/</code> should be passed into the terminal to install a node package.
               <ul>
-                <li>Example: npm install inquirer@8.2.4</li>
+                <li>Example: <code class="language-html">npm install inquirer@8.2.4</code></li>
               </ul>
             </li>
             <li>Installing a package creates a package-lock.json file and a node_modules folder.
@@ -1477,44 +1581,52 @@
                 <li>The package-lock.json file should be committed to your GitHub repository, but your node_modules folder should not.</li>
               </ul>
             </li>
-            <li>In your package.json file, there will be a lot of information
+            <li>In your package.json file, there will be a lot of information.
               <ul>
-                <li>dependencies are the packages you used within your program (like Inquirer)</li>
-                <li>devDependencies are the developer packages that the users don’t interact with (like Jest)
+                <li>dependencies are the packages you used within your program (like Inquirer).</li>
+                <li>devDependencies are the developer packages that the users don't interact with (like Jest).
                   <ul>
-                    <li>to install packages as devDependencies, pass npm i --save-dev [package] into the terminal</li>
+                    <li>to install packages as devDependencies, pass <code class="language-html">npm i --save-dev /*package*/</code> into the terminal</li>
                   </ul>
                 </li>
                 <li>scripts are sequences of instructions that are interpreted or carried out by another program
                   <ul>
-                    <li>To run a script, pass npm run [script] in terminal</li>
-                    <li>Anything you do in your terminal, you can create as a script
-                      <ul>
-                        <li>Example: “makeFile”: “mkdir folder && cd folder && touch index.html”</li>
-                      </ul>
+                    <li>To run a script, pass <code class="language-html">npm run /*script*/</code> in the terminal.</li>
+                    <li>You can create a script for anything that you would do in the terminal.
+                      <pre data-whitespace-normalization="true">
+                        <code class="language-html">
+                        “makeFile”: “mkdir folder && cd folder && touch index.html”
+                        </code>
+                      </pre>
                     </li>
                   </ul>
                 </li>
                 <li>All of these are key value pairs
-                  <ul>
-                    <li>“scripts”: {
-                      <div class="tab">“test”: “jest”</div>
-                    },<br>
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    “scripts”: {
+                      “test”: “jest”
+                    },
                     “dependencies”: {
-                      <div class="tab">“inquirer”: “^8.2.4”</div>
-                    },<br>
+                      “inquirer”: “^8.2.4”
+                    },
                     “devDependencies”: {
-                      <div class="tab">“jest”: “^24.9.0”</div>
+                      “jest”: “^24.9.0”
                     }
-                    </li>
-                  </ul>
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li>View available packages <a href="https://www.npmjs.com/" target="_blank">here</a></li>
-            <li>Async/await syntax: async function() { 
-              <div class="tab">const [name] = await [package].[method]</div>
-              }
+            <li>View available packages <a href="https://www.npmjs.com/" target="_blank">here</a>.</li>
+            <li>Async/await syntax: 
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                async function() { 
+                  const /*name*/ = await /*package*/./*method*/
+                }
+                </code>
+              </pre>
             </li>
           </ul>
           <br>
@@ -1522,36 +1634,46 @@
           <h3>Jest</h3>
           <ul>
             <li>Jest is a framework for creating tests.</li>
-            <li>Tests are useful to make sure your code works without having to click around in your website to see if everything is working or not</li>
-            <li>You should create a positive AND negative test for each scenario
+            <li>Tests are useful to make sure your code works without having to click around in your website to see if everything is working or not.</li>
+            <li>You should create a positive AND negative test for each scenario.
               <ul>
-                <li>positive tests are when the behavior goes as expected</li>
-                <li>negative tests are when the behavior is unexpected (errors, undefined values, etc)</li>
+                <li>positive tests are when the behavior goes as expected.</li>
+                <li>negative tests are when the behavior is unexpected (errors, undefined values, etc).</li>
               </ul>
             </li>
-            <li>When you have exceptions in your code--for example, if every string is valid except for empty ones, then you will want to test to confirm that your exception is working as it should</li>
-            <li>Jest automatically looks for files named [fileName].test.js</li>
+            <li>When you have exceptions in your code--for example, if every string is valid except for empty ones, then you will want to test to confirm that your exception is working as it should.</li>
+            <li>Jest automatically looks for files named <code class="language-js">/*fileName*/.test.js</code>.</li>
             <li>When you want to test something in your file, you need to module export it so you can import it into your test file.</li>
             <li>There are 3 main components of jest syntax:
               <ul>
-                <li>describe: the function you are testing</li>
-                <li>it: the test being executed</li>
-                <li>expect: what the behavior of the test should be</li>
+                <li><code class="language-html">describe</code>: the function you are testing</li>
+                <li><code class="language-html">it</code>: the test being executed</li>
+                <li><code class="language-html">expect</code>: what the behavior of the test should be</li>
               </ul>
             </li>
             <li>“describe” is just a label that blocks lines of code together. The outermost “describe” is your test suite, and you can have describes inside it to create different tests for one function.</li>
-            <li>Syntax: describe(“[the function you are testing], () => {
-              <div class="tab">it(“[should ...]”, () => {</div>
-                <div class="tabx2">expect([defined value]).[comparison to the expected value];</div>
-              <div class="tab">});</div>
-            });
+            <li>Syntax: 
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                describe(“[the function you are testing], () => {
+                  it(“[should ...]”, () => {
+                    >expect([defined value]).[comparison to the expected value];
+                  });
+                });
+                </code>
+              </pre>
             </li>
-            <li>Example: describe(“modulus function”, () => {
-              <div class="tab">it(“should take 2 numbers, divide them, and return the remainder”, () => {</div>
-                <div class="tabx2">const modulus = new Modulus();</div>
-                <div class="tabx2">expect(modulus(2, 2)).toEqual(0);</div>
-              <div class="tab">});</div>
-            });
+            <li>Example: 
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                describe(“modulus function”, () => {
+                  it(“should take 2 numbers, divide them, and return the remainder”, () => {
+                    const modulus = new Modulus();
+                    expect(modulus(2, 2)).toEqual(0);
+                  });
+                });
+                </code>
+              </pre>
             </li>
             <li>Read the <a href="https://jestjs.io/docs/getting-started" target="_blank">Jest documentation</a> to learn all about the different comparisons you can make (but make sure you're looking at the right version).</li>
           </ul>
@@ -1560,7 +1682,7 @@
           <h3>Express.js</h3>
           <ul class="star-ul">
             <li class="star-li">Whenever you're running a server and you change the code, you must stop and restart the server to see those changes. The shortcut for this on Mac is control + c</li>
-            <li class="star-li">When using the POST method in Insomnia, you need to put everything in double quotes. Single quotes will not work.</li>
+            <li class="star-li">When using the post method in Insomnia, you need to put everything in double quotes. Single quotes will not work.</li>
           </ul>
           <ul>
             <li>Express.js is a framework that allows you to write APIs, handle HTTP requests, and implement middleware in your server-side application.</li>
@@ -1569,13 +1691,13 @@
             <li>A route is a path (URL) + the HTTP request method</li>
             <li>These are the different HTTP methods we can use:
               <ul>
-                <li>Get: retrieves a resource from the server</li>
-                <li>Post: submits data to the specified resource, often causing a change on the server</li>
-                <li>Delete: deletes a specified resource</li>
-                <li>Put/patch: updates a specified resource with a payload</li>
+                <li><code class="language-html">get</code>: retrieves a resource from the server</li>
+                <li><code class="language-html">post</code>: submits data to the specified resource, often causing a change on the server</li>
+                <li><code class="language-html">delete</code>: deletes a specified resource</li>
+                <li><code class="language-html">put/patch</code>: updates a specified resource with a payload</li>
               </ul>
             </li>
-            <li>You can not use app.get() more than 1 time on any given path, however, you can use different methods on the same path.</li>
+            <li>You can not use <code class="language-js">app.get()</code> more than 1 time on any given path, however, you can use different methods on the same path.</li>
             <li>We use insomnia to test our Express.js apps because the browser is only capable of letting us view our get requests, not our post or other requests.</li>
             <li>HTTP is a stateless connection (it doesn't know who you are). We need REST, or representational state transfer, to build state into our HTTP requests.</li>
             <li>When using Express.js, there are a few things you need to do on the server side.
@@ -1588,56 +1710,68 @@
                 <li>Add an app.listen() to notify the user where their server is running</li>
               </ol>
             </li>
-            <li>In practice, it looks like this:<br>
-                const express = require('express');<br>
-                const path = require('path');<br>
-                const app = express();<br>
-                app.use(express.json());<br>
+            <li>In practice, it looks like this:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                const express = require('express');
+                const path = require('path');
+                const app = express();
+                app.use(express.json());
                 app.get('[path]'', (req, res) => {
-                  <div class="tab">return res.send([what to send]) / res.json([what to send])</div>
+                  return res.send([what to send]) / res.json([what to send])
                 });<br>
-                const PORT = process.env.PORT || 3001;<br>
+                const PORT = process.env.PORT || 3001;
                 app.listen(PORT, () => {
-                  <div class="tab">console.log(`your app is running at https://localhost:${PORT}`);</div>
+                  console.log(`your app is running at https://localhost:${PORT}`);
                 });
+                </code>
+              </pre>
             </li>
             <li>The path module provides utilities for working with file and directory paths</li>
-            <li>path.join() allows you to create paths in a way that will work both for Mac and PC.
+            <li><code class="language-js">path.join()</code> allows you to create paths in a way that will work both for Mac and PC.
               <ul>
                 <li>You can specify as many path segments as you like.</li>
                 <li>The specified path segments must be strings, separated by comma.</li>
-                <li>Example res.sendFile(path.join('Documents', 'Coding', 'msu-coding-bootcamp', sendFile.html))</li>
-              </ul>
-            </li>
-            <li>res.send() sends text or html</li>
-            <li>res.json() sends json</li>
-            <li>res.sendFile() sends a file</li>
-            <li>When you have a /api path, usually the responses you get from it should all just be JSON. Otherwise, most of the responses will be HTML.</li>
-            <li>When creating paths, the : is used to create route parameters
-              <ul>
-                <li>Example: ./api/terms/:term</li>
-                <li>Then, you use the “params” method to access each term like so: req.params.term</li>
-                <li>the text after the : and the params. must match.</li>
-                <li>Then, you can use a for loop to make paths for each “term”
-                  <ul>
-                    <li>const requestedTerm = req.params.term.toLowerCase()<br>
-                        for (i = 0; i &lt; [array].length; i++) {
-                          <div class="tab">if (requestedTerm === [array[i]].toLowerCase()) {</div>
-                            <div class="tabx2">return res.json([array[i]].);</div>
-                          <div class="tab">}</div>
-                        };<br>
-                        return res.send(“no match found”);
-                    </li>
-                  </ul>
+                <li>Example: 
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    res.sendFile(path.join('Documents', 'Coding', 'msu-coding-bootcamp', sendFile.html))
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li>You always want to do returns to make sure that the function stops running. If you don't “return” the line of code you're looking for, it will end up running the code outside of the block in the example above.</li>
-            <li>When creating paths, the ? Is used to create query parameters
+            <li><code class="language-js">res.send()</code> sends text or html</li>
+            <li><code class="language-js">res.json()</code> sends json</li>
+            <li><code class="language-js">res.sendFile()</code> sends a file</li>
+            <li>When you have an /api path, usually the responses you get from it should all just be JSON. Otherwise, most of the responses will be HTML.</li>
+            <li>When creating paths, the : is used to create route parameters
               <ul>
-                <li>Example: ./api/terms?sort=asc</li>
-                <li>Then, you can use req.query to access the queries.</li>
-                <li>We use query parameters during GET requests.</li>
+                <li>Example: <code class="language-js">./api/terms/:term</code></li>
+                <li>Then, you use the “params” method to access each term like so: <code class="language-js">req.params.term</code>.</li>
+                <li>the text after the <code class="language-js">:</code> and the params must match.</li>
+                <li>Then, you can use a <code class="language-js">for</code> loop to make paths for each “term”.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    const requestedTerm = req.params.term.toLowerCase()
+                        for (i = 0; i &lt; [array].length; i++) {
+                          if (requestedTerm === [array[i]].toLowerCase()) {
+                            return res.json([array[i]].);
+                          }
+                        };
+                        return res.send(“no match found”);
+                      }
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>You always want to do returns to make sure that the function stops running. If you don't <code class="language-js">return</code> the line of code you're looking for, it will end up running the code outside of the block in the example above.</li>
+            <li>When creating paths, the <code class="language-js">?</code> Is used to create query parameters
+              <ul>
+                <li>Example: <code class="language-js">./api/terms?sort=asc</code></li>
+                <li>Then, you can use <code class="language-js">req.query</code> to access the queries.</li>
+                <li>We use query parameters during <code class="language-html">get</code> requests.</li>
               </ul>
             </li>
           </ul>
@@ -1647,19 +1781,28 @@
           <ul>
             <li>Express.js is popular because of how easy it is to use middlewares with it.</li>
             <li>Middleware processes data in between a request and a response. Because of this, you always need to have your middlewares come before your routes.</li>
-            <li>You need middlewares for Insomnia to be able to read your POST requests. app.use(express.json()); will let it read json that you write into the body, and app.use(express.urlencoded({ extended: true })); will let it read URL encoded forms.</li>
-            <li>app.use(express.static()) allows you to change the file reference location into a different folder and automatically create routes for everything inside of it.
+            <li>You need middlewares for Insomnia to be able to read your post requests. <code class="language-js">app.use(express.json());</code> will let it read json that you write into the body, and <code class="language-js">app.use(express.urlencoded({ extended: true }));</code> will let it read URL encoded forms.</li>
+            <li><code class="language-js">app.use(express.static());</code> allows you to change the file reference location into a different folder and automatically create routes for everything inside of it.
               <ul>
-                <li>For example, the following code will change the file reference location from the location of the 'index' file to a assets folder:<br>
+                <li>For example, the following code will change the file reference location from the location of the 'index' file to a assets folder:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">  
                     app.use(express.static('assets'));
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
-            <li>Middleware gets 3 values passed into it: req, res, and next. Then, at the end of your middleware, you should do next() to designate that the next middleware will be run.
+            <li>Middleware gets 3 values passed into it: <code class="language-js">req</code>, <code class="language-js">res</code>, and <code class="language-js">next</code>. Then, at the end of your middleware, you should use <code class="language-js">next()</code> to designate that the next middleware will be run.
               <ul>
-                <li>Example: const middleware = (req, res, next) => {
-                  <div class="tab">// everything you need your middleware to do</div>
-                  };
+                <li>Example: 
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js"> 
+                    const middleware = (req, res, next) => {
+                      // everything you need your middleware to do
+                    };
+                    </code>
+                  </pre>
                 </li>
               </ul>
             </li>
@@ -1669,35 +1812,46 @@
 
           <h3>Modular Routing</h3>
           <ul>
-            <li>When you're doing modular routing, you need to require the express.js router method and export that router.
-              <ul>
-                <li>const router = require('express').Router();<br>
-                    module.exports = router
-                </li>
-              </ul>
+            <li>When you're doing modular routing, you need to require the Express.js router method and export that router.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                const router = require('express').Router();
+                module.exports = router
+                </code>
+              </pre>
             </li>
             <li>As you diverge into different modular routes, the need for long paths disappear. The path becomes relative to the file that you are in.
-              <ul>
-                <li>Example: index -> api -> feedback<br><br>
-                  in Index file:<br>
-                  const api = require([path to api file])<br>
-                  app.use('/api', api);<br><br>
-                  in api file:<br>
-                  const feedback = require([path to feedback])<br>
-                  app.use('/feedback', feedback);
-                </li>
-                <li>The path to feedback is server.js/api/feedback</li>
-              </ul>
+              <pre data-whitespace-normalization="true">
+                <code class="language-js"> 
+                // index -> api -> feedback
+                
+                // in Index file:
+                const api = require(/*path to api file*/)
+                app.use('/api', api);
+                
+                // in api file:
+                const feedback = require(/*path to feedback*/)
+                app.use('/feedback', feedback);
+                
+                // The path to feedback is server.js/api/feedback
+                </code>
+              </pre>
             </li>
-            <li>Then, when you are within each of those files, you won't use the entire path for the http request methods (such as app.get). You will just use '/''.
+            <li>Then, when you are within each of those files, you won't use the entire path for the http request methods (such as <code class="language-js">app.get()</code>). You will just use <code class="language-js">'/'</code>.
               <ul>
-                <li>Example: const feedbackRouter = require('express').Router();<br>
-                  feedbackRouter.get('/'', (req, res) => {
-                    <div class="tab">// code goes here</div>
-                  });<br>
-                  module.exports = feedbackRouter
+                <li>Example:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                    const feedbackRouter = require('express').Router();
+                    feedbackRouter.get('/'', (req, res) => {
+                      // code goes here
+                    });
+
+                    module.exports = feedbackRouter
+                    </code>
+                  </pre>
                 </li>
-                <li>In each path, you should define the path with the http request methods (app.get, app.post, etc.) and define any further routes using app.use.</li>
+                <li>In each path, you should define the path with the http request methods (<code class="language-js">app.get()</code>, <code class="language-js">app.post()</code>, etc.) and define any further routes using <code class="language-js">app.use()</code>.</li>
                 <li>Since you're module exporting the router in each path, you don't need to include the router in your root server.js file.</li>
                 <li>When you're creating a webpage with modular routing in mind, you should define your routes before starting the project, and then work backwards from the routes to the server.</li>
               </ul>
@@ -1714,7 +1868,6 @@
       </div>
     </main>
     <script src="./assets/js/prism.js"></script>
-    <script src="plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
