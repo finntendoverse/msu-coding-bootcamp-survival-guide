@@ -19,7 +19,8 @@ h1,
 h2,
 h3,
 p,
-li {
+li,
+table {
     font-family: "Roboto";
     line-height: 1.25em;
 }
@@ -132,4 +133,20 @@ a:visited {
 
 .hidden {
     display: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+  
+th,
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    background-color: var(--lightgreen);
+    color: var(--white);
+    text-align: left;
 }

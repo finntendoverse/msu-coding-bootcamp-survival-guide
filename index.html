@@ -1989,6 +1989,400 @@
             <li><a href="https://blog.hubspot.com/marketing/parts-url" target="_blank">Parts of a URL</a></li>
           </ul>
         </section>
+
+        <section class="card" id="sql-section">
+          <h2>SQL</h2>
+          <h3>SQL basics</h3>
+          <ul>
+            <li>SQL (Structured Query Language) is a query language that allows us to interact with databases.</li>
+            <li>The schema.sql file is where you define your database. In that file, you'll create your databases and tables. The seeds.sql file contains data manipulation, such as adding items to the table.</li>
+            <li>SQL is a case insensitive language, but best practice is to put SQL keywords in all caps and use lowercase for the rest.</li>
+            <li>All strings must be in quotations so that the query parser can distinguish words in the string from SQL keywords.</li>
+            <li>Use <code class="language-sql">--</code> to create comments.</li>
+            <li>A good practice is to drop the database if it already exists, and then create it from scratch.
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  DROP DATABASE IF EXISTS -- database name --;
+                  CREATE DATABASE -- database name --;
+                </code>
+              </pre>
+            </li>
+            <li>To use a specific database, use the keyword USE
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  USE -- database name --;
+                </code>
+              </pre>
+            </li>
+            <li>To view available databases, use <code class="language-sql">SHOW DATABASES;</code></li>
+            <li>To see a list of all tables in the current database, use <code class="language-sql">SHOW TABLES;</code></li>
+            <li>To see the structure of a specific table, use <code class="language-sql">DESCRIBE -- table name --;</code></li>
+            <li>Creating tables
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  CREATE TABLE -- table name -- (
+                  -- enter each column and specify what it will be like so: --
+                  -- name, data type, constraints --
+                  );
+                </code>
+              </pre>
+              Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  CREATE TABLE video_games (
+                    id INT NOT NULL,
+                    name VARCHAR(100) NOT NULL,
+                    publisher VARCHAR(100) NOT NULL
+                    );
+                </code>
+              </pre>
+            </li>
+            <li>Here are all the<a href="https://sqlbolt.com/lesson/creating_tables" target="_blank">table data types and table constraints</a> you can use when creating tables.</li>
+            <li>Inserting values into a table:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  INSERT INTO --table-- (-- columns --)
+                  VALUES
+                      ( -- values for first item separated by commas -- ),
+                      ( -- values for second item separated by commas -- ),
+                      ( -- values for third item separated by commas -- );
+                </code>
+              </pre>
+              Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  INSERT INTO video_games (id, name, publisher)
+                  VALUES
+                      (1, "Super Monkey Ball", "Sega"),
+                      (2, "Life is Strange", "Square Enix"),
+                      (3, "New Super Mario Bros. Wii", "Nintendo");
+                </code>
+              </pre>
+            </li>
+            <li>Updating values within a table:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  UPDATE --table name --
+                  SET --column name-- = --new value--
+                  WHERE -- condition --
+                </code>
+              </pre>
+              Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  UPDATE video_games
+                  SET publisher = "DontNod Entertainment"
+                  WHERE id = 2;
+                </code>
+              </pre>
+            </li>
+            <li>Deleting data from a table:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  DELETE FROM -- table name --
+                  WHERE -- condition --
+                </code>
+              </pre>
+              Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  DELETE FROM video_games
+                  WHERE publisher = "Sega"
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>SQL Queries</h3>
+          <ul>
+            <li>To retrieve data from a SQL database, we need to write queries. A query is a <code class="language-js">SELECT</code> statement that declares what data we are looking for, where to find it in the database, and optionally, how to transform it before it is returned.
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  SELECT -- column(s) -- FROM -- table name --;
+                </code>
+              </pre>
+              Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  SELECT publisher FROM video_games;
+                </code>
+              </pre>
+            </li>
+            <li>You can also use the SELECT keyword to create new columns and give them new names, such as in the following example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  SELECT age, age + 1 AS “age next year”
+                </code>
+              </pre>
+            </li>
+            <li>Queries can contain constraints, which filter certain results.
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  WHERE -- condition --
+                    AND/OR -- another_condition --
+                </code>
+              </pre>
+              Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  SELECT *
+                  WHERE publisher = "Nintendo"
+                </code>
+              </pre>
+              Condition operators can be found in the tables below<br><br>
+              Number Operators
+              <table>
+                <tr>
+                  <th>Operator</th>
+                  <th>Condition</th>
+                  <th>SQL Example</th>
+                </tr>
+                <tr>
+                  <td>=, !=, &LT;, &LT;=, &GT;, &GT;=</td>
+                  <td>Standard numerical operators</td>
+                  <td>col_name != 4</td>
+                </tr>
+                <tr>
+                  <td>BETWEEN … AND …</td>
+                  <td>Number is within range of two values (inclusive)</td>
+                  <td>col_name BETWEEN 1.5 AND 10.5</td>
+                </tr>
+                <tr>
+                  <td>NOT BETWEEN … AND …</td>
+                  <td>Number is not within range of two values (inclusive)</td>
+                  <td>col_name NOT BETWEEN 1 AND 10</td>
+                </tr>
+                <tr>
+                  <td>IN (…)</td>
+                  <td>Number exists in a list</td>
+                  <td>col_name IN (2, 4, 6)</td>
+                </tr>
+                <tr>
+                  <td>NOT IN (…)</td>
+                  <td>Number does not exist in a list</td>
+                  <td>col_name NOT IN (1, 3, 5)</td>
+                </tr>
+              </table><br>
+              String Operators
+              <table>
+                <tr>
+                  <th>Operator</th>
+                  <th>Condition</th>
+                  <th>SQL Example</th>
+                </tr>
+              
+                <tr>
+                  <td>=</td>
+                  <td>Case sensitive exact string comparison</td>
+                  <td>col_name = "abc"</td>
+                </tr>
+                <tr>
+                  <td>!= or &LT;&GT;</td>
+                  <td>Case sensitive exact string inequality comparison</td>
+                  <td>col_name != "abcd"</td>
+                </tr>
+                <tr>
+                  <td>LIKE</td>
+                  <td>Case insensitive exact string comparison</td>
+                  <td>col_name LIKE "ABC"</td>
+                </tr>
+                <tr>
+                  <td>NOT LIKE</td>
+                  <td>Case insensitive exact string inequality comparison</td>
+                  <td>col_name NOT LIKE "ABCD"</td>
+                </tr>
+                <tr>
+                  <td>%</td>
+                  <td>Used anywhere in a string to match a sequence of zero or more characters (only with LIKE or NOT LIKE)</td>
+                  <td>col_name LIKE "%AT%"
+                    (matches "AT", "ATTIC", "CAT" or even "BATS")</td>
+                </tr>
+                <tr>
+                  <td>REGEXP</td>
+                  <td>The same as %, but without the need to use %</td>
+                  <td>col_name REGEXP “AT” (matches "AT", "ATTIC", "CAT" or even "BATS")</td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>Used anywhere in a string to match a single character (only with LIKE or NOT LIKE)</td>
+                  <td>col_name LIKE "AN_" (matches "AND", but not "AN")</td>
+                </tr>
+                <tr>
+                  <td>IN (…)</td>
+                  <td>String exists in a list</td>
+                  <td>col_name IN ("A", "B", "C")</td>
+                </tr>
+                <tr>
+                  <td>NOT IN (…)</td>
+                  <td>String does not exist in a list</td>
+                  <td>col_name NOT IN ("D", "E", "F")</td>
+                </tr>
+              </table>
+            </li>
+            <li>When using REGEXP, you gain the ability to use more powerful query searches.
+              <ul>
+                <li><code class="language-js">^</code> represents the beginning of a string, and <code class="language-js">$</code> represents the end of a string.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-sql">
+                      WHERE last_name REGEXP “son$” -- returns last names that end in son
+                    </code>
+                  </pre>
+                </li>
+                <li>The <code class="language-js">|</code> can also be used to represent “or”.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-sql">
+                      WHERE last_name REGEXP “son|field” -- returns last names that contain "son" or "field".
+                    </code>
+                  </pre>
+                </li>
+                <li><code class="language-js">[]</code> represents a space where you know a few specific values could be.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-sql">
+                      WHERE last_name REGEXP [kn]son -- returns last names that contain “kson” or “nson”
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>Queries can also contain filtering and sorting information.
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  SELECT DISTINCT column -- removes duplicate values
+                  ORDER BY column ASC/DESC -- sorts results in ascending or descending order
+                  LIMIT num_limit -- limits results to a certain number
+                  OFFSET num_offset -- offsets the initial result by a specified number
+                </code>
+              </pre>
+            </li>
+            <li>SQL queries can also contain aggregate functions, which are functions that perform calculations on a set of values, and returns a single value. The most commonly used aggregate functions can be viewed <a href="https://www.w3schools.com/sql/sql_aggregate_functions.asp" target="_blank">here</a>.</li>
+            <li>All together, a query can look something like this:
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  SELECT *
+                  FROM table
+                  WHERE age &GT; 21
+                      AND gender = “male”
+                  ORDER BY name ASC;
+                </code>
+              </pre>
+            </li>
+            <li>The clauses must be in this order, otherwise, you will get a syntax error.</li>
+          </ul>
+          <br>
+
+          <h3>Keys & Joins</h3>
+          <ul>
+            <li>When working with multiple tables, you will often want to combine multiple tables. To do this, you will want to use a <code class="language-js">PRIMARY KEY</code> and <code class="language-js">FOREIGN KEY</code>s to join the tables. Oftentimes, the keys will be unique ID numbers.
+              <pre data-whitespace-normalization="true">
+                <code class="language-sql">
+                  CREATE TABLE video_games
+                  id INT AUTO_INCREMENT
+                  another_table_id INT
+                  ...
+                  PRIMARY KEY(id)
+                  FOREIGN KEY (another_table_id)
+                        REFERENCES another_table(id)
+                        ON UPDATE --action--
+                        ON DELETE --action--
+                </code>
+              </pre>
+            </li>
+            <li>The <code class="language-js">ON UPDATE</code> and <code class="language-js">ON DELETE</code> determines what happens to related rows in child tables when a row in a parent table is updated or deleted.
+              <ul>
+                <li><code class="language-js">CASCADE</code> is used to update the corresponding child rows to match the new parent value <code class="language-js">ON UPDATE</code>. It also deletes all corresponding child rows <code class="language-js">ON DELETE</code>.</li>
+                <li><code class="language-js">SET NULL</code> is used to set the foreign key column(s) in the child table to null <code class="language-js">ON UPDATE</code> and <code class="language-js">ON DELETE</code>.</li>
+              </ul>
+            </li>
+            <li>You can combine multiple tables using inner joins or outer joins.
+              <ul>
+                <li>Inner joins are used when both tables contain the same amount of data
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-sql">
+                      INNER JOIN another_table
+                        ON mytable.id = another_table.matching_id
+                    </code>
+                  </pre>
+                </li>
+                <li>Outer joins are used when the tables have different amounts of data, meaning there will likely be many <code class="language-js">null</code>s for unspecified data.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-sql">
+                      LEFT/RIGHT/FULL JOIN another_table
+                        ON mytable.id = another_table.matching_id
+                    </code>
+                  </pre>
+                </li>
+                <li>The 2 values connected with the equal sign must have equal values.</li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Helpful Links</h3>
+          <ul>
+            <li><a href="https://sqlbolt.com/" target="_blank">SQLBolt</a></li>
+          </ul>
+        </section>
+
+        <section class="card" id="mysql-section">
+          <h2>MySQL</h2>
+          <h3>Using MySQL Shell</h3>
+          <ol>
+            <li>Navigate to the root directory</li>
+            <li>In the terminal, enter  <code class="language-html">mysql -u root -p</code> and then enter your password.</li>
+            <li>Now, you can either enter commands directly within the command line, or you can source a file that contains a list of commands (preferred). To execute a file use  <code class="language-html">source [filename].sql</code>.</li>
+            <li>To exit the Shell, enter  <code class="language-html">quit</code>.</li>
+          </ol>
+          <br>
+
+          <h3>MySQL in the server.js</h3>
+          <ul class="star-ul">
+            <li class="star-li">For our course, make sure to use mysql2 in the dependencies.</li>
+            <li>You MUST use semicolons at the end of your MySQL commands or they will not run.</li>
+          </ul>
+          <ul>
+            <li>In the server file, set up your db like so
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  Const mysql = require(“mysql2”);
+                  Const db = mysql.createConnection(
+                    {
+                      host: “localHost”,
+                      user: “root”,
+                      password: “/*password*/”
+                      database: “/*database_name*/
+                    },
+                    console.log(“connected to /*database_name*/”);
+                  );
+                </code>
+              </pre>
+            </li>
+            <li>Then, to make queries in the server file:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  db.query(/*query*/, function(err, results) {
+                    console.log(results);
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>We want to use prepared statements when doing <code class="language-js">db.query()</code> selects. This prevents users from being able to do “SQL Injections,” which are a type of cyber attack that attempts to manipulate a database by injecting malicious SQL code into a user input field within an application.</li>
+            <li>Prepared statements look like this:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  db.query(`DELETE from video_games where id = ?`, [3], (err, res) => {
+                    try {
+                      console.log(res);
+                    } catch {
+                      console.log(err)
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Essentially, you put a <code class="language-js">?</code> as a placeholder for any query parameter that the user inputs. Then, after the comma, you put those inputs in the same order as the question marks. <a href=“https://github.com/finntendoverse/msu-12-sql-challenge_employee-tracker” target="_blank">The employee_tracker application assignment</a> contains several more complex examples of how to accomplish this.</li>
+          </ul>
+        </section>
       </div>
     </main>
     <script src="./assets/js/prism.js"></script>
