@@ -1819,6 +1819,9 @@
                 <li><code class="language-html">post</code>: submits data to the specified resource, often causing a change on the server</li>
                 <li><code class="language-html">delete</code>: deletes a specified resource</li>
                 <li><code class="language-html">put/patch</code>: updates a specified resource with a payload</li>
+                <ul>
+                  <li><code class="language-html">put</code> is for updating an entire record, whereas <code class="language-html">patch</code> is used to update one or more fields.</li>
+                </ul>
               </ul>
             </li>
             <li>You can not use <code class="language-js">app.get()</code> more than 1 time on any given path, however, you can use different methods on the same path.</li>
@@ -2383,6 +2386,436 @@
             <li>Essentially, you put a <code class="language-js">?</code> as a placeholder for any query parameter that the user inputs. Then, after the comma, you put those inputs in the same order as the question marks. <a href=“https://github.com/finntendoverse/msu-12-sql-challenge_employee-tracker” target="_blank">The employee_tracker application assignment</a> contains several more complex examples of how to accomplish this.</li>
           </ul>
         </section>
+
+        <section class="card" id="orm-section">
+          <h2>ORMs</h2>
+          <h3>ORM notes</h3>
+          <ul>
+            <li>ORM stands for Object-Relational Mapper. ORMs are used to let you work with database data using the familiar concepts of objects and functions.</li>
+          </ul>
+          <br>
+
+          <h3>dotenv</h3>
+          <ul>
+            <li><a href=“https://www.npmjs.com/package/dotenv” target=“_blank”>dotenv</a> is a npm package that loads environment variables from a .env file to help hide them from your GitHub repository.</li>
+            <li>Require dotenv in the first line of your code to ensure that it runs before any other code that needs to reference it.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  require('dotenv').config();
+                </code>
+              </pre>
+            </li>
+            <li>Then, what you want to do is create a .env file in the root of your repo and put your environment variables into it. Make sure to use quotes to put all your values into strings.
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                  DB_NAME = “/* database name */“
+                  DB_USERNAME = “/* mysql username (“root”) */“
+                  DB_PASSWORD = “/* mysql password */
+                </code>
+              </pre>
+            </li>
+            <li>Then, make sure you put the .env file in your .gitignore file.</li>
+            <li>You'll also want to create a .env.example file that you commit that does not contain your secret keys. You want to do this because it acts as a template that shows developers which environment variables the application needs.</li>
+          </ul>
+          <br>
+
+          <h3>sequelize</h3>
+          <ul>
+            <li>sequelize is used in tandem with mysql2.</li>
+            <li>You should use snake_case in SQL and use camelCase in JavaScript. The workaround for this is to use the model option of <code class="language-js">underscored: true</code>, and then any camelCase names you write in your sequelize model will automatically be converted to snake_case in SQL.</li>
+            <li>When using sequelize or other ORMs, a good practice is to create a config folder and create a connection.js file within it.</li>
+            <li>Then, here is how you use sequelize within that file:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const Sequelize = require('sequelize');
+                  require('dotenv').config();
+
+                  const sequelize = new Sequelize(
+                    process.env.DB_NAME,
+                    process.env.DB_USER,
+                    process.env.DB_PASSWORD,
+                    {
+                      host: 'localhost',
+                      dialect: 'mysql',
+                      port: 3306
+                    }
+                  );
+                </code>
+              </pre>
+            </li>
+            <li>Then, within the server.js file, you'll want to require the sequelize connection and create a new app listener. The app listener needs to run after the sequelize is synced, because you won't have access to your database otherwise.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const express = require('express');
+                  const sequelize = require('./config/connection');
+                  
+                  const app = express();
+                  const PORT = process.env.PORT || 3001;
+                  
+                  sequelize.sync().then(() => {
+                    app.listen(PORT, () => console.log('Now listening'));
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>After you have your basics set up, you can then use the model and data type functionality. You will want to do this within a models folder, and ensure that each model resides in its' own file.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const { Model, DataTypes } = require('sequelize');
+                  const sequelize = require('../config/connection');
+                </code>
+              </pre>
+            </li>
+            <li>When you initialize a class, you'll have 2 JSON objects in it. The first is the table fields & data types, and the second is the model options.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  class /*Class*/ extends Model {}
+
+                  /*Class*/.init(
+                    {
+                      /*columnName*/: {
+                        type: DataTypes./*TYPE*/
+                        // any other column validations and/or constraints
+                      }
+                    },
+                    {
+                      /*columnName*/: {
+                        type: DataTypes./*TYPE*/
+                        // any other column validations and/or constraints
+                      }
+                    },
+                    {
+                      sequelize: sequelize, // link to database connection
+                      // other options
+                      modelName: "/*name*/", 
+                    }
+                  );
+                </code>
+              </pre>
+            </li>
+            <li>The model options MUST contain sequelize to have a connection to your database.</li>
+            <li><a href="https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/" target="_blank">sequelize validations and constraints</a></li>
+            <li><a href="https://sequelize.org/docs/v6/core-concepts/model-basics/" target="_blank">sequelize options</a></li>
+            <li>Hooks also live in the model options, and they are used to handle any additional functions upon creation, updating, or any other changes.</li>
+            <li>If you want the hooks to be applied to each object during bulk changes, make sure to use the <code class="language-js">individualHooks: true</code> option.</code></li>
+            <li>Here is how to make queries using sequelize, which is similar to using <code class="language-sql">SELECT</code> in SQL:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.get('/', (req, res) => {
+                    /*Class*/.findAll({
+                      order: // what column you want them to be ordered by
+                      where: {
+                        // add query parameters
+                      },
+                      attributes: {
+                        // add attributes
+                      }
+                    }).then((data) => {
+                      res.json(data);
+                    });
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>You can also use <code class="language-js">.findByPK()</code></li>
+            <li>Here is how to create using sequelize, which is similar to using <code class="language-sql">INSERT INTO</code> in SQL:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.post('/', (req, res) => {
+                    /*Class*/.create({
+                      /*columnName*/: req.body./*columnName*/,
+                      /*columnName*/: req.body./*columnName*/
+                    })
+                    .then((/*newItem*/) => {
+                      res.json(/*newItem*/);
+                    })
+                    .catch((err) => {
+                      res.json(err);
+                    });
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>You can also use .bulkCreate() to create multiple objects at once:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.post('/seed', (req, res) => {
+                    Book.bulkCreate([
+                      {
+                        title: 'Make It Stick: The Science of Successful Learning',
+                        author: 'Peter Brown',
+                        isbn: '978-0674729018',
+                        pages: 336,
+                        edition: 1,
+                        is_paperback: false
+                      },
+                      {
+                        title: 'Essential Scrum: A Practical Guide to the Most Popular Agile Process',
+                        author: 'Kenneth Rubin',
+                        isbn: '978-0137043293',
+                        pages: 500,
+                        edition: 1,
+                        is_paperback: true
+                      },
+                      ])
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to update using sequelize, which is similar to using <code class="language-sql">PUT</code> in SQL:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.put("/:/*routeParameter*/", (req, res) => {
+                    /*Class*/.update(
+                      {
+                        // All the fields you want to update and the data attached to the request body
+                        /*columnName*/: req.body./*columnName*/,
+                        /*columnName*/: req.body./*columnName*/
+                      },
+                      {
+                        where: {
+                                /*column: req.params.value*/
+                        },
+                      }
+                    )
+                    .then((data) => {
+                            res.json(data);
+                    })
+                    .catch((err) => {
+                      res.json(err);
+                    })
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to delete using sequelize, which is similar to using <code class="language-sql">DELETE</code> in SQL:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.delete("/:/*routeParameter*/, (req, res) => {
+                    /*Class*/.destroy({
+                      where: {
+                        /*column: req.params.value*/
+                      },
+                    })
+                    .then((data) => {
+                      res.json(data);
+                    })
+                    .catch((err) => {
+                      res.json(err);
+                    })
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>With all of these sequelize methods, you can use async await syntax to make the code more readable:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.get(/:id, async (req, res) => {
+                    const data = await /*Class*/.findByPk(req.params.id);
+                    return res.json(data);
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>If you want to return a res status code as well as your JSON, here's how to do that:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  res.status(/*status code*/).json(data);
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>bcrypt</h3>
+          <ul>
+            <li>bcrypt is a hashing library that keeps passwords safe. It can be used to create hashes using <code class="language-js">bcrypt.hash()</code> and validate hashes using <code class="language-js">bcrypt.compare()</code>.</li>
+            <li>You want to add your password hashing into your hooks within the class constructor file. This will ensure that each password upon creation and updating will be hashed, and it will DRY up your code so that you don't have to have that code in each path in your routes. Here is an example of that:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const bcrypt = require(“bcrypt”);
+                  ...
+                    hooks: {
+                      beforeCreate: async (user) => {
+                        user.password = await bcrypt.hash(user.password, 10);
+                        return user;
+                      },
+                      beforeUpdate: async (user) => {
+                        if (user.password) {
+                          user.password = await bcrypt.hash(user.password, 10);
+                        }
+                        return user;
+                      },
+                    },
+                </code>
+              </pre>
+            </li>
+            <li>You can also add instance methods in your constructor classes. One reason you may want to do this is to validate passwords.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const bcrypt = require('bcrypt');
+
+                  class User extends Model {
+                    async checkPassword(userPassword) {
+                      await bcrypt.compare(userPassword, this.password);
+                    }
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Then, within your routes, you'll need to invoke the method on the user-inputted password:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  router.post('/login', async (req, res) => {
+                    const validPassword = await userData.checkPassword(req.body.password);
+                    if (validPassword) {
+                      res.send(“You are now logged in!”);
+                    } else {
+                      res.send(“Incorrect email or password, please try again”);
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Joins</h3>
+          <ul>
+            <li>If you want to create relationships between your models, make sure to use <code class="language-js">references { }</code> within the column information and specify your model and key:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  License.init(
+                    ...
+                      driver_id: {
+                        type: DataTypes.INTEGER,
+                        references: {
+                          model: 'driver', // must match the modelName you have set
+                          key: 'id',
+                        },
+                      },
+                    ...
+                    )
+                </code>
+              </pre>
+            </li>
+            <li>Then, you will want to define relationships between classes within the index.js file.
+              <ul>
+                <li>First, you'll require both classes.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Const Driver = require(“./Driver”);
+                      Const License = require(“./License”);
+                    </code>
+                  </pre>
+                </li>
+                <li>For one to one joins, you'll want to use the <code class="language-js">.hasOne()</code> and <code class="language-js">.belongsTo()</code> methods and define the foreign key. You will know how to define these based on where the foreign key is defined. In the following example, the license has the foreign key and the driver does not.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Driver.hasOne(License, {
+                        foreignKey: “driver_id”,
+                        onDelete: “CASCADE”,
+                      });
+                      
+                      License.belongsTo(Driver, {
+                        foreignKey: “driver_id”
+                      });
+                    </code>
+                  </pre>
+                </li>
+                <li>For one to many joins, you will use the <code class="language-js">.hasMany()</code> and <code class="language-js">.belongsTo()</code> methods.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Driver.hasMany(Car, {
+                        foreignKey: “driver_id”,
+                        onDelete: “CASCADE”,
+                      });
+                      
+                      Car.belongsTo(Driver, {
+                        foreignKey: “driver_id”,
+                      });
+                    </code>
+                  </pre>
+                </li>
+                <li>For many to many joins (where each model has many items of the other model) there must be a third table that “joins” them. In these instances, both models will use the <code class="language-js">.belongsToMany()</code> method and define what table they are being joined through.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Car.belongsToMany(Driver, {
+                        through: {
+                          model: DriverCarJoin,
+                          unique: false,
+                        },
+                        as: “car_drivers”
+                      });
+                      
+                      Driver.belongsToMany(Car, {
+                        through: {
+                          model: DriverCarJoin,
+                          unique: false,
+                        },
+                        as: “driver_cars”
+                      });
+                    </code>
+                  </pre>
+                </li>
+                <li>Then, export the models.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Module.exports { Driver, License };
+                    </code>
+                  </pre>
+                </li>
+                <li>When it comes to your routes, you should now import the models from that index file, since that is where all the relationships have been defined.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Const { Driver, License } = require(“../models”);
+                    </code>
+                  </pre>
+                </li>
+                <li>You may also want to include the models in your routes.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      Router.get(“/“, async (req, res) => {
+                        try {
+                          const driverData = await Driver.findAll({
+                            include: [{ model: License }, { model: Car }],
+                          });
+                          res.status(200).json(driverData);
+                        } catch {
+                          res.status(500).json.(err);
+                        }
+                      });
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>You can also use <code class="language-js">sequelize.literal()</code> to create sub-queries. It works well for data aggregates.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const driverData = await Driver.findAll({
+                    include: [{ model: License }, { model: Car }],
+                    attributes: {
+                      include: [
+                        [
+                          sequelize.literal(
+                            “(SELECT SUM(mileage) FROM car WHERE car.driver_id = driver_id)”
+                          ),
+                        “totalMileage”,
+                        ],
+                      ],
+                    },
+                  });
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Helpful Links</h3>
+          <ul>
+            <li><a href="https://sequelize.org/docs/v6/core-concepts/model-basics/" target="_blank">sequelize docs</a></li>
+          </ul>
       </div>
     </main>
     <script src="./assets/js/prism.js"></script>
