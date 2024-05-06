@@ -118,7 +118,8 @@ a:visited {
     color: var(--lightgreen);
 }
 
-.star-ul {
+.star-ul,
+.file-ul {
     list-style-type: none;
 }
 
@@ -126,6 +127,17 @@ a:visited {
     content: "⭐ ";
     margin-left: -22px;
 }
+
+.folder-li::before {
+    content: "📁 ";
+    margin-left: -22px;
+}
+
+.file-li::before {
+    content: "📄 ";
+    margin-left: -22px;
+}
+
 
 .caps {
     text-transform: uppercase;
