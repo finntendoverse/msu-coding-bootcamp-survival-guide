@@ -242,6 +242,86 @@
             <li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Markdown Writing and Formatting Syntax</a></li>
           </ul>
         </section>
+
+        <section class="card" id="heroku-section">
+          <h2>Heroku</h2>
+          <h3>Deploying</h3>
+          <ul>
+            <li>Deploying to Heroku is as easy as creating the app on Heroku and then connecting to GitHub.</li>
+            <li>An important thing to note is that you need to have your port variable in your server.js file set in this specific way for your app to work in Heroku:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const PORT = process.env.PORT || 3001;
+                </code>
+              </pre>
+            </li>
+            <li>If you need to link a database to your deployed app on Heroku, click on the app, head to the resources tab, and and add JawsDB MySQL.</li>
+            <li>Then, in your connection.js file, set your sequelize up like this:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  let sequelize;
+
+                  if (process.env.JAWSDB_URL) {
+                    sequelize = new Sequelize(process.env.JAWSDB_URL);
+                  } else {
+                    sequelize = new Sequelize(
+                      process.env.DB_NAME,
+                      process.env.DB_USER,
+                      process.env.DB_PW,
+                      {
+                        host: 'localhost',
+                        dialect: 'mysql',
+                        port: 3306,
+                      },
+                    );
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Make sure to go to the settings tab and set up your Config Vars. These should be set as what you have in your .env file.</li>
+            <li>Since this will be a brand new JawsDB database, it won't have any data. To seed it, click "more" and then "run console". Then, you can run the seeding script. 
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                  heroku run node seeds/seed.js
+                </code>
+              </pre>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card" id="eslint">
+          <h2>ESLint</h2>
+          <h3>Configuration</h3>
+          <ul>
+            <li>ESLint is a tool used for improving JavaScript code quality. It can help you identify and fix a variety of issues, including: syntax errors and coding style issues.</li>
+            <li>To use it, install it as a devDependency.
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                  npm install --save-dev eslint
+                </code>
+              </pre>
+            </li>
+            <li>Then, create an eslint.config.mjs file at the root of your directory. That file should look something like this:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  import js from "@eslint/js";
+
+                  export default [
+                    js.configs.recommended,
+
+                    {
+                      rules: {
+                      "no-unused-vars": "warn",
+                      "no-undef": "off",
+                      },
+                    },
+                  ];
+                </code>
+              </pre>
+            </li>
+            <li>To customize this further, learn more <a href="https://eslint.org/docs/latest/use/configure/configuration-files">here.</a></li>
+          </ul>
+        </section>
       </div>
 
       <div id="front-end-section">
@@ -348,7 +428,7 @@
             <li>Link an external stylesheet to your HTML file: 
               <pre data-whitespace-normalization="true">
                 <code class="language-html">
-                &LT;link rel="Stylesheet" href=[insert path to Stylesheet]&GT;
+                &LT;link rel="Stylesheet" href="[insert path to Stylesheet]"&GT;
                 </code>
               </pre>
             </li>
@@ -2843,9 +2923,12 @@
                 <li class="file-li">.gitignore - files we don't want to commit (like .env and node_modules)</li>
                 <li class="file-li">package.json - contains dependencies and scripts to run the project</li>
                 <li class="file-li">package-lock.json - helps ensure consistent dependency versions</li>
+                <li class="file-li">README.md - provides important information about the project</li>
+                <li class="file-li">LICENSE.md - licensing info</li>
+                <li class="file-li">eslint.config.mjs - eslint configuration</li>
                 <li class="folder-li">node_modules - npm dependencies (don't commit to repo)</li>
                 <li class="folder-li">config - folder for connection js file</li>
-                <li class="folder-li">Controllers - folder for all our routes</li>
+                <li class="folder-li">controllers - folder for all our routes</li>
                 <li class="folder-li">db - folder for the SQL database</li>
                 <li class="folder-li">models - folder that holds all our modules and the index file that contains their relationships</li>
                 <li class="folder-li">seeds - folder for js files that populate the database</li>
@@ -3011,11 +3094,22 @@
               <pre data-whitespace-normalization="true">
                 <code class="language-js">
                   const session = require("express-session");
+                  const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
                   app.use(session({
-                    secret: 'yourSecretKey', // it is recommended to use a long, randomly generated string and keep it in your .env file
+                    secret: '[yourSecretKey]', // it is recommended to use a long, randomly generated string and keep it in your .env file
+                    // this is how to customize the cookie settings
+                    cookie: {
+                      maxAge: 24 * 60 * 60 * 1000, // when the cookie expires
+                      httpOnly: true, // prevents javascript from reading the cookie value -- important for security
+                      secure: false // false allows both http and https, while true only allows https
+                    },
                     resave: false,
-                    saveUninitialized: true
+                    saveUninitialized: true,
+                    // this stores the cookies in sequelize
+                    store: new SequelizeStore({
+                      db: sequelize
+                    })
                   }));
                 </code>
               </pre>
@@ -3030,6 +3124,38 @@
               </pre>
             </li>
             <li>When you're testing authentication, using an incognito tab can be helpful to test the different states.</li>
+          </ul>
+          <br>
+
+          <h3>Custom route middlewares</h3>
+          <ul>
+            <li>If you want your request to go through a specific function for multiple routes (like checking for authorization), you can create a custom middleware to do so.</li>
+            <li>In utils/routeMiddlewares.js:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  module.exports = {
+                    withAuth: (req, res, next) => {
+                      if(!req.session.loggedIn) {
+                        res.redirect("/login");
+                      } else {
+                        next();
+                      }
+                    }
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>In routes:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const { withAuth } = require("../utils/routeMiddlewares.js");
+                  And then add your middleware between the route and the request like so:
+                  router.get("/blogposts", withAuth, async (req, res) => {
+                    // route handler logic
+                  });
+                </code>
+              </pre>
+            </li>
           </ul>
         </section>
       </div>
