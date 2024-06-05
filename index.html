@@ -289,37 +289,67 @@
           </ul>
         </section>
 
-        <section class="card" id="eslint">
-          <h2>ESLint</h2>
+        <section class="card" id="eslint-and-prettier">
+          <h2>ESLint & Prettier</h2>
           <h3>Configuration</h3>
+          <ul class="star-ul">
+            <li class="star-li">Since I am working off an external drive on my Mac, all of my files get duplicated with a “._” version. This section contains a couple extra steps/configurations to make sure these files are ignored.</li>
+          </ul>
           <ul>
-            <li>ESLint is a tool used for improving JavaScript code quality. It can help you identify and fix a variety of issues, including: syntax errors and coding style issues.</li>
-            <li>To use it, install it as a devDependency.
+            <li>Eslint is for checking code syntax and problems.</li>
+            <li>Prettier makes sure your code is formatted in a particular style.</li>
+            <li>We can format Eslint to address Prettier formatting as well. To do this, you need prettier, eslint, and eslint-config-prettier all installed as devdependencies.
               <pre data-whitespace-normalization="true">
                 <code class="language-html">
                   npm install --save-dev eslint
+                  npm install --save-dev prettier
+                  npm install --save-dev eslint-config-prettier
                 </code>
               </pre>
             </li>
-            <li>Then, create an eslint.config.mjs file at the root of your directory. That file should look something like this:
+            <li>Then, create an eslint.config.mjs file at the root of your directory. Make sure to export your eslintConfigPrettier & your eslint configuration info.
               <pre data-whitespace-normalization="true">
                 <code class="language-js">
                   import js from "@eslint/js";
-
+                  import eslintConfigPrettier from "eslint-config-prettier";
+                  
                   export default [
                     js.configs.recommended,
-
+                  
                     {
                       rules: {
                       "no-unused-vars": "warn",
                       "no-undef": "off",
                       },
                     },
-                  ];
+                  
+                    eslintConfigPrettier,
+                  ];                  
                 </code>
               </pre>
             </li>
-            <li>To customize this further, learn more <a href="https://eslint.org/docs/latest/use/configure/configuration-files">here.</a></li>
+            <li>Make sure to create a .prettierignore file and include any files or directories that you want to have ignored.</li>
+            <li>Next, create some scripts that will check and/or fix your code. Below are some helpful scripts.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  "scripts": {
+                    "lint-check": "eslint --ignore-pattern '**/._*' --no-warn-ignored",
+                    "prettier-check": "prettier . --check",
+                    "check": "npm run prettier-check && npm run lint-check",
+                    "lint-fix": "eslint --fix --ignore-pattern '**/._*' --no-warn-ignored",
+                    "prettier-fix": "prettier . --write",
+                    "fix": "npm run prettier-fix && npm run lint-fix"
+                  },
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Helpful Links</h3>
+          <ul>
+            <li><a href="https://eslint.org/docs/latest/use/configure/configuration-files">eslint configuration info</a></li>
+            <li><a href="https://github.com/prettier/eslint-config-prettier#cli-helper-tool">eslint-config-prettier info</a></li>
           </ul>
         </section>
       </div>
