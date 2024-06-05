@@ -3,7 +3,7 @@
 This is my MSU Coding Bootcamp Survival Guide. This webpage contains important links, notes, and references to help me learn how to code. If you're reading this, hopefully it will help you, too!
 
 ## Deployed Application
-[Deployed Application Link](finntendoverse.github.io/msu-coding-bootcamp-survival-guide/)
+[Deployed Application Link](https://finntendoverse.github.io/msu-coding-bootcamp-survival-guide/)
 ![Deployed Application](./assets/img/DeployedApplication.png)
 
 ## Installation
