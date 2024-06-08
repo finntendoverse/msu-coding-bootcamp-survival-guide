@@ -1928,10 +1928,11 @@
                 <li><code class="language-html">get</code>: retrieves a resource from the server</li>
                 <li><code class="language-html">post</code>: submits data to the specified resource, often causing a change on the server</li>
                 <li><code class="language-html">delete</code>: deletes a specified resource</li>
-                <li><code class="language-html">put/patch</code>: updates a specified resource with a payload</li>
-                <ul>
-                  <li><code class="language-html">put</code> is for updating an entire record, whereas <code class="language-html">patch</code> is used to update one or more fields.</li>
-                </ul>
+                <li><code class="language-html">put/patch</code>: updates a specified resource with a payload
+                  <ul>
+                    <li><code class="language-html">put</code> is for updating an entire record, whereas <code class="language-html">patch</code> is used to update one or more fields.</li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li>You can not use <code class="language-js">app.get()</code> more than 1 time on any given path, however, you can use different methods on the same path.</li>
@@ -2609,7 +2610,7 @@
             <li><a href="https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/" target="_blank">sequelize validations and constraints</a></li>
             <li><a href="https://sequelize.org/docs/v6/core-concepts/model-basics/" target="_blank">sequelize options</a></li>
             <li>Hooks also live in the model options, and they are used to handle any additional functions upon creation, updating, or any other changes.</li>
-            <li>If you want the hooks to be applied to each object during bulk changes, make sure to use the <code class="language-js">individualHooks: true</code> option.</code></li>
+            <li>If you want the hooks to be applied to each object during bulk changes, make sure to use the <code class="language-js">individualHooks: true</code> option.</li>
             <li>Here is how to make queries using sequelize, which is similar to using <code class="language-sql">SELECT</code> in SQL:
               <pre data-whitespace-normalization="true">
                 <code class="language-js">
@@ -3186,6 +3187,427 @@
                 </code>
               </pre>
             </li>
+          </ul>
+        </section>
+
+        <section class="card" id="mongodb-section">
+          <h2>MongoDB</h2>
+          <h3>Notes</h3>
+          <ul>
+            <li>MongoDB is a NoSQL document-oriented database.</li>
+            <li>NoSQL is non-relational, meaning it doesn't have a rigid structure of columns and rows. It also does not require a pre-defined schema, meaning it works well for storing unstructured or frequently-changing data.</li>
+            <li>We use MongoDB Compass to visualize our databases.</li>
+            <li>We can use the MongoDB Shell (mongoose) as well, but there isn't really a need to, because Compass can do all the same things.</li>
+          </ul>
+          <br>
+
+          <h3>Connecting</h3>
+          <ul>
+            <li>Connecting to our MongoDB database is similar to connecting to our Sequelize one. You need to connect before you start the app listener.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const { MongoClient } = require("mongodb");
+                  const connectionStringURI = `mongodb://127.0.0.1:27017`; // make sure to put this in your .env file
+                  const client = new MongoClient(connectionStringURI);
+                  client.connect()
+                    .then(() => {
+                      db = client.db(dbName);
+
+                      app.listen(port, () => {
+                        console.log(`Example app listening at http://localhost:${port}`);
+                      });
+                    });
+                </code>
+              </pre>
+            </li>
+            <li>Remember to use <code class="language-js">app.use(express.json());</code> to parse incoming requests to JSON.</li>
+          </ul>
+          <br>
+
+          <h3>CRUD</h3>
+          <ul>
+            <li>Here is how to read using MongoDB:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.get("/read", (req, res) => {
+                    try {
+                      const results = await db.collection("/*collectionName*/")
+                        .find({ "/*columnName*/": { /*parameters*/ } })
+                        .toArray()
+                      return res.json(results);
+                    } catch (err) {
+                      return res.status(500).send("Error viewing data");
+                    }
+                  })
+                </code>
+              </pre>
+            </li>
+            <li>You need to use the <code class="language-js">.toArray()</code> method because MongoDB returns cursors as a default.</li>
+            <li>Here is how to create using MongoDB:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.post("/create", async (req, res) => {
+                    try {
+                      const result = await db.collection("/*collectionName*/").insertOne(
+                        { /*columnName*/: req.body./*columnName*/ }
+                      );
+                      return res.json(result);
+                    } catch (err) {
+                      return res.status(500).send("Error creating data");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to update using MongoDB:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.put("/update", async (req, res) => { 
+                    try { 
+                      const updateId = new ObjectId(req.body.id);
+                      const result = await db.collection('collectionName').updateOne( 
+                        { _id: updateId },  { $set: { /*columnName*/: req.body./*newColumnName*/ } }
+                      );
+                      return res.send(result.updatedCount ? "Document updated" : "No document found!");
+                    } catch (err) {
+                      return res.status(500).send("Error updating data");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to delete using MongoDB:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.delete("/delete", async (req, res) => {
+                    try {
+                      const deletedId = new ObjectId(req.body.id);
+                      const result = await db.collection('/*collectionName*/').deleteOne(
+                        { _id: deletedId }
+                      )
+                      return res.send(result.deletedCount ? 'Document deleted' : 'No document found!');
+                    } catch (err) {
+                      return res.status(500).send("Error deleting data");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is a <a href="https://www.mongodb.com/developer/products/mongodb/cheat-sheet/#crud" target="_blank">MongoDB Cheat Sheet</a> to learn helpful CRUD tips.</li>
+          </ul>
+          <br>
+
+          <h3>Embedded Documents</h3>
+          <ul>
+            <li>For embedded documents, use dot syntax to access embedded values.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  // example data
+                  const games = [
+                    {
+                      game_series: "Life is Strange",
+                      games: {
+                        original: "Life is Strange",
+                        prequel: "Before the Storm",
+                        sequel: "Life is Strange 2"
+                      },
+                    }
+                  ]
+                  
+                  // example query
+                  app.get("/original", (req, res) => {
+                    try {
+                      const results = await db.collection("games")
+                        .find({ "games.orignal": { "Life is Strange" } })
+                        .toArray()
+                      return res.json(results);
+                    } catch (err) {
+                      res.status(500).send("No results found");
+                    }
+                  })
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Cursor Methods</h3>
+          <ul>
+            <li>In between your <code class="language-js">.find()</code> and <code class="language-js">.toArray()</code> methods, you can use plenty of other cursor methods. These methods are taking place at the document level as opposed to manipulating an array in JavaScript.
+              <ul>
+                <li><code class="language-js">.sort()</code> sorts in ascending or descending order</li>
+                <li><code class="language-js">.skip()</code> skips documents</li>
+                <li><code class="language-js">.limit()</code> limits the amount of documents that are returned</li>
+                <li><a href="https://www.mongodb.com/docs/manual/reference/method/js-cursor/" target="_blank">Learn more methods here.</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section class="card" id="mongoose-section">
+          <h3>Notes</h3>
+          <ul>
+            <li>Mongoose is an Object Data Modeling (ODM) library built on top of MongoDB for Node.js.</li>
+            <li>The differences between MongoDB and Mongoose are that Mongoose simplifies interaction with MongoDB using a JavaScript object-oriented approach, provides a layer of abstraction over MongoDB, allows defining data models (schemas), and offers features like data validation, schema enforcement, and middleware. It allows us to use object-oriented programming.</li>
+          </ul>
+          <br>
+
+          <h3>Connecting</h3>
+          <ul>
+            <li>Here is how to set up your Mongoose connection:
+              <ul>
+                <li>In config/connection.js:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      const mongoose = require('mongoose');
+
+                      // Wrap Mongoose around local connection to MongoDB
+                      mongoose.connect('mongodb://127.0.0.1:27017/[DBName]');
+
+                      module.exports = mongoose.connection;
+                    </code>
+                  </pre>
+                </li>
+                <li>In server.js:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      const db = require('./config/connection');
+
+                      db.once('open', () => {
+                        app.listen(PORT, () => {
+                          console.log(`API server running on port ${PORT}!`);
+                        });
+                      });
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Models & Schemas</h3>
+          <ul>
+            <li>Mongoose uses models and schemas. The schema defines the fields for our model. Then, the model uses the schema.
+              <ul>
+                <li>In the models folder, here is how to create a schema:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      const mongoose = require('mongoose');
+
+                      const /*schemaName*/ = new mongoose.Schema({
+                        /*columnName*/: /*parameters*/,
+                      });
+                    </code>
+                  </pre>
+                </li>
+                <li>Make sure to define your types here (such as <code class="language-js">type: string</code>), as well as any additional parameters (such as <code class="language-js">required: true</code>).</li>
+                <li>Then, here is how to create an instance method:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      /*schemaName*/.methods./*methodName*/ = function () {
+                        // your function code goes here
+                      };
+                    </code>
+                  </pre>
+                </li>
+                <li>Then, here is how to create a model:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      const /*modelName*/ = mongoose.model("/*modelName*/", /*schemaName*/);
+                    </code>
+                  </pre>
+                </li>
+                <li>Finally, here is how to create a new instance of the model:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      /*modelName*/
+                        .create({
+                            /*columnName*/: /*parameters*/
+                        })
+                        .then(result => console.log('Created new document', result))
+                        .catch(err => handleError(err));
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li><a href="https://mongoosejs.com/docs/api/model.html" target="_blank">Mongoose model properties</a></li>
+          </ul>
+          <br>
+
+          <h3>Embedded & Referenced Documents</h3>
+          <ul>
+            <li>Models can contain embedded documents. These embedded documents will have schemas, but they will not have models of their own. Here's an example of this:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const gameSchema = new mongoose.Schema({
+                    name: { type: String, required: true },
+                    developer: String,
+                  });
+                  
+                  const collectionSchema = new mongoose.Schema({
+                    owner: { type: String, required: true },
+                    games: [gameSchema], // this will return all the games in an array
+                  });
+                  
+                  const Collection = new mongoose.model("Collection", collectionSchema);
+                  
+                  const finnsCollection = await Collection.create({
+                    owner: "Finn"
+                    games: [
+                      {
+                        name: "Life is Strange",
+                        developer: "Don't Nod",
+                      },
+                      {
+                        name: "Super Monkey Ball",
+                        developer: "Sega",
+                      },
+                    ]
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>If you need to reference documents with their own models and data, you cannot use the embedded document approach.
+              <ul>
+                <li>Instead, you'll need to define separate models and establish references within the parent document's schema like so:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      games: [{ type: Schema.Types.ObjectId, ref: "game" }],
+                    </code>
+                  </pre>
+                </li>
+                <li>Then in your get routes, make sure to <code class="language-js">.populate()</code> the data.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      await Collection.findOne({ _id: req.params.userId })
+                        .populate("games");
+                    </code>
+                  </pre>
+                </li>
+                <li>You will also have to ensure that you update the parent when a child is added or deleted.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      const newGame = await Game.create(req.body);
+                      const updatedUser = await User.findOne(
+                        { _id: req.params.userId },
+                        { $addToSet: { games: game._id }}, // adding
+                        { $pull: { games: game._id }}, // deleting
+                        { new: true }
+                      );
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Virtuals</h3>
+          <ul>
+            <li>Virtual fields are calculated properties that don't exist in the actual database but are derived from other stored data. If you would like to calculate a virtual field, here is how to do so:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  /*schemaName*/.virtual("/*virtualName*/").get(function () {
+                    return // whatever calculation you're trying to have done (like an average, visit count, or last accessed date)
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Mongoose will not include virtuals by default, so you have to manually add them in the schema like so:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  toJSON: {
+                    virtuals: true
+                  },
+                  id: false
+                </code>
+              </pre>
+            </li>
+            <li>Learn more about virtuals <a href="https://mongoosejs.com/docs/tutorials/virtuals.html" target="_blank">here</a>.</li>
+          </ul>
+          <br>
+
+          <h3>CRUD</h3>
+          <ul>
+            <li>Here is how to read using Mongoose:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.get("/*path*/", async (req, res) => {
+                    try {
+                      const result = await /*modelName*/.find({ /*search parameters if any*/});
+                    res.status(200).json(result);
+                    } catch (err) {
+                      res.status(500).send("Something went wrong");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li><code class="language-js">.find()</code> is used to find many, while <code class="language-js">.findOne()</code> is used to find one. If multiple documents match, it returns the first document found.</li>
+            <li>We do not get cursors back in Mongoose.</li>
+            <li>Here is how to create using Mongoose:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.post("/*path*/", (req, res) => {
+                    try {
+                      const /*newObject*/ = new /*modelName*/({ /*columnName*/: /*parameters*/ });
+                      /*newObject*/.save();
+                      res.status(201).json(newDepartment);
+                    } catch (err) {
+                      res.status(500).send("Something went wrong");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to update using Mongoose:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.put("/*path*/", async (req, res) => {
+                    try {
+                      const result = await /*modelName*/.findOneAndUpdate({ /*columnName*/: /*oldParameters*/ }, { /*columnName*/: /*newParameters*/ }, { new: true }); // new: true returns the new value (default is false)
+                      res.status(200).json(result);
+                    } catch (err) {
+                      res.status(500).send("Something went wrong");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to delete using Mongoose:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  app.delete("/*path*/", async (req, res) => {
+                    try {
+                      const result = await /*modelName*/.findOneAndDelete({ /*columnName*/: /*parameters*/ });
+                      res.status(200).json(result);
+                    } catch (err) {
+                      res.status(500).send("Something went wrong");
+                    }
+                  });
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Aggregates</h3>
+          <ul>
+            <li>If you want to aggregate (group, summarize, or transform) data, you can use the <code class="language-js">aggregate()</code> method in Mongoose.</li>
+            <li>The <code class="language-js">aggregate()</code> method creates a pipeline, which is a sequence of stages using an array of objects. Each stage performs a specific operation on the data, transforming it as it progresses through the pipeline.</li>
+            <li>Example:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const aggregate = Model.aggregate([
+                    { $project: { a: 1, b: 1 } },
+                    { $skip: 5 }
+                  ]);
+                </code>
+              </pre>
+            </li>
+            <li>View all the aggregate methods <a href="https://mongoosejs.com/docs/api/aggregate.html" target="_blank">here</a>.</li>
           </ul>
         </section>
       </div>
