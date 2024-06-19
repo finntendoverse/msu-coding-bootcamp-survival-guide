@@ -3345,6 +3345,7 @@
         </section>
 
         <section class="card" id="mongoose-section">
+          <h2>Mongoose</h2>
           <h3>Notes</h3>
           <ul>
             <li>Mongoose is an Object Data Modeling (ODM) library built on top of MongoDB for Node.js.</li>
@@ -3608,6 +3609,355 @@
               </pre>
             </li>
             <li>View all the aggregate methods <a href="https://mongoosejs.com/docs/api/aggregate.html" target="_blank">here</a>.</li>
+          </ul>
+        </section>
+
+        <section class="card" id="progressive-web-apps">
+          <h2>Progressive Web Apps</h2>
+          <h3>Notes</h3>
+          <ul>
+            <li>A Progressive Web App (PWA) is essentially a website that offers the user experience of a native app. They can be installed to user devices and they are optimized to work offline.</li>
+            <li><a href="https://whatpwacando.today" target="_blank"></a>What PWA Can Do Today</li>
+            <li>There are 3 things that make up a PWA:
+              <ul>
+                <li>Web Manifest: a web manifest on your website governs how your PWA looks and behaves when installed on a device.</li>
+                <li>Service worker: service worksrs are a special type of web worker with the ability to intercept, modify, and respond to all offline and online network requests using the Fetch API.</li>
+                <li>Secure HTTPS: PWAs will not run on http.</li>
+              </ul>
+            </li>
+            <li>PWAs cache very aggressively, and it can cause issues while you're developing. To resolve this, go to the application tab in Chrome DevTools click storage in the sidebar, and and clear site data.</li>
+            <li>You should always test in incognito mode. Use lighthouse in Chrome DevTools and generate a report to test for performance. You should test for mobile as well, because mobile will always be slower than desktop.</li>
+            <li>Lighthouse will let you know how performant your website is and break it down into different categories.</li>
+          </ul>
+          <br>
+
+          <h3>Web Manifest</h3>
+          <ul>
+            <li>The web manifest is what makes your PWA installable.</li>
+            <li>To create your manifest, use WebpackPwaManifest() and put all the options you need inside there.</li>
+            <li>You can learn how to do this <a href="https://www.npmjs.com/package/webpack-pwa-manifest" target="_blank">here</a></li>
+          </ul>
+          <br>
+
+          <h3>Service Workers</h3>
+          <ul>
+            <li>Service workers are able to intercept all network traffic and handle things such as seeing if the user is online & should make network requests or offline and if & should read from the cache.</li>
+            <li>Service workers have 3 phases of their lifecycle
+              <ol>
+                <li>Install</li>
+                <li>Activate</li>
+                <li>Claim</li>
+              </ol>
+            </li>
+            <li>You can build your own service worker using vanilla JavaScript, but there's no real need to do that because we can use ones that are already made.</li>
+            <li>Workbox-webpack-plugin is a plugin we can use that will give us a service worker. It must be installed on the client-side.</li>
+            <li>We can create a service worker 2 ways: <code class="language-js">injectManifest()</code> or <code class="language-js">generateSW()</code>.
+              <ul>
+                <li><code class="language-js">injectManifest()</code> allows for more configuration but is more complicated</li>
+                <li><code class="language-js">generateSW()</code> pretty much works out of the box but does not allow for a lot of customization</li>
+              </ul>
+            </li>
+            <li>You can learn how to implement both of these options <a href="https://developer.chrome.com/docs/workbox/modules/workbox-webpack-plugin/" target="_blank">here</a></li>
+            <li>Either way, make sure to add logic to register the service worker. The logic can be added as a new module and imported or added directly in the client index.js file.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker
+                      .register('./sw.js')
+                      .then((register) => console.log(register));
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>You can customize how images will cache by adding options into your <code class="language-js">generateSW()</code> options.
+              <ul>
+                <li>When you pre cache images, all of them will be cached upon the first page load. If you runtime cache them, they will cache as you come across them. </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Using ESM</h3>
+          <ul>
+            <li>ESM syntax:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  import { /*importName*/ } from "./path";
+                  export const /*function/class*/ /*exportName*/ { /*your function/class code goes here */ }
+                </code>
+              </pre>
+            </li>
+            <li>Don't use the default export unless you're only expiring one thing.</li>
+            <li>ESM is supported in the browser, but you have to do it a specific way. The best way is just to use Webpack!</li>
+            <li>If you ONLY want to use ESM and don't want to switch between ESM and CommonJS, set "type": "module" in your package.json file. However, make sure to do this before you start working on the project so it doesn't break anything you've already done.</li>
+          </ul>
+          <br>
+
+          <h3>Webpack</h3>
+          <ul>
+            <li>Webpack is a popular module bundler primarily used for JavaScript applications. It gets rid of import statements and compiles every import into one JavaScript file. It can also bundle CSS assets.</li>
+            <li>To use Webpack, you should create a build script, and install web pack and webpack-cli as devDependencies.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  "scripts": {
+                    "build": "webpack"
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>To use Webpack, you'll want to create a webpack.config.js file and create the paths you need within it.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const path = require('path');
+
+                  module.exports = {
+                    mode: 'development', // can also be set to production
+                    entry: './src/js/index.js', // main entry point
+                    output: {
+                      filename: 'main.js', // name of output file
+                      path: path.resolve(__dirname, 'dist'), // where we want it to go
+                    },
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>Then just make sure to change the script path in your index.html file to go to the new path (in the above example, it would be ./dist/main.js).</li>
+            <li>Then, there are tons of plugins and modules you can use to customize your Webpack builds.</li>
+            <li>Modules happen before the bundle is created, while plugins happen after the bundle has ben created. For example, you can use the modules to handle different file types and how they're loaded in, and you can use plugins like HtmlWebpackPlugin to handle updating paths in HTML after everything has been moved into a bundle.</li>
+            <li>HtmlWebpackPlugin bundles your HTML files into your dist folder.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  plugins: [
+                  new HtmlWebpackPlugin({
+                    template: './index.html',
+                    title: 'Webpack Plugin'
+                  })
+                ],
+                </code>
+              </pre>
+            </li>
+            <li>If you want to use Webpack to bundle CSS assets into your js file, you'll need to install 2 additional devDependencies: "css-loader" & "style-loader". Then, add a module after your output in the config file.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  module: {
+                    rules: [
+                      {
+                        test: /\.css$/i,
+                        use: ['style-loader', 'css-loader'],
+                      },
+                    ],
+                  },
+                </code>
+              </pre>
+            </li>
+            <li>Aaron actually recommends against doing this because it can slow down performance indicators like first contentful paint.</li>
+            <li>Instead, you can use mini-css-extract-plugin to bundle CSS files into your dist folder.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+                  module.exports = {
+                    plugins: [new MiniCssExtractPlugin()],
+                    module: {
+                      rules: [
+                        {
+                          test: /\.css$/i,
+                          use: [MiniCssExtractPlugin.loader, "css-loader"],
+                        },
+                      ],
+                    },
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>Here is how to bundle images into your dist folder:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  module: {
+                    rules: [
+                      {
+                        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                        type: 'asset/resource',
+                      }
+                    ]
+                  }
+                </code>
+              </pre>
+              <ul>
+                <li>Then, within your JS file, you'll need to set the image src to the correct file:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      import /*imageFile*/ from "/*./path*/";
+                      document.getElementById("/*imageId*/").src = /*imageFile*/;
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>Babel makes your JavaScript backwards compatible so it will work in older browsers.
+              <ul>
+                <li>We need 3 devDependencies to make it run:
+                  <ul>
+                    <li>@babel/core is the basic functionality.</li>
+                    <li>@babel/preset-env sets the configuration to defaults, but you can overwrite them with a babel.config.json file if you'd like.</li>
+                    <li>babel-loader is used in our Webpack config.</li>
+                  </ul>
+                </li>
+                <li>Then, you'll just add the rules in your Webpack config file.
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      rules: [
+                      {
+                        test: /\.(?:js|mjs|cjs)$/,
+                        exclude: /node_modules/,
+                        use: {
+                          loader: 'babel-loader',
+                          options: {
+                            presets: [
+                              ['@babel/preset-env', { targets: "defaults" }]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Webpack Dev Server</h3>
+          <ul>
+            <li>Hot Module reloading (HMR) lets you see your changes without having to stop and restart the server each time. With web pack, we'll use webpack-dev-server for HMR.</li>
+            <li>First, create a script to start your server.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  "dev": "webpack-dev-server --open"
+                </code>
+              </pre>
+            </li>
+            <li>Then, in the config file, we'll require it and set the devServer to hot.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+                  devServer: {
+                  hot: 'only',
+                  },
+                </code>
+              </pre>
+            </li>
+            <li>Lastly, make sure to add this to your index.js file:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  if (module.hot) {
+                    module.hot.accept((err) => {
+                      if (err) {
+                        console.error('Cannot apply HMR update.', err);
+                      }
+                    });
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>If you have your client and server running on different ports, your fetch requests will fail due to CORS policy. The way around this is to set a proxy in your webpack config.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  devServer: {
+                    proxy: [
+                      {
+                        context: ['/api'],
+                        target: 'http://localhost:3000',
+                      },
+                    ],
+                    },
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>IndexedDB</h3>
+          <ul>
+            <li>IndexedDB is the database we will use for our PWAs. The reason we're using it is because the data can be cached so it will still work offline. It is able to store more structured data than just the local storage can.</li>
+            <li>Firstly, you'll need to import the database.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  import { openDB } from 'idb';
+                </code>
+              </pre>
+            </li>
+            <li>Next, you need to initialize the database.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  const initdb = async () =>
+                    openDB('/*DBName*/', /*Version Number (start with 1) */, {
+                      upgrade(db) {
+                        if (db.objectStoreNames.contains('/*DBName*/')) {
+                          console.log('database already exists');
+                          return;
+                        }
+                        db.createObjectStore('/*DBName*/', { keyPath: 'id', autoIncrement: true });
+                        console.log('database created');
+                      },
+                    });
+                </code>
+              </pre>
+            </li>
+            <li>Here is hot to GET from the database:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  export const getDb = async () => {
+                    const DbName = await openDB('/*DBName*/', /*Version Number*/);
+                    const tx = DbName.transaction('/*DBName*/', 'readonly');
+                    const store = tx.objectStore('/*DBName*/');
+                  
+                    // Use the .getAll() method to get all data in the database, OR use the .get to just get one
+                    const request = store.getAll();
+                  
+                    const result = await request;
+                    return result;
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>Here is hot to POST to the database:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  export const postDb = async ( /*data being passed*/)  => {
+                    const DbName = await openDB('/*DBName*/', /*Version Number*/);
+                    const tx = DbName.transaction('/*DBName*/', 'readwrite');
+                    const store = tx.objectStore('/*DBName*/');
+                  
+                    // Use the .add() method on the store and pass in the content.
+                    const request = store.add({ /* data you want to add */ });
+
+                    const result = await request;
+                    console.log('Data saved to the database', result);
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>Here is hot to DELETE from the database:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  export const deleteDb = async (id) => {
+                    const DbName = await openDB('/*DBName*/', /*Version Number*/);
+                    const tx = DbName.transaction('/*DBName*/', 'readwrite');
+                    const store = tx.objectStore('/*DBName*/');
+                  
+                    // Use the .delete() method to get all data in the database.
+                    const request = store.delete(id);
+                  
+                    const result = await request;
+                    return result.value;
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>You can learn more about IndexedDB <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">here</a>.</li>
           </ul>
         </section>
       </div>
