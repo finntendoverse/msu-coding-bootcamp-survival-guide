@@ -352,6 +352,40 @@
             <li><a href="https://github.com/prettier/eslint-config-prettier#cli-helper-tool" target="_blank">eslint-config-prettier info</a></li>
           </ul>
         </section>
+
+        <section class="card" id="mern-stack-section">
+          <h2>Setting up a MERN stack application</h2>
+          <ol>
+            <li>Create project folder</li>
+            <li><code class="language-js">npm create vite@latest</code>
+              <ul>
+                <li>Name: client</li>
+              </ul>
+            </li>
+            <li>Make server folder</li>
+            <li>Create .gitignore</li>
+            <li><code class="language-js">npm init</code></li>
+            <li><code class="language-js">npm i --save-dev concurrently</code></li>
+            <li>Create build and dev scripts</li>
+            <li>npm init in client and server folders</li>
+            <li>In server:
+              <ol>
+                <li>Make sure to change "main" to server.js</li>
+                <li><code class="language-js">npm i --save-sev nodemon</code></li>
+                <li>Set up dev script: <code class="language-js">nodemon server.js</code></li>
+                <li>npm i: express, @apollo/server, mongoose, graphql</li>
+                <li>Set up mongoose models</li>
+              </ol>
+            </li>
+            <li>In client:
+              <ol>
+                <li>Set up proxy</li>
+                <li>Set up router</li>
+                <li>Build with React</li>
+              </ol>
+            </li>
+          </ol>
+        </section>
       </div>
 
       <div id="front-end-section">
@@ -1647,6 +1681,225 @@
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a></li>
             <li><a href="caniuse.com" target="_blank">Can I Use?</a></li>
             <li><a href="https://www.youtube.com/watch?v=h33Srr5J9nY" target="_blank">Arrow Functions Explained</a></li>
+          </ul>
+        </section>
+
+
+        <section class="card" id="react-section">
+          <h2>React</h2>
+          <h3>Notes</h3>
+          <ul>
+            <li>React is one of the most powerful, in demand front end JavaScript libraries available today. It helps you create complex and responsive single-page applications.</li>
+            <li>React is important because it creates a virtual DOM (VDOM), which is much faster to manipulate than the DOM.</li>
+            <li>Props is short for properties and refers to a normal JavaScript object that contains key value pairs. They are a specialized type of parameter passed into a React component that helps define attributes in the user interface, similar to DOM attributes. Props allow data to be passed from a parent element to a child element.</li>
+            <li>When using React, we should create .jsx files instead of .js files.</li>
+            <li>JSX is JavaScript XML, which basically lets us write HTML in JavaScript.</li>
+            <li>In JSX, you have to use className instead of class since class is a reserved word in JavaScript.</li>
+            <li>You can import bootstrap and other CSS frameworks directly into your main.jsx file.</li>
+            <li>For conditional rendering (like if someone should only be able to see something if they're logged in) a good way to do it is to set your JSX as a variable, and then return that variable or a different one with a ternary operator. That is the easiest way to be able to read it.</li>
+          </ul>
+          <br>
+
+          <h3>Vite</h3>
+          <ul>
+            <li>We will use Vite as a build tool for our React applications. Vite is similar to Webpack, but is much faster.</li>
+            <li>Vite has hot module reloading and ES module support.</li>
+            <li>To initialize a Vite server, type npm create vite@latest in the terminal.</li>
+            <li>Set your package.json type to module so it knows that we're using ESM imports.</li>
+            <li>Vite has some scripts that we will want to use, such as:
+              <pre data-whitespace-normalization="true">
+                <code class="language-html">
+                  "dev": "vite",
+                  "build", "vite build",
+                </code>
+              </pre>
+              And make sure to set vite as a devDependency.
+            </li>
+          </ul>
+          <br>
+
+          <h3>React fundamentals</h3>
+          <ul>
+            <li>To use the DOM, we need to <code class="language-js">import ReactDOM from 'react-dom/client'</code>.</li>
+            <li>Then, to render something within the Dom, we need to use:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  ReactDOM.createRoot(document.getElementById('root')).render(&LT;/* whatever you want to render */&GT;);
+                </code>
+              </pre>
+            </li>
+            <li>We use curly braces to return a JavaScript component in our HTML.</li>
+            <li>A react component is just a function that returns some JSX. You can only return one top level element, not sibling elements.</li>
+            <li>If you have a multi-line return, you need to wrap it in parenthesis.</li>
+            <li>Use fragments not clutter up your DOM by using <code class="language-html">&LT;&GT; &LT;/&GT;</code> instead of creating <code class="language-html">&LT;div&GT; &LT;/div&GT;</code> elements.</li>
+            <li>We can run functions within our react components, but the best way to keep code clean is to keep it in a utils folder and import it into our .jsx file.</li>
+            <li>You can pass props into your React components like so:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  function app = {
+                    return &LT;importedFunction name="finn" age=25 /&GT;
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>Then, within the importedFunction I could use {name} and {age} by passing them into the function like so:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  function({name, age}) {
+                    return &LT;p&GT;hi, my name is {name} and I'm {age} years old.&LT;/p&GT;
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>It is helpful to put all your components into a components folder.</li>
+            <li>You can put your CSS directly into your jsx file, but you will need to modify it to be in JavaScript.
+              <ul>
+                <li>Use camelCase instead of using dashes or spaces</li>
+                <li>Use commas instead of semicolons.</li>
+              </ul>
+            </li>
+            <li>Then you will set your element style to your style property:
+              <ul>
+                <li>style={styles.h1}</li>
+              </ul>
+            </li>
+            <li>However, you do not need to write css in your JSX because Vite will import it natively. Just import your css file and then assign classnames.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  import "./header.css";
+                  Function header() = {
+                    return &LT;h1 className="header"&GT;Here is my header&LT;/h1&GT;
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>Use the spread operator to pass an object into your props instead of writing out each prop individually.
+              <ul>
+                <li>Aaron's example:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      &LT;Cat name={feline.name} description={feline.description} id={feline.id} /&GT; // long way
+	                    &LT;Cat {...Garfield} /&GT; // short way
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>We cannot use for loops in jsx. Instead, we will need to use the map method and other array methods.</li>
+            <li>You should also add the unique id to each item as a "key" property so React will know what needs to be updated when you're changing the DOM.
+              <ul>
+                <li>Example:
+                  <pre data-whitespace-normalization="true">
+                    <code class="language-js">
+                      {users.map((user) => (
+                        &LT;li key={user.id}&GT;
+                          {`${user.name}`}
+                        &LT;/li&GT;
+                      ))}
+                    </code>
+                  </pre>
+                </li>
+              </ul>
+            </li>
+            <li>When doing event handling in react, you have to wrap your functions in an arrow function so they don't execute immediately when the code is run.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  &LT;button onClick={() => { console.log("logging when clicked") }&GT;
+                </code>
+              </pre>
+            </li>
+          </ul>
+          <br>
+
+          <h3>Hooks</h3>
+          <ul>
+            <a href="https://react.dev/warnings/invalid-hook-call-warning" target="_blank">Rules of hooks</a>
+            <li>Remember to import your hooks from react before implementing them.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  import { useState } from 'react';
+                </code>
+              </pre>
+            </li>
+            <li>When properties are changing, you don't need to <code class="language-js">useState()</code> to update the DOM. However, if we want to track a variable and have it update the page, we need to create a setter function and put them both in a <code class="language-js">useState()</code> hook.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  let [/*variable*/, /*setterFunction*/] = useState(/*state*/);
+                  /*setterFunction*/(/*changedVariable*/);
+                </code>
+              </pre>
+            </li>
+            <li>The example we were given was with for counting.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  let [count, setCount] = useState(0);
+
+                  const handleClick = () => {
+                    setCount((count + 1));
+                  };
+                </code>
+              </pre>
+            </li>
+            <li>However, when you have more complex data types, it becomes harder to update the specific value you want to update. This is an example of how it should be done:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  Let [bankAccount, setBankAccount] = useState({
+                    checking: 1000,
+                    checkingTransactions: [
+                      ...
+                    ]
+                    savings: 5,000
+                    savingsTransactions: [
+                      ...
+                    ]
+                  });
+                  
+                  const makeDeposit() = {
+                    setBankAccount({ ...bankAccount, checking: bankAccount.checking + 250 })
+                  }
+                </code>
+              </pre>
+            </li>
+            <li>Forms will work the same way, because you need a setter function to set the state while they're being filled out.
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  // use state
+                  const [name, setName] = useState('');
+
+                  // handle form typing
+                  const handleInputChange = (event) => {
+                    const { value } = event.target.value;
+                    setName(value);
+                    };
+
+                  // form example
+                  &LT;input
+                    value={name}
+                    name="name"
+                    onChange={handleInputChange}
+                    type="text"
+                    placeholder="First Name"
+                  /&GT;
+                </code>
+              </pre>
+            </li>
+            <li>When you need to change things other than the DOM, that's where <code class="language-js">useEffect()</code> comes into play.</li>
+            <li>The important thing to remember with useEffect() is to set your dependencyList. The dependencyList is what will cause the useEffect() to be called.
+              <ul>
+                <li>If you have an empty array ([]), then the effect will only be called upon initialization.</li>
+                <li>If you don't have an array, then it will happen after every render, regardless of changes.</li>
+                <li>If you put anything in the array, it will happen whenever any of the values in the array change.</li>
+              </ul>
+            </li>
+            <li>Here's an example of a useEffect() in action:
+              <pre data-whitespace-normalization="true">
+                <code class="language-js">
+                  useEffect(() => {
+                    localStorage.setItem('myCount', count);
+                  }, [count]);
+                </code>
+              </pre>
+            </li>
           </ul>
         </section>
       </div>
