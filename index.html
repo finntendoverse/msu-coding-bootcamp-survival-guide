@@ -1721,7 +1721,7 @@
           <h3>React fundamentals</h3>
           <ul>
             <li>To use the DOM, we need to <code class="language-js">import ReactDOM from 'react-dom/client'</code>.</li>
-            <li>Then, to render something within the Dom, we need to use:
+            <li>Then, to render something within the DOM, we need to use:
               <pre data-whitespace-normalization="true">
                 <code class="language-js">
                   ReactDOM.createRoot(document.getElementById('root')).render(&LT;/* whatever you want to render */&GT;);
@@ -1760,7 +1760,7 @@
             </li>
             <li>Then you will set your element style to your style property:
               <ul>
-                <li>style={styles.h1}</li>
+                <li><code class="language-js">style={styles.h1}</code></li>
               </ul>
             </li>
             <li>However, you do not need to write css in your JSX because Vite will import it natively. Just import your css file and then assign classnames.
@@ -1813,7 +1813,7 @@
 
           <h3>Hooks</h3>
           <ul>
-            <a href="https://react.dev/warnings/invalid-hook-call-warning" target="_blank">Rules of hooks</a>
+            <li><a href="https://react.dev/warnings/invalid-hook-call-warning" target="_blank">Rules of hooks</a></li>
             <li>Remember to import your hooks from react before implementing them.
               <pre data-whitespace-normalization="true">
                 <code class="language-js">
